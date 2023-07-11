@@ -145,17 +145,8 @@
       </categories>
   </entry>
   <entry>
-    <title>防痴呆博客</title>
-    <url>/posts/3/</url>
-    <content><![CDATA[<ul>
-<li><a href="https://co2.cnki.net/Login.html?dp=huas&amp;r=1687666320091" title="大学生毕业设计（论文）管理系统">大学生毕业设计（论文）管理系统</a> 📚</li>
-<li><a href="https://www.yankong.org/" title="The Realm of Research">研控</a> 👀</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>简单操作实现 StarUML 激活 | 仅供学习</title>
-    <url>/posts/3/</url>
+    <title>简单操作实现 StarUML 激活</title>
+    <url>/posts/2/</url>
     <content><![CDATA[<h3 id="1-下载安装-staruml"><a class="markdownIt-Anchor" href="#1-下载安装-staruml"></a> 1. 下载安装 StarUML</h3>
 <blockquote>
 <p>下载地址：<a href="https://staruml.io/download" title="StarUML">https://staruml.io/download</a></p>
@@ -180,6 +171,15 @@ C:\Program Files\StarUML\resources\asar\src\engine</li>
 </ul>
 <h3 id="5-重新压缩替换原来的-appasarfont-color-red以管理员身份运行font"><a class="markdownIt-Anchor" href="#5-重新压缩替换原来的-appasarfont-color-red以管理员身份运行font"></a> 5. 重新压缩，替换原来的 app.asar<font color = red>（💥以管理员身份运行）</font></h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar pack asar app.asar</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>防痴呆博客</title>
+    <url>/posts/3/</url>
+    <content><![CDATA[<ul>
+<li><a href="https://co2.cnki.net/Login.html?dp=huas&amp;r=1687666320091" title="大学生毕业设计（论文）管理系统">大学生毕业设计（论文）管理系统</a> 📚</li>
+<li><a href="https://www.yankong.org/" title="The Realm of Research">研控</a> 👀</li>
+</ul>
 ]]></content>
   </entry>
 </search>
