@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/posts/1/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
-<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h3 id="tabs-示例"><a class="markdownIt-Anchor" href="#tabs-示例"></a> Tabs 示例</h3>
-<div class="tabs" id="test4"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test4-1">第一个Tab</button></li><li class="tab"><button type="button" data-href="#test4-2"><i class="fab fa-apple-pay" style="text-align: center;"></i></button></li><li class="tab"><button type="button" data-href="#test4-3"><i class="fas fa-bomb"></i>炸弹</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test4-1"><p><strong>tab 名字为第一个 Tab</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-2"><p><strong>只有图标 没有 Tab 名字</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test4-3"><p><strong>名字+icon</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-<h3 id="图片示例"><a class="markdownIt-Anchor" href="#图片示例"></a> 图片示例</h3>
-<p><img src="https://www.nickxu.top/static/favicon.jpg" alt="index" title="HELLO" /></p>
-]]></content>
-  </entry>
-  <entry>
     <title>基础概念</title>
-    <url>/posts/2/</url>
-    <content><![CDATA[<h3 id="1-什么是机器学习"><a class="markdownIt-Anchor" href="#1-什么是机器学习"></a> 1. 什么是机器学习</h3>
+    <url>/posts/c72b4611/</url>
+    <content><![CDATA[<h3 id="1-什么是机器学习"><a class="markdownIt-Anchor" href="#1-什么是机器学习"></a> 1、什么是机器学习</h3>
 <p>机器学习是让计算机通过数据学习，从中发现模式和规律，并利用这些学习来做出预测或进行决策的过程。它使用统计学和算法技术来构建模型，通过对大量数据的训练和优化来提高模型的准确性和性能。</p>
 <p>机器学习可以分为以下几个关键要素：</p>
 <ul>
@@ -54,7 +31,7 @@
 <p>模型通过输入新的数据来做出预测，根据学习到的模式和规律来进行决策或分类。</p>
 </li>
 </ul>
-<h3 id="2-机器学习用来干什么"><a class="markdownIt-Anchor" href="#2-机器学习用来干什么"></a> 2. 机器学习用来干什么</h3>
+<h3 id="2-机器学习用来干什么"><a class="markdownIt-Anchor" href="#2-机器学习用来干什么"></a> 2、机器学习用来干什么</h3>
 <p>机器学习在许多领域有广泛的应用，包括：</p>
 <ul>
 <li>
@@ -83,7 +60,7 @@
 </li>
 </ul>
 <p>除上述应用外，机器学习还广泛应用于金融、交通、能源、制造业等领域，用于数据分析、优化流程、改进决策等。</p>
-<h3 id="3-什么是数据集"><a class="markdownIt-Anchor" href="#3-什么是数据集"></a> 3. 什么是数据集</h3>
+<h3 id="3-什么是数据集"><a class="markdownIt-Anchor" href="#3-什么是数据集"></a> 3、什么是数据集</h3>
 <p>数据集是指在机器学习和数据科学中用于训练、评估和验证模型的数据的集合。数据集由一组相关的数据样本组成，每个数据样本都包含一组特征和对应的标签或目标值。</p>
 <p>数据集可以分为以下几种类型：</p>
 <ol>
@@ -100,7 +77,7 @@
 <p>测试集是用于评估训练好的模型在未见过的数据上的性能和泛化能力的数据集。测试集是独立于训练集和验证集的数据，用于模拟模型在实际应用场景中的表现。</p>
 </li>
 </ol>
-<h3 id="4-机器学习算法分类"><a class="markdownIt-Anchor" href="#4-机器学习算法分类"></a> 4. 机器学习算法分类</h3>
+<h3 id="4-机器学习算法分类"><a class="markdownIt-Anchor" href="#4-机器学习算法分类"></a> 4、机器学习算法分类</h3>
 <ul>
 <li>
 <p><strong>监督学习（Supervised Learning）</strong></p>
@@ -126,7 +103,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="5-经典的机器学习算法"><a class="markdownIt-Anchor" href="#5-经典的机器学习算法"></a> 5. 经典的机器学习算法</h3>
+<h3 id="5-经典的机器学习算法"><a class="markdownIt-Anchor" href="#5-经典的机器学习算法"></a> 5、经典的机器学习算法</h3>
 <ul>
 <li>线性回归（Linear Regression）</li>
 <li>逻辑回归（Logistic Regression）</li>
@@ -141,12 +118,13 @@
 </ul>
 ]]></content>
       <categories>
+        <category>NLP</category>
         <category>机器学习</category>
       </categories>
   </entry>
   <entry>
-    <title>简单操作实现 StarUML 激活</title>
-    <url>/posts/2/</url>
+    <title>简单操作实现 StarUML 激活 | 仅供学习使用</title>
+    <url>/posts/a8921472/</url>
     <content><![CDATA[<h3 id="1-下载安装-staruml"><a class="markdownIt-Anchor" href="#1-下载安装-staruml"></a> 1. 下载安装 StarUML</h3>
 <blockquote>
 <p>下载地址：<a href="https://staruml.io/download" title="StarUML">https://staruml.io/download</a></p>
@@ -155,31 +133,34 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g asar</span><br></pre></td></tr></table></figure>
 <h3 id="3-解压-appasar-文件"><a class="markdownIt-Anchor" href="#3-解压-appasar-文件"></a> 3. 解压 app.asar 文件</h3>
 <ul>
-<li><strong>定位 app.asar 文件路径</strong><br />
-C:\Program Files\StarUML\resources</li>
-<li><strong>解压 app.asar 文件<font color = red>（💥以管理员身份运行）</font></strong><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar extract app.asar ./asar/</span><br></pre></td></tr></table></figure>
+<li>
+<p><strong>定位 app.asar 文件路径</strong><br />
+C:\Program Files\StarUML\resources</p>
+</li>
+<li>
+<p><strong>解压 app.asar 文件<font color = red>（💥以管理员身份运行）</font></strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar extract app.asar ./asar/</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="4-修改-license-managerjs-文件"><a class="markdownIt-Anchor" href="#4-修改-license-managerjs-文件"></a> 4. 修改 license-manager.js 文件</h3>
 <ul>
-<li><strong>定位 license-manager.js 文件位置</strong><br />
-C:\Program Files\StarUML\resources\asar\src\engine</li>
-<li><strong>找到文件中以下代码段并修改</strong><br />
-源代码如下：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">false</span>)</span><br><span class="line">      <span class="title class_">UnregisteredDialog</span>.<span class="title function_">showDialog</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-修改后代码：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// setStatus(this, false)</span></span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">      <span class="comment">// UnregisteredDialog.showDialog()</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>
+<p><strong>定位 license-manager.js 文件位置</strong><br />
+C:\Program Files\StarUML\resources\asar\src\engine</p>
+</li>
+<li>
+<p><strong>找到文件中以下代码段并修改</strong><br />
+源代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">false</span>)</span><br><span class="line">      <span class="title class_">UnregisteredDialog</span>.<span class="title function_">showDialog</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改后代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// setStatus(this, false)</span></span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">      <span class="comment">// UnregisteredDialog.showDialog()</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="5-重新压缩替换原来的-appasarfont-color-red以管理员身份运行font"><a class="markdownIt-Anchor" href="#5-重新压缩替换原来的-appasarfont-color-red以管理员身份运行font"></a> 5. 重新压缩，替换原来的 app.asar<font color = red>（💥以管理员身份运行）</font></h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar pack asar app.asar</span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>防痴呆博客</title>
-    <url>/posts/3/</url>
-    <content><![CDATA[<ul>
-<li><a href="https://co2.cnki.net/Login.html?dp=huas&amp;r=1687666320091" title="大学生毕业设计（论文）管理系统">大学生毕业设计（论文）管理系统</a> 📚</li>
-<li><a href="https://www.yankong.org/" title="The Realm of Research">研控</a> 👀</li>
-</ul>
-]]></content>
+      <categories>
+        <category>软件配置</category>
+      </categories>
   </entry>
 </search>
