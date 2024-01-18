@@ -1,0 +1,528 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>基础概念 | 红油曲奇的个人博客</title><meta name="author" content="红油曲奇"><meta name="copyright" content="红油曲奇"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="1、什么是机器学习 机器学习是让计算机通过数据学习，从中发现模式和规律，并利用这些学习来做出预测或进行决策的过程。它使用统计学和算法技术来构建模型，通过对大量数据的训练和优化来提高模型的准确性和性能。 机器学习可以分为以下几个关键要素：   数据 数据是机器学习的基础，算法通过分析和处理大量的数据来学习模式和规律。 数据可以是结构化数据（如表格数据）或非结构化数据（如文本、图像、音频等）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础概念">
+<meta property="og:url" content="https://afelixliu.site/posts/c72b4611/index.html">
+<meta property="og:site_name" content="红油曲奇的个人博客">
+<meta property="og:description" content="1、什么是机器学习 机器学习是让计算机通过数据学习，从中发现模式和规律，并利用这些学习来做出预测或进行决策的过程。它使用统计学和算法技术来构建模型，通过对大量数据的训练和优化来提高模型的准确性和性能。 机器学习可以分为以下几个关键要素：   数据 数据是机器学习的基础，算法通过分析和处理大量的数据来学习模式和规律。 数据可以是结构化数据（如表格数据）或非结构化数据（如文本、图像、音频等）。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2023-07-11T17:34:52.000Z">
+<meta property="article:modified_time" content="2023-07-11T17:34:52.000Z">
+<meta property="article:author" content="红油曲奇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://afelixliu.site/posts/c72b4611/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.9.0"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@5.0.19/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":180},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":60,"languages":{"author":"作者: 红油曲奇","link":"链接: ","source":"来源: 红油曲奇的个人博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"rgba(79, 195, 247, 0.6)","bgDark":"rgba(178, 178, 178, 0.5)","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://unpkg.com/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://unpkg.com/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '基础概念',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-12 01:34:52'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"><link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"><link rel="stylesheet" href="/css/wave.css"><link rel="stylesheet" href="/css/windmill.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/pace-minimal.css"/><script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="红油曲奇的个人博客"><span class="site-name">红油曲奇的个人博客</span></a></span><div id="he-plugin-simple"> </div><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">基础概念</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-11T17:34:52.000Z" title="发表于 2023-07-12 01:34:52">2023-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-11T17:34:52.000Z" title="更新于 2023-07-12 01:34:52">2023-07-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/NLP/">NLP</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/NLP/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="基础概念"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/c72b4611/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="1-什么是机器学习"><a class="markdownIt-Anchor" href="#1-什么是机器学习"></a> 1、什么是机器学习</h3>
+<p>机器学习是让计算机通过数据学习，从中发现模式和规律，并利用这些学习来做出预测或进行决策的过程。它使用统计学和算法技术来构建模型，通过对大量数据的训练和优化来提高模型的准确性和性能。</p>
+<p>机器学习可以分为以下几个关键要素：</p>
+<ul>
+<li>
+<p><strong>数据</strong></p>
+<p>数据是机器学习的基础，算法通过分析和处理大量的数据来学习模式和规律。</p>
+<p>数据可以是<mark>结构化数据</mark>（如表格数据）或<mark>非结构化数据</mark>（如文本、图像、音频等）。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>特征提取</strong></p>
+<p>特征是对数据进行描述和表示的属性或指标，用于训练模型和进行预测。</p>
+</li>
+<li>
+<p><strong>模型构建</strong></p>
+<p>机器学习算法利用数据和特征来构建数学模型.</p>
+</li>
+<li>
+<p><strong>训练和优化</strong></p>
+<p>通过使用训练数据，机器学习模型通过调整模型参数和优化算法来学习数据中的模式和规律。</p>
+</li>
+<li>
+<p><strong>预测和推断</strong></p>
+<p>模型通过输入新的数据来做出预测，根据学习到的模式和规律来进行决策或分类。</p>
+</li>
+</ul>
+<h3 id="2-机器学习用来干什么"><a class="markdownIt-Anchor" href="#2-机器学习用来干什么"></a> 2、机器学习用来干什么</h3>
+<p>机器学习在许多领域有广泛的应用，包括：</p>
+<ul>
+<li>
+<p><strong>图像和语音识别</strong></p>
+<p>识别和分类图像中的对象、识别人脸、进行文字识别，还可以转录语音为文本，实现语音助手和语音指令的理解。</p>
+</li>
+<li>
+<p><strong>自然语言处理</strong></p>
+<p>用于文本分类、情感分析、机器翻译、问题回答等任务，帮助计算机理解和处理人类语言。</p>
+</li>
+<li>
+<p><strong>推荐系统</strong></p>
+<p>根据用户的历史行为和兴趣，为用户推荐个性化的产品、内容或服务。</p>
+</li>
+<li>
+<p><strong>预测和分类</strong></p>
+<p>根据历史数据和特征来预测未来事件的可能结果，并对数据进行分类。例如预测股票市场走势、天气预报、销售趋势、客户行为等。</p>
+</li>
+<li>
+<p><strong>欺诈检测和安全</strong></p>
+<p>用于检测和预防欺诈行为。例如信用卡欺诈检测、网络入侵检测和垃圾邮件过滤。</p>
+</li>
+<li>
+<p><strong>医学诊断</strong></p>
+<p>辅助医生进行诊断和预测疾病风险。</p>
+</li>
+</ul>
+<p>除上述应用外，机器学习还广泛应用于金融、交通、能源、制造业等领域，用于数据分析、优化流程、改进决策等。</p>
+<h3 id="3-什么是数据集"><a class="markdownIt-Anchor" href="#3-什么是数据集"></a> 3、什么是数据集</h3>
+<p>数据集是指在机器学习和数据科学中用于训练、评估和验证模型的数据的集合。数据集由一组相关的数据样本组成，每个数据样本都包含一组特征和对应的标签或目标值。</p>
+<p>数据集可以分为以下几种类型：</p>
+<ol>
+<li>
+<p><strong>训练集（Training Set）</strong></p>
+<p>训练集是用于训练机器学习模型的数据集。通过对训练集进行模型训练，机器学习模型可以学习到数据的模式和规律。</p>
+</li>
+<li>
+<p><strong>验证集（Validation Set）</strong></p>
+<p>验证集是用于调整和优化模型超参数、选择最佳模型或进行模型选择的数据集。在训练过程中，通过使用验证集来评估模型的性能和泛化能力，并根据验证集上的表现进行调整。</p>
+</li>
+<li>
+<p><strong>测试集（Test Set）</strong></p>
+<p>测试集是用于评估训练好的模型在未见过的数据上的性能和泛化能力的数据集。测试集是独立于训练集和验证集的数据，用于模拟模型在实际应用场景中的表现。</p>
+</li>
+</ol>
+<h3 id="4-机器学习算法分类"><a class="markdownIt-Anchor" href="#4-机器学习算法分类"></a> 4、机器学习算法分类</h3>
+<ul>
+<li>
+<p><strong>监督学习（Supervised Learning）</strong></p>
+<ul>
+<li>
+<p>回归（Regression）</p>
+<p>监督学习算法使用带有标签的训练数据来学习输入特征与<mark>连续型</mark>目标变量之间的关系。</p>
+<p>回归模型的目标是根据输入特征<font color = blue>预测出一个连续值</font>。</p>
+</li>
+<li>
+<p>分类（Classification）</p>
+<p>监督学习算法使用带有标签的训练数据来学习输入特征与<mark>离散型</mark>目标变量之间的关系。</p>
+<p>分类模型的目标是根据输入特征<font color = blue>将数据分为不同的类别或标签</font>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>无监督学习（Unsupervised Learning）</strong></p>
+<ul>
+<li>聚类（Clustering）</li>
+<li>异常检测（Anomaly detection）</li>
+<li>降维（Dimensionality reduction）</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-经典的机器学习算法"><a class="markdownIt-Anchor" href="#5-经典的机器学习算法"></a> 5、经典的机器学习算法</h3>
+<ul>
+<li>线性回归（Linear Regression）</li>
+<li>逻辑回归（Logistic Regression）</li>
+<li>决策树（Decision Tree）</li>
+<li>随机森林（Random Forest）</li>
+<li>支持向量机（Support Vector Machine，SVM）</li>
+<li>神经网络（Neural Networks）</li>
+<li>朴素贝叶斯（Naive Bayes）</li>
+<li>K近邻算法（K-Nearest Neighbors，KNN）</li>
+<li>K均值聚类（K-Means Clustering）</li>
+<li>主成分分析（Principal Component Analysis，PCA）</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://afelixliu.site">红油曲奇</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://afelixliu.site/posts/c72b4611/">https://afelixliu.site/posts/c72b4611/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://afelixliu.site" target="_blank">红油曲奇的个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_twitter"></a><a class="a2a_button_pocket"></a><a class="a2a_button_evernote"></a><a class="a2a_button_wechat"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/a8921472/" title="简单操作实现 StarUML 激活 | 仅供学习使用"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">简单操作实现 StarUML 激活 | 仅供学习使用</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Twikoo</span><span class="switch-btn"></span><span class="second-comment">Giscus</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">红油曲奇</div><div class="author-info__description">“技术探索与分享”</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/AFelixLiu"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">HELLO, WELCOME TO MY BLOG!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-text"> 1、什么是机器学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%94%A8%E6%9D%A5%E5%B9%B2%E4%BB%80%E4%B9%88"><span class="toc-text"> 2、机器学习用来干什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text"> 3、什么是数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB"><span class="toc-text"> 4、机器学习算法分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%BB%8F%E5%85%B8%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="toc-text"> 5、经典的机器学习算法</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/c72b4611/" title="基础概念"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="基础概念"/></a><div class="content"><a class="title" href="/posts/c72b4611/" title="基础概念">基础概念</a><time datetime="2023-07-11T17:34:52.000Z" title="更新于 2023-07-12 01:34:52">2023-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a8921472/" title="简单操作实现 StarUML 激活 | 仅供学习使用"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="简单操作实现 StarUML 激活 | 仅供学习使用"/></a><div class="content"><a class="title" href="/posts/a8921472/" title="简单操作实现 StarUML 激活 | 仅供学习使用">简单操作实现 StarUML 激活 | 仅供学习使用</a><time datetime="2023-07-11T17:31:01.000Z" title="更新于 2023-07-12 01:31:01">2023-07-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 红油曲奇</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.9.0"></script><script src="/js/main.js?v=4.9.0"></script><script src="/js/tw_cn.js?v=4.9.0"></script><script src="https://unpkg.com/@fancyapps/ui@5.0.19/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://unpkg.com/vanilla-lazyload@17.8.3/dist/lazyload.iife.min.js"></script><script src="https://unpkg.com/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://unpkg.com/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://unpkg.com/mermaid@10.2.2/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  function abcjsInit() {
+    function abcjsFn() {
+      for (let abcContainer of document.getElementsByClassName("abc-music-sheet")) {
+        ABCJS.renderAbc(abcContainer, abcContainer.innerHTML, {responsive: 'resize'})
+      }
+    }
+    
+    typeof ABCJS === 'object' ? abcjsFn()
+      : getScript('https://unpkg.com/abcjs@6.2.2/dist/abcjs-basic-min.js').then(abcjsFn)
+  }
+
+  window.pjax ? abcjsInit() : document.addEventListener('DOMContentLoaded', abcjsInit)
+})()</script><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.vercel.afelixliu.site/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.vercel.afelixliu.site/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.textContent = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://unpkg.com/twikoo@1.6.16/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script><script>function getGiscusTheme (theme) {
+  return theme === 'dark' ? 'dark' : 'light'
+}
+
+function loadGiscus () {
+  const config = Object.assign({
+    src: 'https://giscus.app/client.js',
+    'data-repo': 'AFelixLiu/Blog_Giscus',
+    'data-repo-id': 'R_kgDOJuFraQ',
+    'data-category-id': 'DIC_kwDOJuFrac4CXIdC',
+    'data-mapping': 'pathname',
+    'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+    'data-reactions-enabled': '1',
+    crossorigin: 'anonymous',
+    async: true
+  },{"data-category":"Announcements","data-mapping":"pathname","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":1,"data-input-position":"top","data-lang":"zh-CN"})
+
+  let ele = document.createElement('script')
+  for (let key in config) {
+    ele.setAttribute(key, config[key])
+  }
+  document.getElementById('giscus-wrap').insertAdjacentElement('afterbegin',ele)
+}
+
+function changeGiscusTheme (theme) {
+  function sendMessage(message) {
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (!iframe) return
+    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app')
+  }
+
+  sendMessage({
+    setConfig: {
+      theme: getGiscusTheme(theme)
+    }
+  });
+}
+
+btf.addModeChange('giscus', changeGiscusTheme)
+
+if ('Twikoo' === 'Giscus' || !false) {
+  if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+  else loadGiscus()
+} else {
+  function loadOtherComment () {
+    loadGiscus()
+  }
+}</script></div><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script src="/js/weather.js"></script><script id="canvas_nest" defer="defer" color="0,23,127" opacity="1" zIndex="-1" count="100" mobile="true" src="https://unpkg.com/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://unpkg.com/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(() => {
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "6ad448f8-30ff-4215-9667-29ccdc99e37c";
+  (function () {
+    d = document;
+    s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
+  $crisp.push(["safe", true])
+
+  const isChatBtn = true
+  const isChatHideShow = true
+
+  if (isChatBtn) {
+    const open = () => {
+      $crisp.push(["do", "chat:show"])
+      $crisp.push(["do", "chat:open"])
+    }
+
+    const close = () => {
+      $crisp.push(["do", "chat:hide"])
+    }
+
+    close()
+    $crisp.push(["on", "chat:closed", function() {
+      close()
+    }])
+
+    window.chatBtnFn = () => {
+      $crisp.is("chat:visible") ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => {
+        $crisp.push(["do", "chat:hide"])
+      },
+      show: () => {
+        $crisp.push(["do", "chat:show"])
+      }
+    }
+  }
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.9.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '50c58ab4ebca4b6a89fab2676a4728cb';
+  var gaud_map_key = '08b28608b71dc68619ecb29eec4aba45';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.312874,26.773117';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.js"></script><!-- hexo injector body_end end --></body></html>
