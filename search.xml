@@ -123,6 +123,57 @@
       </categories>
   </entry>
   <entry>
+    <title>如何在另一台设备中快速上手 Hexo 项目</title>
+    <url>/posts/f70e1b7/</url>
+    <content><![CDATA[<h3 id="1-环境搭建"><a class="markdownIt-Anchor" href="#1-环境搭建"></a> 1. 环境搭建</h3>
+<ul>
+<li>
+<p>安装 VS Code</p>
+</li>
+<li>
+<p>安装 Node.js 和 npm<br />
+<a href="https://blog.csdn.net/WHF__/article/details/129362462">安装教程</a>（❗<font color = gray>最新淘宝镜像地址：<code>https://registry.npmmirror.com</code></font>）</p>
+</li>
+<li>
+<p>安装 Git</p>
+<ul>
+<li>设置 Git 的用户名和邮箱（与 Github 一致）</li>
+<li>配置 SSH</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-项目配置"><a class="markdownIt-Anchor" href="#2-项目配置"></a> 2. 项目配置</h3>
+<ul>
+<li>
+<p>安装 Hexo 脚手架</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>从 Github 下载 Hexo 项目代码</p>
+</li>
+<li>
+<p>安装 package.json 文件中所有工具</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>初始化 Git 仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>添加远程仓库并命名为 origin<br />
+<img src="./%E5%A6%82%E4%BD%95%E5%9C%A8%E5%8F%A6%E4%B8%80%E5%8F%B0%E8%AE%BE%E5%A4%87%E4%B8%AD%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B-Hexo-%E9%A1%B9%E7%9B%AE/ADD_REMOTE.png" alt="" /></p>
+</li>
+<li>
+<p>本地仓库关联 Github 仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件配置</category>
+      </categories>
+  </entry>
+  <entry>
     <title>简单操作实现 StarUML 激活 | 仅供学习使用</title>
     <url>/posts/a8921472/</url>
     <content><![CDATA[<h3 id="1-下载安装-staruml"><a class="markdownIt-Anchor" href="#1-下载安装-staruml"></a> 1. 下载安装 StarUML</h3>
