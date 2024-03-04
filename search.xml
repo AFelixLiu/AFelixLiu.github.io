@@ -174,6 +174,47 @@
       </categories>
   </entry>
   <entry>
+    <title>简单操作实现 StarUML 激活 | 仅供学习使用</title>
+    <url>/posts/a8921472/</url>
+    <content><![CDATA[<h3 id="1-下载安装-staruml"><a class="markdownIt-Anchor" href="#1-下载安装-staruml"></a> 1. 下载安装 StarUML</h3>
+<blockquote>
+<p>下载地址：<a href="https://staruml.io/download" title="StarUML">https://staruml.io/download</a></p>
+</blockquote>
+<h3 id="2-npm-安装-asar-工具"><a class="markdownIt-Anchor" href="#2-npm-安装-asar-工具"></a> 2. npm 安装 asar 工具</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g asar</span><br></pre></td></tr></table></figure>
+<h3 id="3-解压-appasar-文件"><a class="markdownIt-Anchor" href="#3-解压-appasar-文件"></a> 3. 解压 app.asar 文件</h3>
+<ul>
+<li>
+<p><strong>定位 app.asar 文件路径</strong><br />
+C:\Program Files\StarUML\resources</p>
+</li>
+<li>
+<p><strong>解压 app.asar 文件<font color = red>（💥以管理员身份运行）</font></strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar extract app.asar ./asar/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-修改-license-managerjs-文件"><a class="markdownIt-Anchor" href="#4-修改-license-managerjs-文件"></a> 4. 修改 license-manager.js 文件</h3>
+<ul>
+<li>
+<p><strong>定位 license-manager.js 文件位置</strong><br />
+C:\Program Files\StarUML\resources\asar\src\engine</p>
+</li>
+<li>
+<p><strong>找到文件中以下代码段并修改</strong><br />
+源代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">false</span>)</span><br><span class="line">      <span class="title class_">UnregisteredDialog</span>.<span class="title function_">showDialog</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改后代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// setStatus(this, false)</span></span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">      <span class="comment">// UnregisteredDialog.showDialog()</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="5-重新压缩替换原来的-appasarfont-color-red以管理员身份运行font"><a class="markdownIt-Anchor" href="#5-重新压缩替换原来的-appasarfont-color-red以管理员身份运行font"></a> 5. 重新压缩，替换原来的 app.asar<font color = red>（💥以管理员身份运行）</font></h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar pack asar app.asar</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>软件配置</category>
+      </categories>
+  </entry>
+  <entry>
     <title>深度学习笔记</title>
     <url>/posts/810a0813/</url>
     <content><![CDATA[<h3 id="1-什么是机器学习"><a class="markdownIt-Anchor" href="#1-什么是机器学习"></a> 1. 什么是机器学习</h3>
@@ -737,47 +778,6 @@ y(t) = f(t) * g(t) = \sum_{i=-\infty}^{+\infty}f(i) \cdot g(t- i) \\
       <categories>
         <category>NLP</category>
         <category>深度学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>简单操作实现 StarUML 激活 | 仅供学习使用</title>
-    <url>/posts/a8921472/</url>
-    <content><![CDATA[<h3 id="1-下载安装-staruml"><a class="markdownIt-Anchor" href="#1-下载安装-staruml"></a> 1. 下载安装 StarUML</h3>
-<blockquote>
-<p>下载地址：<a href="https://staruml.io/download" title="StarUML">https://staruml.io/download</a></p>
-</blockquote>
-<h3 id="2-npm-安装-asar-工具"><a class="markdownIt-Anchor" href="#2-npm-安装-asar-工具"></a> 2. npm 安装 asar 工具</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g asar</span><br></pre></td></tr></table></figure>
-<h3 id="3-解压-appasar-文件"><a class="markdownIt-Anchor" href="#3-解压-appasar-文件"></a> 3. 解压 app.asar 文件</h3>
-<ul>
-<li>
-<p><strong>定位 app.asar 文件路径</strong><br />
-C:\Program Files\StarUML\resources</p>
-</li>
-<li>
-<p><strong>解压 app.asar 文件<font color = red>（💥以管理员身份运行）</font></strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar extract app.asar ./asar/</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="4-修改-license-managerjs-文件"><a class="markdownIt-Anchor" href="#4-修改-license-managerjs-文件"></a> 4. 修改 license-manager.js 文件</h3>
-<ul>
-<li>
-<p><strong>定位 license-manager.js 文件位置</strong><br />
-C:\Program Files\StarUML\resources\asar\src\engine</p>
-</li>
-<li>
-<p><strong>找到文件中以下代码段并修改</strong><br />
-源代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">false</span>)</span><br><span class="line">      <span class="title class_">UnregisteredDialog</span>.<span class="title function_">showDialog</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>修改后代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// setStatus(this, false)</span></span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">      <span class="comment">// UnregisteredDialog.showDialog()</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5-重新压缩替换原来的-appasarfont-color-red以管理员身份运行font"><a class="markdownIt-Anchor" href="#5-重新压缩替换原来的-appasarfont-color-red以管理员身份运行font"></a> 5. 重新压缩，替换原来的 app.asar<font color = red>（💥以管理员身份运行）</font></h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar pack asar app.asar</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>软件配置</category>
       </categories>
   </entry>
 </search>
