@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>如何在另一台设备中快速上手 Hexo 项目</title>
+    <url>/posts/f70e1b7/</url>
+    <content><![CDATA[<h3 id="1-环境搭建">1. 环境搭建</h3>
+<ul>
+<li>
+<p>安装 VS Code</p>
+</li>
+<li>
+<p>安装 Node.js 和 npm<br>
+<a href="https://blog.csdn.net/WHF__/article/details/129362462">安装教程</a>（❗<font color = gray>最新淘宝镜像地址：<code>https://registry.npmmirror.com</code></font>）</p>
+</li>
+<li>
+<p>安装 Git</p>
+<ul>
+<li>设置 Git 的用户名和邮箱（与 Github 一致）</li>
+<li>配置 SSH</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-项目配置">2. 项目配置</h3>
+<ul>
+<li>
+<p>安装 Hexo 脚手架</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>从 Github 下载 Hexo 项目代码</p>
+</li>
+<li>
+<p>安装 package.json 文件中所有工具</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>初始化 Git 仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>添加远程仓库并命名为 origin</p>
+<img src="/posts/f70e1b7/ADD_REMOTE.png" class="">
+</li>
+<li>
+<p>本地仓库关联 Github 仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件配置</category>
+      </categories>
+  </entry>
+  <entry>
     <title>机器学习 | 基础概念</title>
     <url>/posts/5cf718ba/</url>
     <content><![CDATA[<h3 id="1、什么是机器学习">1、什么是机器学习</h3>
@@ -127,51 +178,71 @@
       </categories>
   </entry>
   <entry>
-    <title>如何在另一台设备中快速上手 Hexo 项目</title>
-    <url>/posts/f70e1b7/</url>
-    <content><![CDATA[<h3 id="1-环境搭建">1. 环境搭建</h3>
+    <title>Blog 美化 | 导航栏添加天气组件</title>
+    <url>/posts/b168c33/</url>
+    <content><![CDATA[<h4 id="1-和风天气小组件">1. 和风天气小组件</h4>
+<blockquote>
+<p>参考：<a href="https://cnhuazhu.top/butterfly/2021/02/24/Hexo%E9%AD%94%E6%94%B9/Hexo%E5%9C%A8%E9%A1%B6%E9%83%A8%E5%A2%9E%E5%8A%A0%E5%A4%A9%E6%B0%94%E5%B0%8F%E9%83%A8%E4%BB%B6/">Hexo在顶部增加天气小部件 | 花猪</a></p>
+</blockquote>
+<h4 id="2-心知天气小组件">2. 心知天气小组件</h4>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/qq_51604330/article/details/118000200">Hexo-Butterfly添加天气插件 | 半生瓜のblog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Blog 美化</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>详解 Hierarchical Softmax</title>
+    <url>/posts/66b1af6d/</url>
+    <content><![CDATA[<p>内容通俗易懂，故在此标记，以防忘记</p>
+<blockquote>
+<p>[1] <a href="https://blog.csdn.net/weixin_55073640/article/details/123470736">基于分层softmax的CBoW模型详解</a><br>
+[2] <a href="https://blog.csdn.net/qq_40859560/article/details/109211723">NLP篇【02】白话Word2vec原理以及层softmax、负采样的实现</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>NLP</category>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>简单操作实现 StarUML 激活 | 仅供学习使用</title>
+    <url>/posts/a8921472/</url>
+    <content><![CDATA[<h3 id="1-下载安装-StarUML">1. 下载安装 StarUML</h3>
+<blockquote>
+<p>下载地址：<a href="https://staruml.io/download" title="StarUML">https://staruml.io/download</a></p>
+</blockquote>
+<h3 id="2-npm-安装-asar-工具">2. npm 安装 asar 工具</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g asar</span><br></pre></td></tr></table></figure>
+<h3 id="3-解压-app-asar-文件">3. 解压 app.asar 文件</h3>
 <ul>
 <li>
-<p>安装 VS Code</p>
+<p><strong>定位 app.asar 文件路径</strong><br>
+C:\Program Files\StarUML\resources</p>
 </li>
 <li>
-<p>安装 Node.js 和 npm<br>
-<a href="https://blog.csdn.net/WHF__/article/details/129362462">安装教程</a>（❗<font color = gray>最新淘宝镜像地址：<code>https://registry.npmmirror.com</code></font>）</p>
-</li>
-<li>
-<p>安装 Git</p>
-<ul>
-<li>设置 Git 的用户名和邮箱（与 Github 一致）</li>
-<li>配置 SSH</li>
-</ul>
+<p><strong>解压 app.asar 文件<font color = red>（💥以管理员身份运行）</font></strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar extract app.asar ./asar/</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="2-项目配置">2. 项目配置</h3>
+<h3 id="4-修改-license-manager-js-文件">4. 修改 license-manager.js 文件</h3>
 <ul>
 <li>
-<p>安装 Hexo 脚手架</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p><strong>定位 license-manager.js 文件位置</strong><br>
+C:\Program Files\StarUML\resources\asar\src\engine</p>
 </li>
 <li>
-<p>从 Github 下载 Hexo 项目代码</p>
-</li>
-<li>
-<p>安装 package.json 文件中所有工具</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>初始化 Git 仓库</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>添加远程仓库并命名为 origin</p>
-<img src="/posts/f70e1b7/ADD_REMOTE.png" class="">
-</li>
-<li>
-<p>本地仓库关联 Github 仓库</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
+<p><strong>找到文件中以下代码段并修改</strong><br>
+源代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">false</span>)</span><br><span class="line">      <span class="title class_">UnregisteredDialog</span>.<span class="title function_">showDialog</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改后代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// setStatus(this, false)</span></span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">      <span class="comment">// UnregisteredDialog.showDialog()</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h3 id="5-重新压缩，替换原来的-app-asar-font-color-red-（💥以管理员身份运行）-font">5. 重新压缩，替换原来的 app.asar<font color = red>（💥以管理员身份运行）</font></h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar pack asar app.asar</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>软件配置</category>
@@ -749,61 +820,6 @@ y(t) = f(t) * g(t) = \sum_{i=-\infty}^{+\infty}f(i) \cdot g(t- i) \\
       <categories>
         <category>NLP</category>
         <category>深度学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>简单操作实现 StarUML 激活 | 仅供学习使用</title>
-    <url>/posts/a8921472/</url>
-    <content><![CDATA[<h3 id="1-下载安装-StarUML">1. 下载安装 StarUML</h3>
-<blockquote>
-<p>下载地址：<a href="https://staruml.io/download" title="StarUML">https://staruml.io/download</a></p>
-</blockquote>
-<h3 id="2-npm-安装-asar-工具">2. npm 安装 asar 工具</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g asar</span><br></pre></td></tr></table></figure>
-<h3 id="3-解压-app-asar-文件">3. 解压 app.asar 文件</h3>
-<ul>
-<li>
-<p><strong>定位 app.asar 文件路径</strong><br>
-C:\Program Files\StarUML\resources</p>
-</li>
-<li>
-<p><strong>解压 app.asar 文件<font color = red>（💥以管理员身份运行）</font></strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar extract app.asar ./asar/</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="4-修改-license-manager-js-文件">4. 修改 license-manager.js 文件</h3>
-<ul>
-<li>
-<p><strong>定位 license-manager.js 文件位置</strong><br>
-C:\Program Files\StarUML\resources\asar\src\engine</p>
-</li>
-<li>
-<p><strong>找到文件中以下代码段并修改</strong><br>
-源代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">false</span>)</span><br><span class="line">      <span class="title class_">UnregisteredDialog</span>.<span class="title function_">showDialog</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>修改后代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// setStatus(this, false)</span></span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">      <span class="comment">// UnregisteredDialog.showDialog()</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5-重新压缩，替换原来的-app-asar-font-color-red-（💥以管理员身份运行）-font">5. 重新压缩，替换原来的 app.asar<font color = red>（💥以管理员身份运行）</font></h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar pack asar app.asar</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>软件配置</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>详解 Hierarchical Softmax</title>
-    <url>/posts/66b1af6d/</url>
-    <content><![CDATA[<p>内容通俗易懂，故在此标记，以防忘记</p>
-<blockquote>
-<p>[1] <a href="https://blog.csdn.net/weixin_55073640/article/details/123470736">基于分层softmax的CBoW模型详解</a><br>
-[2] <a href="https://blog.csdn.net/qq_40859560/article/details/109211723">NLP篇【02】白话Word2vec原理以及层softmax、负采样的实现</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>NLP</category>
-        <category>机器学习</category>
       </categories>
   </entry>
 </search>
