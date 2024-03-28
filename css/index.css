@@ -184,7 +184,7 @@ template {
 #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a span,
 #aside-content .card-categories ul.card-category-list > .card-category-list-item a span,
 .site-data > a .headline,
-#nav #blog-info,
+#nav #none_space,
 #pagination .prev_info,
 #pagination .next_info,
 #sidebar #sidebar-menus .menus_items .site-page {
@@ -1402,7 +1402,7 @@ canvas:not(#ribbon-canvas),
   --white: #fff;
   --text-highlight-color: #1f2d3d;
   --blockquote-color: #6a737d;
-  --blockquote-bg: rgba(73,177,245,0.1);
+  --blockquote-bg: rgba(175,175,181,0.1);
   --reward-pop: #f5f5f5;
   --toc-link-color: #666261;
   --card-box-shadow: 0 3px 8px 6px rgba(7,17,27,0.05);
@@ -1549,7 +1549,7 @@ img[data-lazy-src].error {
 blockquote {
   margin: 0 0 20px;
   padding: 12px 15px;
-  border-left: 3px solid #49b1f5;
+  border-left: 3px solid #afafb5;
   background-color: var(--blockquote-bg);
   color: var(--blockquote-color);
 }
@@ -3690,7 +3690,7 @@ h1.page-title + .tag-cloud-list {
   -ms-filter: none;
   filter: none;
 }
-#nav #blog-info {
+#nav #none_space {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
@@ -3700,7 +3700,7 @@ h1.page-title + .tag-cloud-list {
   flex: 1;
   color: var(--light-grey);
 }
-#nav #blog-info .site-icon {
+#nav #none_space .site-icon {
   margin-right: 6px;
   height: 36px;
   vertical-align: middle;
