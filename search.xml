@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>简单操作实现 StarUML 激活 | 仅供学习使用</title>
+    <url>/posts/a8921472/</url>
+    <content><![CDATA[<h3 id="1-下载安装-StarUML">1. 下载安装 StarUML</h3>
+<blockquote>
+<p>下载地址：<a href="https://staruml.io/download" title="StarUML">https://staruml.io/download</a></p>
+</blockquote>
+<h3 id="2-npm-安装-asar-工具">2. npm 安装 asar 工具</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g asar</span><br></pre></td></tr></table></figure>
+<h3 id="3-解压-app-asar-文件">3. 解压 app.asar 文件</h3>
+<ul>
+<li>
+<p><strong>定位 app.asar 文件路径</strong><br>
+C:\Program Files\StarUML\resources</p>
+</li>
+<li>
+<p><strong>解压 app.asar 文件<font color = red>（💥以管理员身份运行）</font></strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar extract app.asar ./asar/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-修改-license-manager-js-文件">4. 修改 license-manager.js 文件</h3>
+<ul>
+<li>
+<p><strong>定位 license-manager.js 文件位置</strong><br>
+C:\Program Files\StarUML\resources\asar\src\engine</p>
+</li>
+<li>
+<p><strong>找到文件中以下代码段并修改</strong><br>
+源代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">false</span>)</span><br><span class="line">      <span class="title class_">UnregisteredDialog</span>.<span class="title function_">showDialog</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改后代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// setStatus(this, false)</span></span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">      <span class="comment">// UnregisteredDialog.showDialog()</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="5-重新压缩，替换原来的-app-asar-font-color-red-（💥以管理员身份运行）-font">5. 重新压缩，替换原来的 app.asar<font color = red>（💥以管理员身份运行）</font></h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar pack asar app.asar</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>软件配置</category>
+      </categories>
+  </entry>
+  <entry>
     <title>如何在另一台设备中快速上手 Hexo 项目</title>
     <url>/posts/f70e1b7/</url>
     <content><![CDATA[<h3 id="1-环境搭建">1. 环境搭建</h3>
@@ -59,6 +100,132 @@
 <p>[1] <a href="https://blog.csdn.net/weixin_55073640/article/details/123470736">基于分层softmax的CBoW模型详解</a><br>
 [2] <a href="https://blog.csdn.net/qq_40859560/article/details/109211723">NLP篇【02】白话Word2vec原理以及层softmax、负采样的实现</a></p>
 </blockquote>
+]]></content>
+      <categories>
+        <category>NLP</category>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>机器学习 | 基础概念</title>
+    <url>/posts/5cf718ba/</url>
+    <content><![CDATA[<h3 id="1、什么是机器学习">1、什么是机器学习</h3>
+<p>机器学习是让计算机通过数据学习，从中发现模式和规律，并利用这些学习来做出预测或进行决策的过程。它使用统计学和算法技术来构建模型，通过对大量数据的训练和优化来提高模型的准确性和性能。</p>
+<p>机器学习可以分为以下几个关键要素：</p>
+<ul>
+<li>
+<p><strong>数据</strong></p>
+<p>数据是机器学习的基础，算法通过分析和处理大量的数据来学习模式和规律。</p>
+<p>数据可以是<mark>结构化数据</mark>（如表格数据）或<mark>非结构化数据</mark>（如文本、图像、音频等）。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>特征提取</strong></p>
+<p>特征是对数据进行描述和表示的属性或指标，用于训练模型和进行预测。</p>
+</li>
+<li>
+<p><strong>模型构建</strong></p>
+<p>机器学习算法利用数据和特征来构建数学模型.</p>
+</li>
+<li>
+<p><strong>训练和优化</strong></p>
+<p>通过使用训练数据，机器学习模型通过调整模型参数和优化算法来学习数据中的模式和规律。</p>
+</li>
+<li>
+<p><strong>预测和推断</strong></p>
+<p>模型通过输入新的数据来做出预测，根据学习到的模式和规律来进行决策或分类。</p>
+</li>
+</ul>
+<h3 id="2、机器学习用来干什么">2、机器学习用来干什么</h3>
+<p>机器学习在许多领域有广泛的应用，包括：</p>
+<ul>
+<li>
+<p><strong>图像和语音识别</strong></p>
+<p>识别和分类图像中的对象、识别人脸、进行文字识别，还可以转录语音为文本，实现语音助手和语音指令的理解。</p>
+</li>
+<li>
+<p><strong>自然语言处理</strong></p>
+<p>用于文本分类、情感分析、机器翻译、问题回答等任务，帮助计算机理解和处理人类语言。</p>
+</li>
+<li>
+<p><strong>推荐系统</strong></p>
+<p>根据用户的历史行为和兴趣，为用户推荐个性化的产品、内容或服务。</p>
+</li>
+<li>
+<p><strong>预测和分类</strong></p>
+<p>根据历史数据和特征来预测未来事件的可能结果，并对数据进行分类。例如预测股票市场走势、天气预报、销售趋势、客户行为等。</p>
+</li>
+<li>
+<p><strong>欺诈检测和安全</strong></p>
+<p>用于检测和预防欺诈行为。例如信用卡欺诈检测、网络入侵检测和垃圾邮件过滤。</p>
+</li>
+<li>
+<p><strong>医学诊断</strong></p>
+<p>辅助医生进行诊断和预测疾病风险。</p>
+</li>
+</ul>
+<p>除上述应用外，机器学习还广泛应用于金融、交通、能源、制造业等领域，用于数据分析、优化流程、改进决策等。</p>
+<h3 id="3、什么是数据集">3、什么是数据集</h3>
+<p>数据集是指在机器学习和数据科学中用于训练、评估和验证模型的数据的集合。数据集由一组相关的数据样本组成，每个数据样本都包含一组特征和对应的标签或目标值。</p>
+<p>数据集可以分为以下几种类型：</p>
+<ol>
+<li>
+<p><strong>训练集（Training Set）</strong></p>
+<p>训练集是用于训练机器学习模型的数据集。通过对训练集进行模型训练，机器学习模型可以学习到数据的模式和规律。</p>
+</li>
+<li>
+<p><strong>验证集（Validation Set）</strong></p>
+<p>验证集是用于调整和优化模型超参数、选择最佳模型或进行模型选择的数据集。在训练过程中，通过使用验证集来评估模型的性能和泛化能力，并根据验证集上的表现进行调整。</p>
+</li>
+<li>
+<p><strong>测试集（Test Set）</strong></p>
+<p>测试集是用于评估训练好的模型在未见过的数据上的性能和泛化能力的数据集。测试集是独立于训练集和验证集的数据，用于模拟模型在实际应用场景中的表现。</p>
+</li>
+</ol>
+<h3 id="4、机器学习算法分类">4、机器学习算法分类</h3>
+<ul>
+<li>
+<p><strong>监督学习（Supervised Learning）</strong></p>
+<ul>
+<li>
+<p>回归（Regression）</p>
+<p>监督学习算法使用带有标签的训练数据来学习输入特征与<mark>连续型</mark>目标变量之间的关系。</p>
+<p>回归模型的目标是根据输入特征<font color = blue>预测出一个连续值</font>。</p>
+</li>
+<li>
+<p>分类（Classification）</p>
+<p>监督学习算法使用带有标签的训练数据来学习输入特征与<mark>离散型</mark>目标变量之间的关系。</p>
+<p>分类模型的目标是根据输入特征<font color = blue>将数据分为不同的类别或标签</font>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>无监督学习（Unsupervised Learning）</strong></p>
+<ul>
+<li>聚类（Clustering）</li>
+<li>异常检测（Anomaly detection）</li>
+<li>降维（Dimensionality reduction）</li>
+<li>密度估计（Density Estimation）</li>
+</ul>
+</li>
+<li>
+<p><strong>强化学习（Reinforcement Learning）</strong></p>
+</li>
+</ul>
+<h3 id="5、经典的机器学习算法">5、经典的机器学习算法</h3>
+<ul>
+<li>线性回归（Linear Regression）</li>
+<li>逻辑回归（Logistic Regression）</li>
+<li>决策树（Decision Tree）</li>
+<li>随机森林（Random Forest）</li>
+<li>支持向量机（Support Vector Machine，SVM）</li>
+<li>神经网络（Neural Networks）</li>
+<li>朴素贝叶斯（Naive Bayes）</li>
+<li>K近邻算法（K-Nearest Neighbors，KNN）</li>
+<li>K均值聚类（K-Means Clustering）</li>
+<li>主成分分析（Principal Component Analysis，PCA）</li>
+</ul>
 ]]></content>
       <categories>
         <category>NLP</category>
@@ -637,173 +804,6 @@ y(t) = f(t) * g(t) = \sum_{i=-\infty}^{+\infty}f(i) \cdot g(t- i) \\
       <categories>
         <category>NLP</category>
         <category>深度学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>机器学习 | 基础概念</title>
-    <url>/posts/5cf718ba/</url>
-    <content><![CDATA[<h3 id="1、什么是机器学习">1、什么是机器学习</h3>
-<p>机器学习是让计算机通过数据学习，从中发现模式和规律，并利用这些学习来做出预测或进行决策的过程。它使用统计学和算法技术来构建模型，通过对大量数据的训练和优化来提高模型的准确性和性能。</p>
-<p>机器学习可以分为以下几个关键要素：</p>
-<ul>
-<li>
-<p><strong>数据</strong></p>
-<p>数据是机器学习的基础，算法通过分析和处理大量的数据来学习模式和规律。</p>
-<p>数据可以是<mark>结构化数据</mark>（如表格数据）或<mark>非结构化数据</mark>（如文本、图像、音频等）。</p>
-</li>
-</ul>
-<ul>
-<li>
-<p><strong>特征提取</strong></p>
-<p>特征是对数据进行描述和表示的属性或指标，用于训练模型和进行预测。</p>
-</li>
-<li>
-<p><strong>模型构建</strong></p>
-<p>机器学习算法利用数据和特征来构建数学模型.</p>
-</li>
-<li>
-<p><strong>训练和优化</strong></p>
-<p>通过使用训练数据，机器学习模型通过调整模型参数和优化算法来学习数据中的模式和规律。</p>
-</li>
-<li>
-<p><strong>预测和推断</strong></p>
-<p>模型通过输入新的数据来做出预测，根据学习到的模式和规律来进行决策或分类。</p>
-</li>
-</ul>
-<h3 id="2、机器学习用来干什么">2、机器学习用来干什么</h3>
-<p>机器学习在许多领域有广泛的应用，包括：</p>
-<ul>
-<li>
-<p><strong>图像和语音识别</strong></p>
-<p>识别和分类图像中的对象、识别人脸、进行文字识别，还可以转录语音为文本，实现语音助手和语音指令的理解。</p>
-</li>
-<li>
-<p><strong>自然语言处理</strong></p>
-<p>用于文本分类、情感分析、机器翻译、问题回答等任务，帮助计算机理解和处理人类语言。</p>
-</li>
-<li>
-<p><strong>推荐系统</strong></p>
-<p>根据用户的历史行为和兴趣，为用户推荐个性化的产品、内容或服务。</p>
-</li>
-<li>
-<p><strong>预测和分类</strong></p>
-<p>根据历史数据和特征来预测未来事件的可能结果，并对数据进行分类。例如预测股票市场走势、天气预报、销售趋势、客户行为等。</p>
-</li>
-<li>
-<p><strong>欺诈检测和安全</strong></p>
-<p>用于检测和预防欺诈行为。例如信用卡欺诈检测、网络入侵检测和垃圾邮件过滤。</p>
-</li>
-<li>
-<p><strong>医学诊断</strong></p>
-<p>辅助医生进行诊断和预测疾病风险。</p>
-</li>
-</ul>
-<p>除上述应用外，机器学习还广泛应用于金融、交通、能源、制造业等领域，用于数据分析、优化流程、改进决策等。</p>
-<h3 id="3、什么是数据集">3、什么是数据集</h3>
-<p>数据集是指在机器学习和数据科学中用于训练、评估和验证模型的数据的集合。数据集由一组相关的数据样本组成，每个数据样本都包含一组特征和对应的标签或目标值。</p>
-<p>数据集可以分为以下几种类型：</p>
-<ol>
-<li>
-<p><strong>训练集（Training Set）</strong></p>
-<p>训练集是用于训练机器学习模型的数据集。通过对训练集进行模型训练，机器学习模型可以学习到数据的模式和规律。</p>
-</li>
-<li>
-<p><strong>验证集（Validation Set）</strong></p>
-<p>验证集是用于调整和优化模型超参数、选择最佳模型或进行模型选择的数据集。在训练过程中，通过使用验证集来评估模型的性能和泛化能力，并根据验证集上的表现进行调整。</p>
-</li>
-<li>
-<p><strong>测试集（Test Set）</strong></p>
-<p>测试集是用于评估训练好的模型在未见过的数据上的性能和泛化能力的数据集。测试集是独立于训练集和验证集的数据，用于模拟模型在实际应用场景中的表现。</p>
-</li>
-</ol>
-<h3 id="4、机器学习算法分类">4、机器学习算法分类</h3>
-<ul>
-<li>
-<p><strong>监督学习（Supervised Learning）</strong></p>
-<ul>
-<li>
-<p>回归（Regression）</p>
-<p>监督学习算法使用带有标签的训练数据来学习输入特征与<mark>连续型</mark>目标变量之间的关系。</p>
-<p>回归模型的目标是根据输入特征<font color = blue>预测出一个连续值</font>。</p>
-</li>
-<li>
-<p>分类（Classification）</p>
-<p>监督学习算法使用带有标签的训练数据来学习输入特征与<mark>离散型</mark>目标变量之间的关系。</p>
-<p>分类模型的目标是根据输入特征<font color = blue>将数据分为不同的类别或标签</font>。</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>无监督学习（Unsupervised Learning）</strong></p>
-<ul>
-<li>聚类（Clustering）</li>
-<li>异常检测（Anomaly detection）</li>
-<li>降维（Dimensionality reduction）</li>
-<li>密度估计（Density Estimation）</li>
-</ul>
-</li>
-<li>
-<p><strong>强化学习（Reinforcement Learning）</strong></p>
-</li>
-</ul>
-<h3 id="5、经典的机器学习算法">5、经典的机器学习算法</h3>
-<ul>
-<li>线性回归（Linear Regression）</li>
-<li>逻辑回归（Logistic Regression）</li>
-<li>决策树（Decision Tree）</li>
-<li>随机森林（Random Forest）</li>
-<li>支持向量机（Support Vector Machine，SVM）</li>
-<li>神经网络（Neural Networks）</li>
-<li>朴素贝叶斯（Naive Bayes）</li>
-<li>K近邻算法（K-Nearest Neighbors，KNN）</li>
-<li>K均值聚类（K-Means Clustering）</li>
-<li>主成分分析（Principal Component Analysis，PCA）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>NLP</category>
-        <category>机器学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>简单操作实现 StarUML 激活 | 仅供学习使用</title>
-    <url>/posts/a8921472/</url>
-    <content><![CDATA[<h3 id="1-下载安装-StarUML">1. 下载安装 StarUML</h3>
-<blockquote>
-<p>下载地址：<a href="https://staruml.io/download" title="StarUML">https://staruml.io/download</a></p>
-</blockquote>
-<h3 id="2-npm-安装-asar-工具">2. npm 安装 asar 工具</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g asar</span><br></pre></td></tr></table></figure>
-<h3 id="3-解压-app-asar-文件">3. 解压 app.asar 文件</h3>
-<ul>
-<li>
-<p><strong>定位 app.asar 文件路径</strong><br>
-C:\Program Files\StarUML\resources</p>
-</li>
-<li>
-<p><strong>解压 app.asar 文件<font color = red>（💥以管理员身份运行）</font></strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar extract app.asar ./asar/</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="4-修改-license-manager-js-文件">4. 修改 license-manager.js 文件</h3>
-<ul>
-<li>
-<p><strong>定位 license-manager.js 文件位置</strong><br>
-C:\Program Files\StarUML\resources\asar\src\engine</p>
-</li>
-<li>
-<p><strong>找到文件中以下代码段并修改</strong><br>
-源代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">false</span>)</span><br><span class="line">      <span class="title class_">UnregisteredDialog</span>.<span class="title function_">showDialog</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>修改后代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">checkLicenseValidity () &#123;</span><br><span class="line">  <span class="keyword">if</span> (packageJSON.<span class="property">config</span>.<span class="property">setappBuild</span>) &#123;</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// setStatus(this, false)</span></span><br><span class="line">      <span class="title function_">setStatus</span>(<span class="variable language_">this</span>, <span class="literal">true</span>)</span><br><span class="line">      <span class="comment">// UnregisteredDialog.showDialog()</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5-重新压缩，替换原来的-app-asar-font-color-red-（💥以管理员身份运行）-font">5. 重新压缩，替换原来的 app.asar<font color = red>（💥以管理员身份运行）</font></h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">asar pack asar app.asar</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>软件配置</category>
       </categories>
   </entry>
 </search>
