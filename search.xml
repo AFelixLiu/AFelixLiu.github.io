@@ -752,20 +752,6 @@ y(t) = f(t) * g(t) = \sum_{i=-\infty}^{+\infty}f(i) \cdot g(t- i) \\
       </categories>
   </entry>
   <entry>
-    <title>详解 Hierarchical Softmax</title>
-    <url>/posts/66b1af6d/</url>
-    <content><![CDATA[<p>内容通俗易懂，故在此标记，以防忘记</p>
-<blockquote>
-<p>[1] <a href="https://blog.csdn.net/weixin_55073640/article/details/123470736">基于分层softmax的CBoW模型详解</a><br>
-[2] <a href="https://blog.csdn.net/qq_40859560/article/details/109211723">NLP篇【02】白话Word2vec原理以及层softmax、负采样的实现</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>NLP</category>
-        <category>机器学习</category>
-      </categories>
-  </entry>
-  <entry>
     <title>简单操作实现 StarUML 激活 | 仅供学习使用</title>
     <url>/posts/a8921472/</url>
     <content><![CDATA[<h3 id="1-下载安装-StarUML">1. 下载安装 StarUML</h3>
@@ -804,6 +790,20 @@ C:\Program Files\StarUML\resources\asar\src\engine</p>
 ]]></content>
       <categories>
         <category>软件配置</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>详解 Hierarchical Softmax</title>
+    <url>/posts/66b1af6d/</url>
+    <content><![CDATA[<p>内容通俗易懂，故在此标记，以防忘记</p>
+<blockquote>
+<p>[1] <a href="https://blog.csdn.net/weixin_55073640/article/details/123470736">基于分层softmax的CBoW模型详解</a><br>
+[2] <a href="https://blog.csdn.net/qq_40859560/article/details/109211723">NLP篇【02】白话Word2vec原理以及层softmax、负采样的实现</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>NLP</category>
+        <category>机器学习</category>
       </categories>
   </entry>
 </search>
