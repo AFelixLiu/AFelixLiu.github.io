@@ -3705,6 +3705,12 @@ h1.page-title + .tag-cloud-list {
   height: 36px;
   vertical-align: middle;
 }
+#nav #tp-weather-widget span:first-child {
+  color: #ffc000;
+}
+#nav #tp-weather-widget span:last-child {
+  color: #2f55eb;
+}
 #nav #toggle-menu {
   display: none;
   padding: 2px 0 0 6px;

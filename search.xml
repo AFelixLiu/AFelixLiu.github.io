@@ -1,57 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>如何在另一台设备中快速上手 Hexo 项目</title>
-    <url>/posts/f70e1b7/</url>
-    <content><![CDATA[<h3 id="1-环境搭建">1. 环境搭建</h3>
-<ul>
-<li>
-<p>安装 VS Code</p>
-</li>
-<li>
-<p>安装 Node.js 和 npm<br>
-<a href="https://blog.csdn.net/WHF__/article/details/129362462">安装教程</a>（❗<font color = gray>最新淘宝镜像地址：<code>https://registry.npmmirror.com</code></font>）</p>
-</li>
-<li>
-<p>安装 Git</p>
-<ul>
-<li>设置 Git 的用户名和邮箱（与 Github 一致）</li>
-<li>配置 SSH</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-项目配置">2. 项目配置</h3>
-<ul>
-<li>
-<p>安装 Hexo 脚手架</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>从 Github 下载 Hexo 项目代码</p>
-</li>
-<li>
-<p>安装 package.json 文件中所有工具</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>初始化 Git 仓库</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>添加远程仓库并命名为 origin</p>
-<img src="/posts/f70e1b7/ADD_REMOTE.png" class="">
-</li>
-<li>
-<p>本地仓库关联 Github 仓库</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>软件配置</category>
-      </categories>
-  </entry>
-  <entry>
     <title>机器学习 | 基础概念</title>
     <url>/posts/5cf718ba/</url>
     <content><![CDATA[<h3 id="1、什么是机器学习">1、什么是机器学习</h3>
@@ -175,6 +124,57 @@
       <categories>
         <category>NLP</category>
         <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如何在另一台设备中快速上手 Hexo 项目</title>
+    <url>/posts/f70e1b7/</url>
+    <content><![CDATA[<h3 id="1-环境搭建">1. 环境搭建</h3>
+<ul>
+<li>
+<p>安装 VS Code</p>
+</li>
+<li>
+<p>安装 Node.js 和 npm<br>
+<a href="https://blog.csdn.net/WHF__/article/details/129362462">安装教程</a>（❗<font color = gray>最新淘宝镜像地址：<code>https://registry.npmmirror.com</code></font>）</p>
+</li>
+<li>
+<p>安装 Git</p>
+<ul>
+<li>设置 Git 的用户名和邮箱（与 Github 一致）</li>
+<li>配置 SSH</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-项目配置">2. 项目配置</h3>
+<ul>
+<li>
+<p>安装 Hexo 脚手架</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>从 Github 下载 Hexo 项目代码</p>
+</li>
+<li>
+<p>安装 package.json 文件中所有工具</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>初始化 Git 仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>添加远程仓库并命名为 origin</p>
+<img src="/posts/f70e1b7/ADD_REMOTE.png" class="">
+</li>
+<li>
+<p>本地仓库关联 Github 仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件配置</category>
       </categories>
   </entry>
   <entry>
