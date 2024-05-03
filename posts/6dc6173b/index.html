@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>10、常用类 | 红油曲奇的个人博客</title><meta name="author" content="红油曲奇"><meta name="copyright" content="红油曲奇"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="1. Object 类  理论上 Object 类是所有类的父类，即直接或间接地继承 java.lang.Object 类。 由于所有的类都继承 Object 类，因此省略了 extends Object 关键字。  Object 类中主要有以下方法:  toString() getClass() equals() clone() finalize() …  1.1 clone() 方法 在 Ja">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>10、常用类 | 红油曲奇的个人博客</title><meta name="author" content="红油曲奇"><meta name="copyright" content="红油曲奇"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Java 笔记-10">
 <meta property="og:type" content="article">
 <meta property="og:title" content="10、常用类">
 <meta property="og:url" content="https://afelixliu.site/posts/6dc6173b/index.html">
 <meta property="og:site_name" content="红油曲奇的个人博客">
-<meta property="og:description" content="1. Object 类  理论上 Object 类是所有类的父类，即直接或间接地继承 java.lang.Object 类。 由于所有的类都继承 Object 类，因此省略了 extends Object 关键字。  Object 类中主要有以下方法:  toString() getClass() equals() clone() finalize() …  1.1 clone() 方法 在 Ja">
+<meta property="og:description" content="Java 笔记-10">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
 <meta property="article:published_time" content="2024-05-03T13:34:52.000Z">
@@ -390,7 +390,7 @@ document.addEventListener('pjax:send', () => {
 </tr>
 </tbody>
 </table>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./Images/OOP_WrapperClass.png" alt="OOP_WrapperClass" style="zoom:80%;" />
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/6dc6173b/OOP_WrapperClass.png" class="">
 <blockquote>
 <ul>
 <li>所有的包装类 (Byte, Short, Integer, Long, Float, Double) 都是抽象类 <strong>Number</strong> 的子类。</li>
@@ -632,7 +632,7 @@ document.addEventListener('pjax:send', () => {
 <p>String 为<mark>字符串常量</mark>。即：String 对象创建后是不可以更改的（改变的只是地址，<font color = red>原来的字符串还是存在的</font>，并且产生垃圾）。</p>
 <p>举例说明：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Hello &quot;</span>;</span><br><span class="line">str += <span class="string">&quot;World &quot;</span>;</span><br><span class="line">str = str+ <span class="string">&quot;!!!&quot;</span>;</span><br><span class="line">System.out.println(str); <span class="comment">// 输出结果为：Hello World !!!</span></span><br></pre></td></tr></table></figure>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./Images/Junk Space.png" alt="Junk Space" style="zoom:50%;" />
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/6dc6173b/Junk_Space.png" class="">
 <p><font color = orange>String 底层使用一个字符数组来维护，String 类的值是 final 类型的，不能被改变</font>，<font color = red>只要一个值改变就会生成一个新的 String 类型对象。</font></p>
 <blockquote>
 <p><em>String 类的构造方法详见源码</em></p>
@@ -712,7 +712,7 @@ document.addEventListener('pjax:send', () => {
 <blockquote>
 <p>和 String 类不同的是，StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。</p>
 </blockquote>
-<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./Images/Java String.png" alt="Java String" style="zoom:50%;" />
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/6dc6173b/Java_String.png" class="">
 <blockquote>
 <p><em>StringBuilder 和 StringBuffer 类的 API详见源码</em></p>
 </blockquote>
