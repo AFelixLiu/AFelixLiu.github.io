@@ -1,0 +1,1076 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>10、常用类 | 红油曲奇的个人博客</title><meta name="author" content="红油曲奇"><meta name="copyright" content="红油曲奇"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="1. Object 类  理论上 Object 类是所有类的父类，即直接或间接地继承 java.lang.Object 类。 由于所有的类都继承 Object 类，因此省略了 extends Object 关键字。  Object 类中主要有以下方法:  toString() getClass() equals() clone() finalize() …  1.1 clone() 方法 在 Ja">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10、常用类">
+<meta property="og:url" content="https://afelixliu.site/posts/6dc6173b/index.html">
+<meta property="og:site_name" content="红油曲奇的个人博客">
+<meta property="og:description" content="1. Object 类  理论上 Object 类是所有类的父类，即直接或间接地继承 java.lang.Object 类。 由于所有的类都继承 Object 类，因此省略了 extends Object 关键字。  Object 类中主要有以下方法:  toString() getClass() equals() clone() finalize() …  1.1 clone() 方法 在 Ja">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2024-05-03T13:34:52.000Z">
+<meta property="article:modified_time" content="2024-05-03T13:34:52.000Z">
+<meta property="article:author" content="红油曲奇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://afelixliu.site/posts/6dc6173b/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.9.0"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@5.0.19/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":180},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":60,"languages":{"author":"作者: 红油曲奇","link":"链接: ","source":"来源: 红油曲奇的个人博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"rgba(79, 195, 247, 0.6)","bgDark":"rgba(178, 178, 178, 0.5)","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://unpkg.com/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://unpkg.com/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '10、常用类',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-03 21:34:52'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"/><link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"><link rel="stylesheet" href="/css/wave.css"><link rel="stylesheet" href="/css/windmill.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/pace-minimal.css"/><script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="红油曲奇的个人博客"><span class="site-name">红油曲奇的个人博客</span></a></span><div id="tp-weather-widget"></div><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">10、常用类</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-03T13:34:52.000Z" title="发表于 2024-05-03 21:34:52">2024-05-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-03T13:34:52.000Z" title="更新于 2024-05-03 21:34:52">2024-05-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java-%E5%AD%A6%E4%B9%A0/">Java 学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>22分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="10、常用类"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/6dc6173b/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="1-Object-类">1. Object 类</h3>
+<blockquote>
+<p>理论上 Object 类是所有类的父类，即直接或间接地继承 <code>java.lang.Object</code> 类。</p>
+<p>由于所有的类都继承 Object 类，因此省略了 <code>extends Object</code> 关键字。</p>
+</blockquote>
+<p>Object 类中主要有以下方法:</p>
+<ul>
+<li><mark>toString()</mark></li>
+<li><mark>getClass()</mark></li>
+<li><mark>equals()</mark></li>
+<li>clone()</li>
+<li>finalize()</li>
+<li>…</li>
+</ul>
+<h5 id="1-1-clone-方法">1.1 <code>clone()</code> 方法</h5>
+<p>在 Java 语言中， clone() 方法被对象调用，用来复制对象。</p>
+<blockquote>
+<p>所谓的复制对象，即分配一个和源对象同样大小的空间，在这个空间中创建一个新的对象。</p>
+</blockquote>
+<p>在 Java 语言中，有以下两种方式创建对象：</p>
+<ul>
+<li>
+<p>使用 new 操作符创建一个对象</p>
+<blockquote>
+<p>new 操作符的本意是分配内存。</p>
+</blockquote>
+<ol>
+<li>程序执行到 new 操作符时， 首先去看 new 操作符后面的类型，需要分配多大的内存空间；</li>
+<li>分配完内存之后，再调用构造函数，填充对象的各个域，这一步叫做对象的初始化；</li>
+<li>构造方法返回后，一个对象创建完毕，可以把他的引用（地址）发布到外部，在外部就可以使用这个引用操纵这个对象。</li>
+</ol>
+</li>
+<li>
+<p>使用 clone() 方法复制一个对象</p>
+<p>clone() 方法第一步与 new 类似，都是分配内存。</p>
+<ol>
+<li>
+<p>调用clone方法时，分配的内存和源对象（即调用clone方法的对象）相同；</p>
+</li>
+<li>
+<p>然后再使用源对象中对应的各个域，填充新对象的域；</p>
+</li>
+<li>
+<p>填充完成之后，clone() 方法返回，一个新的相同的对象被创建，同样可以把这个新对象的引用发布到外部。</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>clone</strong> 与 <strong>copy</strong> 的区别：</p>
+<ul>
+<li><strong>copy</strong> 只是简单复制了引用，两个对象都是指向内存同一个</li>
+<li><strong>clone</strong> 会生成一个新的对象，并且与源对象具有相同的属性值和方法</li>
+</ul>
+<p><strong>深拷贝</strong>与<strong>浅拷贝</strong>：</p>
+<p>Object 在对某个对象实施 Clone 时对其是一无所知的，它仅仅是简单地执行域对域的 copy，这就是<font color = blue>浅拷贝</font></p>
+<ul>
+<li>克隆类和原始类可能会共享一部分信息（原始类存在引用类型的变量）</li>
+</ul>
+<p>重写 clone() 方法，实现<font color = blue>深拷贝</font>，代码示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> <span class="keyword">implements</span> <span class="title class_">Cloneable</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> age ;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(<span class="type">int</span> age, String name)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.age = age;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Person</span><span class="params">()</span> &#123;&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> age;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">protected</span> Object <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException &#123;</span><br><span class="line">        <span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> (Person)<span class="built_in">super</span>.clone();</span><br><span class="line">		<span class="keyword">return</span> person;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意事项：</p>
+<ul>
+<li>使用 <code>clone()</code> 方法必须实现接口 Cloneable，默认实现的就是浅拷贝(引用拷贝)</li>
+<li>如果想要深拷贝一个对象，这个对象必须要实现 Cloneable 接口，重写 <code>clone()</code> 方法，并且在 <code>clone()</code> 方法内部，把该对象引用的其他对象也要 clone 一份 ， 这就要求这个被引用的对象必须也要实现 Cloneable 接口并且实现 <code>clone()</code> 方法。</li>
+<li>如果在拷贝一个对象时，要想让这个拷贝的对象和源对象完全彼此独立，那么在引用链上的每一级对象都要被显式的拷贝。</li>
+<li><mark>String 存在于堆内存、常量池；这种比较特殊, 本身没有实现 Cloneable，传递是引用地址；由本身的 final 性, 每次赋值都是一个新的引用地址，原对象的引用和副本的引用互不影响。因此String就和基本数据类型一样,表现出了&quot;深拷贝&quot;特性。</mark></li>
+</ul>
+<blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhangjg_blog/article/details/18369201#0-qzone-1-28144-d020d2d2a4e8d1a374a433f596ad1440">详解Java中的clone方法 – 原型模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/q258523454/article/details/88942478">Java浅拷贝和深拷贝(一文足矣)，及String类型的坑。</a></li>
+</ul>
+</blockquote>
+<h5 id="1-2-toString-方法">1.2 <code>toString()</code> 方法</h5>
+<p>POJO 类必须写 <code>toString</code> 方法。</p>
+<h5 id="1-3-getClass-方法">1.3 <code>getClass()</code> 方法</h5>
+<p>返回对象的类。</p>
+<h5 id="1-4-finalize-方法">1.4 <code>finalize()</code> 方法</h5>
+<p>用于实例被垃圾回收器回收时的触发的操作。</p>
+<blockquote>
+<p>当 GC (垃圾回收器) 确定不存在对该对象的有更多引用时，对象的垃圾回收器就会调用这个方法。</p>
+</blockquote>
+<p>工作原理：</p>
+<p>一旦垃圾回收器准备好释放对象占用的存储空间，将首先调用其 <code>finalize()</code> 方法，并且在下一次垃圾回收动作发生时，才会真正回收对象占用的内存。</p>
+<h5 id="1-5-equals-方法">1.5 <code>equals()</code> 方法</h5>
+<p>用于比较两个对象是否相等。</p>
+<blockquote>
+<p><code>equals()</code> 方法比较两个对象，是判断两个对象引用指向的是同一个对象，即它只是检查两个对象是否指向内存中的同一个地址。</p>
+</blockquote>
+<p><code>Object</code> 类的 <code>equals()</code> 源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果希望不同内存但相同内容的两个对象使用 <code>equals()</code> 时返回 true，则需要重写父类的 <code>equal()</code>。String 类已经重写了 <code>Object</code> 类中的 <code>equals()</code>，比较内容是否相等。</p>
+<p><code>String</code> 类的 <code>equals()</code> 源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object anObject)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span> == anObject) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">anotherString</span> <span class="operator">=</span> (String)anObject;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> value.length;</span><br><span class="line">        <span class="keyword">if</span> (n == anotherString.value.length) &#123;</span><br><span class="line">            <span class="type">char</span> v1[] = value;</span><br><span class="line">            <span class="type">char</span> v2[] = anotherString.value;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>==</code> 和 <code>equals()</code> 比较：</p>
+<ul>
+<li><code>==</code> 是判断两个对象的<mark>内存地址</mark>是否相等，即判断是否是同一个对象。</li>
+<li><code>equals()</code> 有两种情况：
+<ol>
+<li>第一种情况就是没有被重写的 <code>equals()</code> 方法，它就相当于通过 <code>==</code> 去比较；</li>
+<li>第二种情况是重写了的 <code>equals()</code> 方法，一般重写后都是去比较两个对象的内容（或者说属性）是否相等，具体看重写的方法。</li>
+</ol>
+</li>
+</ul>
+<h5 id="1-6-hashCode-方法">1.6 <code>hashCode()</code> 方法</h5>
+<p>用于获取对象的 hash 值（是一个整数，表示在哈希表中的位置）</p>
+<p><strong>如果两个对象相等，那么它们的 hashCode 值一定要相等</strong></p>
+<blockquote>
+<p>想象一下，假如两个 Java 对象 A 和 B，A 和 B 相等（<code>eqauls()</code> 结果为 true），但 A 和 B 的 hashCode不同，则 A 和 B 存入 HashMap 时的哈希码计算得到的 HashMap 内部数组位置索引可能不同，那么 A 和 B 很有可能允许同时存入 HashMap，显然相等 / 相同的元素是不允许同时存入 HashMap，HashMap 不允许存放重复元素。</p>
+</blockquote>
+<p><strong>不同对象的 hashCode 可能相同</strong></p>
+<blockquote>
+<p>假如两个 Java 对象 A 和 B，A 和 B 不相等（<code>eqauls()</code> 结果为 false），但 A 和 B 的 hashCode 相等，将 A 和 B 都存入 HashMap 时会发生哈希冲突，也就是 A 和 B 存放在 HashMap 内部数组的位置索引相同，这时 HashMap 会在该位置建立一个链接表，将 A 和 B 串起来放在该位置，显然，该情况不违反 HashMap 的使用原则，是允许的。当然，<font color = blue>哈希冲突越少越好，尽量采用好的哈希算法以避免哈希冲突。</font></p>
+</blockquote>
+<p><strong>hashCode 不同的对象一定不相等</strong></p>
+<p><font color = red>如果子类重写了 equals() 方法，就需要重写 <code>hashCode()</code>方法</font>。比如 String 类就重写了 <code>equals()</code> 方法，同时也重写了 <code>hashCode()</code> 方法。</p>
+<blockquote>
+<p>因为当你需要将对象存入到底层为散列表结构的集合中时，是先判断 hashcode 值，碰到相同值时再通过 <code>equals()</code> 进一步判断。<code>hashCode()</code> 和 <code>equals()</code> 两个方法用来协同判断两个对象是否相等的，采用这种方式的原因是可以提高程序插入和查询的速度。如果在重写 <code>equals()</code> 时，不重写 <code>hashCode()</code>，就会导致在某些场景下，例如将两个相等的自定义对象存储在 Set 集合时，如果只重写了 equals 方法，那么默认情况下，Set 进行去重操作时，会先判断两个对象的 hashCode 是否相同，此时因为没有重写 hashCode 方法，所以会直接执行 Object 中的 hashCode 方法，而 Object 中的 hashCode 方法对比的是两个不同引用地址的对象，所以结果是 false，那么 equals 方法就不用执行了，直接返回的结果就是 false：两个对象不是相等的，于是就在 Set 集合中插入了两个相同的对象；但是，如果在重写 equals 方法时，也重写了 hashCode 方法，那么在执行判断时会去执行重写的 hashCode 方法，此时对比的是两个对象的所有属性的 hashCode 是否相同，于是调用 hashCode 返回的结果就是 true，再去调用 equals 方法，发现两个对象确实是相等的，于是就返回 true 了，因此 Set 集合就不会存储两个一模一样的数据了，于是整个程序的执行就正常了。</p>
+<p><font color = blue>但这其实是针对当该类会在HashSet, Hashtable, HashMap等等这些本质是散列表的数据结构中用到的时候这种情况。</font></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Qian123/p/5703507.html#_label1">Java提高篇——equals()与hashCode()方法详解</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1910930">面试官：重写 equals 时为什么一定要重写 hashCode？</a></p>
+</blockquote>
+<hr>
+<h5 id="1-7-wait-方法及其重载">1.7 <code>wait()</code> 方法及其重载</h5>
+<ol>
+<li>
+<p><code>wait()</code> 方法</p>
+<blockquote>
+<p>让当前线程进入等待状态（直到其它线程调用此对象的 <code>notify()</code> 方法或 <code>notifyAll()</code> 方法）</p>
+</blockquote>
+</li>
+<li>
+<p><code>wait(long timeout)</code> 方法</p>
+<blockquote>
+<p>让当前线程处于等待（阻塞）状态，直到其他线程调用此对象的 <code>notify()</code> 方法或 <code>notifyAll()</code>方法，或者超过参数 timeout 设置的超时时间。</p>
+<ul>
+<li>如果 timeout 参数为 0，则不会超时，会一直进行等待</li>
+<li>timeout - 等待时间，以毫秒为单位</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><code>wait(long timeout, int nanos)</code> 方法</p>
+<blockquote>
+<p>与 <code>wait(long timeout)</code> 方法类似，多了一个 nanos 参数，这个参数表示额外时间（以纳秒为单位，范围是 0-999999）</p>
+</blockquote>
+</li>
+</ol>
+<p>注意事项：</p>
+<ul>
+<li><font color = red>当前线程必须是此对象的监视器所有者</font>，否则会发生 <strong>IllegalMonitorStateException</strong> 异常。</li>
+<li>如果当前线程在等待之前或在等待时被任何线程中断，则会抛出 <strong>InterruptedException</strong> 异常。</li>
+<li>如果传递的参数不合法，则会抛出 <strong>IllegalArgumentException</strong> 异常。</li>
+</ul>
+<h5 id="1-8-notify-方法">1.8 <code>notify()</code> 方法</h5>
+<p>用于唤醒在该对象上等待的<mark>某个</mark>线程</p>
+<ul>
+<li>如果所有的线程都在此对象上等待，那么只会选择一个线程，选择是任意性的，并在对实现做出决定时发生。</li>
+<li><code>notify()</code> 方法只能被<font color = blue>作为此对象监视器的所有者的线程</font>来调用。</li>
+</ul>
+<p>一个线程要想成为对象监视器的所有者，可以使用以下 3 种方法：</p>
+<ul>
+<li>执行对象的同步实例方法</li>
+<li>使用 synchronized 内置锁</li>
+<li>对于 Class 类型的对象，执行同步静态方法</li>
+</ul>
+<p>一次只能有一个线程拥有对象的监视器。</p>
+<p>一个线程在对象监视器上等待可以调用 wait() 方法。</p>
+<h5 id="1-9-notifyAll-方法">1.9 <code>notifyAll()</code> 方法</h5>
+<p>用于唤醒在该对象上等待的<mark>所有</mark>线程</p>
+<p><font color = orange>等待/通知机制，是指线程 A 调用了对象 O 的 <code>wait()</code> 方法进入等待状态，而线程 B 调用了对象 O 的 <code>notify()</code> / <code>notifyAll()</code> 方法，线程 A 收到通知后退出等待队列，进入可运行状态，进而执行后续操作。上述两个线程通过对象O来完成交互，而对象上的 <code>wait()</code> 方法和 <code>notify()</code> / <code>notifyAll()</code> 方法的关系就如同开关信号一样，用来完成等待方和通知方之间的交互工作。</font></p>
+<hr>
+<h3 id="2-包装类">2. 包装类</h3>
+<p>Java 为每种基本数据类型分别设计了对应的类，称之为包装类 (Wrapper Classes)。</p>
+<table>
+<thead>
+<tr>
+<th>基本数据类型</th>
+<th>对应的包装类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Character</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+</tbody>
+</table>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./Images/OOP_WrapperClass.png" alt="OOP_WrapperClass" style="zoom:80%;" />
+<blockquote>
+<ul>
+<li>所有的包装类 (Byte, Short, Integer, Long, Float, Double) 都是抽象类 <strong>Number</strong> 的子类。</li>
+<li>每个包装类的对象可以封装一个相应的基本类型的数据，并提供了其它一些有用的方法。</li>
+<li><font color = red>包装类对象一经创建，其内容（所封装的基本类型数据值）不可改变。</font></li>
+</ul>
+</blockquote>
+<p>基本类型和对应的包装类可以相互装换：</p>
+<ul>
+<li>
+<p>由基本类型向对应的包装类转换称为装箱</p>
+<ol>
+<li>使用 <code>valueOf()</code> 方法将基本类型转换为相应的包装类对象，如：<code>Integer obj = Integer.valueOf(6);</code></li>
+<li>Java 编译器可以直接将基本类型转换为相应的对象<font color = blue>（自动装箱）</font>，如：<code>Integer obj = 6;</code></li>
+<li>使用包装类 (Wrapper) 构造函数将基本类型转换为包装对象。<mark>（但是在 Java 9 之后，不再使用构造函数）</mark></li>
+</ol>
+</li>
+<li>
+<p>包装类向对应的基本类型转换称为拆箱</p>
+<ol>
+<li>
+<p>使用每个包装类中对应的值方法（ <code>intValue()</code>、<code>doubleValue()</code> 等）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">obj</span> <span class="operator">=</span> <span class="number">6</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> obj.intValue();</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Java 编译器可以自动将对象转换为相应的原始类型<font color = blue>（自动拆箱）</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">obj</span> <span class="operator">=</span> <span class="number">6</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> obj;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p>特别地，</p>
+<ol>
+<li>
+<p>将字符串转换为整数</p>
+<p>Integer 类有一个静态的 <code>parseInt()</code> 方法，可以将<mark>纯数字字符串</mark>转换为整数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> Integer.parseInt(String s, <span class="type">int</span> radix); <span class="comment">// s 表示字符串，radix 表示进制，默认为 10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>将整数转化为字符串</p>
+<ol>
+<li><code>toString()</code> 方法，如：<code>String str = Integer.toString(666);</code></li>
+<li>直接在整数后面加空字符串</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>基本类型比相应的对象更有效，当需要效率时，总是建议使用基本类型。</p>
+</blockquote>
+<h3 id="3-Math-类">3. Math 类</h3>
+<h5 id="3-1-常量值">3.1 常量值</h5>
+<ul>
+<li>
+<p>Math.E</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">double</span> <span class="variable">E</span> <span class="operator">=</span> <span class="number">2.7182818284590452354</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Math.PI</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">double</span> <span class="variable">PI</span> <span class="operator">=</span> <span class="number">3.14159265358979323846</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="3-2-Math-exp-方法">3.2 Math.exp() 方法</h5>
+<p>用于返回自然数底数 e 的参数次方</p>
+<h5 id="3-3-Math-pow-方法">3.3 Math.pow() 方法</h5>
+<p>用于返回第一个参数的第二个参数次方</p>
+<h5 id="3-4-Math-sqrt-方法">3.4 Math.sqrt() 方法</h5>
+<p>用于返回参数的算术平方根</p>
+<h5 id="3-5-Math-cbrt-方法">3.5 Math.cbrt() 方法</h5>
+<p>用于返回参数的立方根</p>
+<h5 id="3-6-Math-ceil-方法">3.6 Math.ceil() 方法</h5>
+<p>对一个数进行<mark>上舍入</mark>，返回值大于或等于给定的参数，类型为 double 型</p>
+<ul>
+<li>个人理解：<font color = blue>假设一个坐标轴，给定的参数为上面一点，返回的是给定参数的<font color = red>右边部分的最左端</font>的整数值</font></li>
+</ul>
+<h5 id="3-7-Math-floor-方法">3.7 Math.floor() 方法</h5>
+<p>对一个数进行<mark>下舍入</mark>，返回值小于或等于给定的参数，类型为 double 型</p>
+<ul>
+<li>个人理解：<font color = blue>假设一个坐标轴，给定的参数为上面一点，返回的是给定参数的<font color = red>左边部分的最右端</font>的整数值</font></li>
+</ul>
+<h5 id="3-8-Math-rint-方法">3.8 Math.rint() 方法</h5>
+<p>返回最接近参数的整数值<font color = red>（如果有 2 个数同样接近，则会返回偶数的那个）</font></p>
+<h5 id="3-9-Math-round-方法">3.9 Math.round() 方法</h5>
+<p>“四舍五入”：</p>
+<ul>
+<li>
+<p>参数为正数：小数部分 ≥0.5 时，整数取值向右一个整数，即+1。</p>
+</li>
+<li>
+<p>参数为负数：小数部分 ≤0.5 时，取值右侧的整数。</p>
+</li>
+</ul>
+<p>注意事项：</p>
+<ul>
+<li>参数为 float 型时返回 int 型值</li>
+<li>参数为 double 型时返回 long 型值</li>
+</ul>
+<h5 id="3-10-Math-random-方法">3.10 Math.random() 方法</h5>
+<p>用于返回一个随机数，随机数范围为 <code>0.0 =&lt; Math.random &lt; 1.0</code></p>
+<h3 id="4-Random-类">4. Random 类</h3>
+<p>Random 类共有两种构造方法：</p>
+<ol>
+<li>
+<p><code>Random()</code></p>
+<blockquote>
+<p>此构造方法是以系统自身的时间为种子数来构造 Random 对象。</p>
+</blockquote>
+</li>
+<li>
+<p><code>Random(long)</code></p>
+<blockquote>
+<p>此构造方法可以自己来选定具体的种子来构造 Random 对象。</p>
+</blockquote>
+</li>
+</ol>
+<p><font color = red>虽然 Random 类产生的数字是随机的，但在相同种子数（seed）下的相同次数产生的随机数是相同的（伪随机）。</font></p>
+<h3 id="5-Date-类">5. Date 类</h3>
+<p>封装当前的日期和时间。</p>
+<p>Date 类提供两个构造函数来实例化 Date 对象：</p>
+<ol>
+<li>
+<p><code>Date()</code></p>
+<blockquote>
+<p>使用当前日期和时间来初始化对象。</p>
+</blockquote>
+</li>
+<li>
+<p><code>Date(long)</code></p>
+<blockquote>
+<p>接收一个参数，该参数是自 1970 年 1 月 1 日 00:00:00 GMT 以来的毫秒。</p>
+</blockquote>
+</li>
+</ol>
+<p><code>getTime()</code> 方法</p>
+<blockquote>
+<p>返回自 1970 年 1 月 1 日 00:00:00 GMT 以来此 Date 对象表示的毫秒数。</p>
+</blockquote>
+<p><strong>格式化日期</strong></p>
+<ul>
+<li>
+<p>使用 SimpleDateFormat 类</p>
+<p>代码片段示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="type">SimpleDateFormat</span> <span class="variable">sdf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd hh:mm:ss&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;当前时间为: &quot;</span> + ft.format(date));</span><br></pre></td></tr></table></figure>
+<p><font color = blue>SimpleDateFormat 类的 <code>parse()</code> 方法能够按照给定的 SimpleDateFormat 对象的格式化存储来解析字符串</font></p>
+<blockquote>
+<p>更多有关 SimpleDateFormat 类内容详见：<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-date-time.html">Java 日期时间 | 菜鸟教程 (runoob.com)</a></p>
+</blockquote>
+</li>
+<li>
+<p>使用 <code>printf()</code> 方法</p>
+<p>使用两个字母格式，以 <strong>%t</strong> 开头</p>
+<blockquote>
+<p>更多有关 <code>printf()</code> 方法内容详见：<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-date-time.html">Java 日期时间 | 菜鸟教程 (runoob.com)</a></p>
+</blockquote>
+</li>
+</ul>
+<p><code>sleep()</code> 使当前线程进入停滞状态（阻塞当前线程）</p>
+<h3 id="6-Calendar-类">6. Calendar 类</h3>
+<blockquote>
+<p>Calendar 类是一个抽象类，在实际使用时实现特定的子类的对象，创建对象的过程对程序员来说是透明的，只需要使用 <code>getInstance()</code> 方法创建即可。</p>
+</blockquote>
+<ul>
+<li>
+<p>创建一个代表系统当前日期的 Calendar 对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Calendar</span> <span class="variable">c</span> <span class="operator">=</span> Calendar.getInstance();</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建一个指定日期的 Calendar 对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Calendar</span> <span class="variable">c</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">c.set(<span class="type">int</span> field, <span class="type">int</span> value); <span class="comment">// 第一种</span></span><br><span class="line">c.set(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> date); <span class="comment">// 第二种</span></span><br><span class="line">c.set(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> date, <span class="type">int</span> hourOfDay, <span class="type">int</span> minute); <span class="comment">// 第三种</span></span><br><span class="line">c.set(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> date, <span class="type">int</span> hourOfDay, <span class="type">int</span> minute, <span class="type">int</span> second); <span class="comment">// 第四种</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>
+<p>Calendar 类的月份是从 0 开始的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Calendar</span> <span class="variable">c</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">c.set(<span class="number">2024</span>, <span class="number">2</span> - <span class="number">1</span>, <span class="number">27</span>, <span class="number">10</span>, <span class="number">57</span>); <span class="comment">// 2 - 1 表示 2 月份</span></span><br><span class="line">System.out.println(c.getTime());</span><br><span class="line">System.out.println(c.get(Calendar.MONTH) + <span class="number">1</span>); <span class="comment">// + 1 还原本来的月份值</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Calendar 类的 DAY_OF_WEEK 是从星期日开始的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Calendar</span> <span class="variable">c</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">c.set(<span class="number">2024</span>, <span class="number">2</span> - <span class="number">1</span>, <span class="number">27</span>, <span class="number">10</span>, <span class="number">57</span>);</span><br><span class="line">System.out.println(c.getTime());</span><br><span class="line">System.out.println(c.get(Calendar.DAY_OF_WEEK) - <span class="number">1</span>); <span class="comment">// - 1 还原本来的星期值</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>将日期设为 0 以后，月份将变成了上个月，但月份可以为0</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Calendar</span> <span class="variable">c</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">c.set(<span class="number">2024</span>, <span class="number">2</span> - <span class="number">1</span>, <span class="number">0</span>); <span class="comment">// 结果为 1 月 31 日</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>常用 Calendar 类对象字段类型</p>
+<table>
+<thead>
+<tr>
+<th>常量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calendar.YEAR</td>
+<td>年份</td>
+</tr>
+<tr>
+<td>Calendar.MONTH</td>
+<td>月份</td>
+</tr>
+<tr>
+<td>Calendar.DATE</td>
+<td>日期</td>
+</tr>
+<tr>
+<td>Calendar.DAY_OF_MONTH</td>
+<td>日期，和 Calendar.DATE 意义完全相同</td>
+</tr>
+<tr>
+<td>Calendar.HOUR</td>
+<td>12 小时制的小时</td>
+</tr>
+<tr>
+<td>Calendar.HOUR_OF_DAY</td>
+<td>24 小时制的小时</td>
+</tr>
+<tr>
+<td>Calendar.MINUTE</td>
+<td>分钟</td>
+</tr>
+<tr>
+<td>Calendar.SECOND</td>
+<td>秒</td>
+</tr>
+<tr>
+<td>Calendar.DAY_OF_WEEK</td>
+<td>星期几</td>
+</tr>
+</tbody>
+</table>
+<p>Calendar 类的 <code>add(int field, int amount)</code> 方法在可以给定的日历字段中增加或减去指定的时间量</p>
+<p>Calendar 的 <code>getInstance()</code> 方法返回一个默认用当前的语言环境和时区初始化的 <font color = blue>GregorianCalendar</font> 对象。</p>
+<ul>
+<li>特别地，GregorianCalendar 类中含有一个 <code>isLeapYear(int year)</code> 方法，用于确定给定的年份是否为闰年。</li>
+</ul>
+<h3 id="7-String-类">7. String 类</h3>
+<p>String 为<mark>字符串常量</mark>。即：String 对象创建后是不可以更改的（改变的只是地址，<font color = red>原来的字符串还是存在的</font>，并且产生垃圾）。</p>
+<p>举例说明：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Hello &quot;</span>;</span><br><span class="line">str += <span class="string">&quot;World &quot;</span>;</span><br><span class="line">str = str+ <span class="string">&quot;!!!&quot;</span>;</span><br><span class="line">System.out.println(str); <span class="comment">// 输出结果为：Hello World !!!</span></span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./Images/Junk Space.png" alt="Junk Space" style="zoom:50%;" />
+<p><font color = orange>String 底层使用一个字符数组来维护，String 类的值是 final 类型的，不能被改变</font>，<font color = red>只要一个值改变就会生成一个新的 String 类型对象。</font></p>
+<blockquote>
+<p><em>String 类的构造方法详见源码</em></p>
+</blockquote>
+<p><strong>常量池</strong></p>
+<ol>
+<li>
+<p>Class 常量池</p>
+<ul>
+<li>Class 常量池在 <font color = red>.class</font> 文件中，用于存放编译器生成的各种字面量（Literal）和符号引用（Symbolic References）
+<ul>
+<li>字面量包括：文本字符串、基本数据类型的值、被声明为 final 的常量等；</li>
+<li>符号引用包括：类和接口的全限定名、字段名称和描述符、方法名称和描述符。</li>
+</ul>
+</li>
+<li>每个 .class 文件都有一个 Class 常量池</li>
+</ul>
+<blockquote>
+<p>Class 文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是<mark>常量池表（Constant Pool Table）</mark>，用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到<font color = blue>方法区的运行时常量池</font>中。</p>
+</blockquote>
+</li>
+<li>
+<p>运行时常量池</p>
+<p>运行时常量池是 Class 常量池被加载到内存之后的版本，每个 Class 对应一个运行时常量池</p>
+<ul>
+<li>字面量可以动态的添加（通过 String 类的 <code>intern()</code> 方法)</li>
+<li>符号引用可以被解析为直接引用</li>
+<li><font color = purple>运行时常量池包含字符串常量池和其它运行时常量</font></li>
+</ul>
+</li>
+<li>
+<p>字符串常量池</p>
+<ul>
+<li>字符串池在JDK 1.7 之后被分离到堆区</li>
+<li>字符串常量池是 JVM 实例全局共享的，全局只有一个，存放的是字符串常量的引用值</li>
+<li><mark>字符串常量池中的字符串只存在一份！</mark>（字符串常量池的好处就是减少相同内容字符串的创建，节省内存空间）</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>JDK1.6：运行时常量池、字符串常量池是在<strong>方法区</strong>内</li>
+<li>JDK1.8：元空间（metaspace）成为方法区的新实现，运行时常量池、字符串常量池被移动到<strong>堆</strong>中。</li>
+</ul>
+</blockquote>
+<p><strong>创建字符串对象方式：</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32625839/article/details/82634076">Java 中 String 创建对象过程及其运算原理</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yuiop123455/article/details/107242285">String 创建字符串的几种方式，以及在内存中的情况（JAVA）</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.joshua317.com/article/242">Java 中创建 String 对象的两种方式</a></p>
+</blockquote>
+<ol>
+<li>
+<p><font color = green>直接赋值</font>方式创建，对象是在<font color = red>字符串常量池</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>通过直接赋值方式创建字符串对象时，JVM 首先会对这个字符串进行检查，如果字符串常量池中存在相同内容的字符串对象的引用，则将这个引用返回；如果不存在，则在字符串常量池中创建该字符串对象并且返回引用。</p>
+</li>
+<li>
+<p><font color = green>通过构造方法</font>创建，字符串对象是在<font color = red>堆内存</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在 new String 对象的时候，</span></span><br><span class="line"><span class="comment"> * 1.如果所需字符串在创建对象之前，就在常量池中已经存在了，那么：</span></span><br><span class="line"><span class="comment"> *     1.1 在堆里面创建一个对象，把字符串名指向这个对象；</span></span><br><span class="line"><span class="comment"> *     1.2 把这个对象的成员变量 value[] 的值指向常量池中的对象。</span></span><br><span class="line"><span class="comment"> * 2.如果所需字符串创建对象之前，在常量池中不存在：</span></span><br><span class="line"><span class="comment"> *     2.1 在堆里面创建一个对象，把字符串名指向这个对象；</span></span><br><span class="line"><span class="comment"> *     2.2 而常量池中没有值为所需字符串的对象，于是进行创建；</span></span><br><span class="line"><span class="comment"> *     2.3 然后字符串名指向的对象的成员变量 value[] 指向常量池值为&quot;hello&quot;这个对象就行了。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>); </span><br></pre></td></tr></table></figure>
+<p>通过构造方法来构造字符串对象时，不管字符串常量池中有没有相同内容的对象的引用，新的字符串对象都会创建。</p>
+<ul>
+<li>使用构造方法进行 String 类对象实例化，产生的对象不会保存在对象池中，此对象无法重用。如果想将这个对象的引用加入到字符串常量池，只能通过手工入池方法完成：<code>public native String intern();</code> 。<code>intern()</code> 方法用于<mark>在运行时</mark>将字符串添加到内部的字符串池中。调用 <code>intern()</code> 后，首先检查字符串常量池中是否有该对象的引用，如果存在，则将这个引用返回给变量，否则将引用加入并返回给变量。</li>
+</ul>
+</li>
+</ol>
+<p>注意事项：</p>
+<ol>
+<li><font color = blue>实际开发中都是采用<mark>直接赋值</mark>方式，并且不要频繁修改，因为会产生垃圾空间；</font></li>
+<li><font color = blue>开发中，在比较字符串内容是否相同时，一般将常量写在前面，这样避免 <code>equals()</code> 前面的字符串内容为 null，<code>equals()</code> 方法本身具有 null 判断的功能。</font></li>
+</ol>
+<p><strong>String 类常用方法：</strong></p>
+<p>![String Common Method](./Images/String Common Method.png)</p>
+<p>特别地，<code>trim()</code> 方法用于删除字符串的<mark>头部和尾部</mark>空白，不包括字符串中间的空白。</p>
+<p><strong>StringBuilder 和 StringBuffer 类</strong></p>
+<p>当对字符串进行修改的时候，需要使用 StringBuilder 和 StringBuffer 类。</p>
+<blockquote>
+<p>和 String 类不同的是，StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。</p>
+</blockquote>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./Images/Java String.png" alt="Java String" style="zoom:50%;" />
+<blockquote>
+<p><em>StringBuilder 和 StringBuffer 类的 API详见源码</em></p>
+</blockquote>
+<ul>
+<li>StringBuilder 和 StringBuffer 类的容量（capacity） 默认为 16，可以通过构造函数指定容量；如果通过构造函数传入的是字符串或是字符序列，那么 capacity 大小在字符串长度的基础上再加 16。</li>
+</ul>
+<p><strong>String、StringBuffer 和 StringBuilder 之间的区别</strong>：</p>
+<ul>
+<li>
+<p>String 为字符串常量；StringBuffer、StringBuilder 均为字符串<mark>变量</mark>。</p>
+</li>
+<li>
+<p>执行速度比较：StringBuilder &gt; StringBuffer &gt; String（大多数情况下）</p>
+<blockquote>
+<p>StringBuffer 和 StringBuilder 对象是变量，对变量操作就是对对象进行直接操作，不会进行创建，删除操作。因此在某些情况下 String 的执行速度是比较慢的，因为操作 String 对象时可能会有删除、新建操作。</p>
+</blockquote>
+</li>
+<li>
+<p>在线程安全方面，StringBuffer 中很多方法都被 synchronized 关键字修饰，所以可以保证线程是安全的。</p>
+<ul>
+<li>如果要进行的操作是多线程的，那么就要使用 StringBuffer；</li>
+<li>但是在单线程的情况下，建议使用速度比较快的 StringBuilder。</li>
+</ul>
+</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>String 适合在少量字符串操作的情况下使用；</li>
+<li>StringBuilder 适合<font color = blue>单线程</font>下在字符缓冲区进行大量操作的情况；</li>
+<li>StringBuffer 适合<font color = blue>多线程</font>下在字符缓冲区进行大量操作的情况。</li>
+</ul>
+<h3 id="8-File-类">8. File 类</h3>
+<blockquote>
+<p>Java 文件类以抽象的方式代表文件名和目录路径名。该类主要用于文件和目录的创建、文件的查找和文件的删除等。</p>
+</blockquote>
+<ul>
+<li>File 对象代表磁盘中实际存在的文件和目录。</li>
+</ul>
+<p><strong>构造方法：</strong></p>
+<ol>
+<li>
+<p><code>File(String pathname, int prefixLength)</code></p>
+</li>
+<li>
+<p><code>File(String child, File parent)</code></p>
+</li>
+<li>
+<p><code>File(String pathname)</code></p>
+<blockquote>
+<p>通过将给定路径名字符串转换成抽象路径名来创建一个新 File 实例</p>
+</blockquote>
+</li>
+<li>
+<p><code>File(String parent, String child)</code></p>
+<blockquote>
+<p>根据 parent 路径名字符串和 child 路径名字符串创建一个新 File 实例</p>
+</blockquote>
+</li>
+<li>
+<p><code>File(File parent, String child)</code></p>
+<blockquote>
+<p>通过给定的父抽象路径名和子路径名字符串创建一个新的 File 实例</p>
+</blockquote>
+</li>
+<li>
+<p><code>File(URI uri)</code></p>
+<blockquote>
+<p>通过将给定的 file: URI 转换成一个抽象路径名来创建一个新的 File 实例</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>常用方法：</strong></p>
+<ol>
+<li>
+<p>获取方法</p>
+<ul>
+<li>
+<p><code>public String getAbsolutePath()</code> — 返回 File 的绝对路径名字符串</p>
+<ul>
+<li><code>public String getPath()</code> — 将此 File 转换为路径名字符串，获取构造路径</li>
+<li><code>public String getName()</code> — 返回此 File 表示的文件或目录的名称</li>
+<li><code>public long length()</code> — 返回此 File 表示的文件的字节大小</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>判断方法</p>
+<ul>
+<li><code>public boolean exists()</code> — 判断此 File 标识的文件或目录是否实际存在</li>
+<li><code>public boolean isDirectory()</code> — 判断此 File 标识的是否为文件夹</li>
+<li><code>public boolean isFile()</code> — 判断此 File 表示的是否为文件</li>
+</ul>
+</li>
+<li>
+<p>创建和删除方法</p>
+<ul>
+<li><code>public boolean creatNewFile()</code> — 当且仅当不存在该名称的文件时，创建一个新的空<mark>文件</mark></li>
+<li><code>public boolean mkdir()</code> — 创建由 File 表示的<mark>目录</mark></li>
+<li><code>public boolean mkdirs()</code> — 创建由 File 表示的<mark>目录</mark>，包括任何必须但不存在的父目录</li>
+<li><code>public boolean delete()</code> — 删除由此 File 表示的文件或目录<font color = blue>（只能删除文件或者空文件夹，不能删除非空文件夹）</font></li>
+</ul>
+</li>
+<li>
+<p>遍历目录方法</p>
+<ul>
+<li><code>public String[] list()</code> — 返回一个 String 数组，表示该 File 目录中的所有子文件或目录的名称</li>
+<li><code>public File[] listFiles()</code> — 返回一个 File 数组，表示 File 目录中的所有子文件或目录的路径</li>
+</ul>
+</li>
+</ol>
+<p>注意事项：</p>
+<ol>
+<li>一个 File 对象代表的是硬盘中的一个路径或者一个文件</li>
+<li>无论该路径下是否存在文件或目录，都不影响 File 对象的创建</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://afelixliu.site">红油曲奇</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://afelixliu.site/posts/6dc6173b/">https://afelixliu.site/posts/6dc6173b/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://afelixliu.site" target="_blank">红油曲奇的个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_twitter"></a><a class="a2a_button_pocket"></a><a class="a2a_button_evernote"></a><a class="a2a_button_wechat"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/9bec04e7/" title="9、异常"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">9、异常</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Twikoo</span><span class="switch-btn"></span><span class="second-comment">Giscus</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">红油曲奇</div><div class="author-info__description">“技术探索与分享”</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/AFelixLiu"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">HELLO, WELCOME TO MY BLOG!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Object-%E7%B1%BB"><span class="toc-text">1. Object 类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-clone-%E6%96%B9%E6%B3%95"><span class="toc-text">1.1 clone() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-toString-%E6%96%B9%E6%B3%95"><span class="toc-text">1.2 toString() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3-getClass-%E6%96%B9%E6%B3%95"><span class="toc-text">1.3 getClass() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-finalize-%E6%96%B9%E6%B3%95"><span class="toc-text">1.4 finalize() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-5-equals-%E6%96%B9%E6%B3%95"><span class="toc-text">1.5 equals() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-6-hashCode-%E6%96%B9%E6%B3%95"><span class="toc-text">1.6 hashCode() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-7-wait-%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E9%87%8D%E8%BD%BD"><span class="toc-text">1.7 wait() 方法及其重载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-8-notify-%E6%96%B9%E6%B3%95"><span class="toc-text">1.8 notify() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-9-notifyAll-%E6%96%B9%E6%B3%95"><span class="toc-text">1.9 notifyAll() 方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="toc-text">2. 包装类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Math-%E7%B1%BB"><span class="toc-text">3. Math 类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-%E5%B8%B8%E9%87%8F%E5%80%BC"><span class="toc-text">3.1 常量值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-Math-exp-%E6%96%B9%E6%B3%95"><span class="toc-text">3.2 Math.exp() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-Math-pow-%E6%96%B9%E6%B3%95"><span class="toc-text">3.3 Math.pow() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-Math-sqrt-%E6%96%B9%E6%B3%95"><span class="toc-text">3.4 Math.sqrt() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-5-Math-cbrt-%E6%96%B9%E6%B3%95"><span class="toc-text">3.5 Math.cbrt() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-6-Math-ceil-%E6%96%B9%E6%B3%95"><span class="toc-text">3.6 Math.ceil() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-7-Math-floor-%E6%96%B9%E6%B3%95"><span class="toc-text">3.7 Math.floor() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-8-Math-rint-%E6%96%B9%E6%B3%95"><span class="toc-text">3.8 Math.rint() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-9-Math-round-%E6%96%B9%E6%B3%95"><span class="toc-text">3.9 Math.round() 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-10-Math-random-%E6%96%B9%E6%B3%95"><span class="toc-text">3.10 Math.random() 方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Random-%E7%B1%BB"><span class="toc-text">4. Random 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Date-%E7%B1%BB"><span class="toc-text">5. Date 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Calendar-%E7%B1%BB"><span class="toc-text">6. Calendar 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-String-%E7%B1%BB"><span class="toc-text">7. String 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-File-%E7%B1%BB"><span class="toc-text">8. File 类</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/6dc6173b/" title="10、常用类"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="10、常用类"/></a><div class="content"><a class="title" href="/posts/6dc6173b/" title="10、常用类">10、常用类</a><time datetime="2024-05-03T13:34:52.000Z" title="更新于 2024-05-03 21:34:52">2024-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9bec04e7/" title="9、异常"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="9、异常"/></a><div class="content"><a class="title" href="/posts/9bec04e7/" title="9、异常">9、异常</a><time datetime="2024-05-03T08:23:37.000Z" title="更新于 2024-05-03 16:23:37">2024-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/de0d014a/" title="8、面向对象"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="8、面向对象"/></a><div class="content"><a class="title" href="/posts/de0d014a/" title="8、面向对象">8、面向对象</a><time datetime="2024-05-03T08:23:25.000Z" title="更新于 2024-05-03 16:23:25">2024-05-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 红油曲奇</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.9.0"></script><script src="/js/main.js?v=4.9.0"></script><script src="/js/tw_cn.js?v=4.9.0"></script><script src="https://unpkg.com/@fancyapps/ui@5.0.19/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://unpkg.com/vanilla-lazyload@17.8.3/dist/lazyload.iife.min.js"></script><script src="https://unpkg.com/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://unpkg.com/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css"><script src="https://unpkg.com/katex@0.16.7/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://unpkg.com/mermaid@10.2.2/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  function abcjsInit() {
+    function abcjsFn() {
+      for (let abcContainer of document.getElementsByClassName("abc-music-sheet")) {
+        ABCJS.renderAbc(abcContainer, abcContainer.innerHTML, {responsive: 'resize'})
+      }
+    }
+    
+    typeof ABCJS === 'object' ? abcjsFn()
+      : getScript('https://unpkg.com/abcjs@6.2.2/dist/abcjs-basic-min.js').then(abcjsFn)
+  }
+
+  window.pjax ? abcjsInit() : document.addEventListener('DOMContentLoaded', abcjsInit)
+})()</script><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.vercel.afelixliu.site/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.vercel.afelixliu.site/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.textContent = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://unpkg.com/twikoo@1.6.16/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script><script>function getGiscusTheme (theme) {
+  return theme === 'dark' ? 'dark' : 'light'
+}
+
+function loadGiscus () {
+  const config = Object.assign({
+    src: 'https://giscus.app/client.js',
+    'data-repo': 'AFelixLiu/Blog_Giscus',
+    'data-repo-id': 'R_kgDOJuFraQ',
+    'data-category-id': 'DIC_kwDOJuFrac4CXIdC',
+    'data-mapping': 'pathname',
+    'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+    'data-reactions-enabled': '1',
+    crossorigin: 'anonymous',
+    async: true
+  },{"data-category":"Announcements","data-mapping":"pathname","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":1,"data-input-position":"top","data-lang":"zh-CN"})
+
+  let ele = document.createElement('script')
+  for (let key in config) {
+    ele.setAttribute(key, config[key])
+  }
+  document.getElementById('giscus-wrap').insertAdjacentElement('afterbegin',ele)
+}
+
+function changeGiscusTheme (theme) {
+  function sendMessage(message) {
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (!iframe) return
+    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app')
+  }
+
+  sendMessage({
+    setConfig: {
+      theme: getGiscusTheme(theme)
+    }
+  });
+}
+
+btf.addModeChange('giscus', changeGiscusTheme)
+
+if ('Twikoo' === 'Giscus' || !false) {
+  if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+  else loadGiscus()
+} else {
+  function loadOtherComment () {
+    loadGiscus()
+  }
+}</script></div><script src="/js/seniverse.js"></script><script id="canvas_nest" defer="defer" color="0,23,127" opacity="1" zIndex="-1" count="100" mobile="true" src="https://unpkg.com/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://unpkg.com/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(() => {
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "6ad448f8-30ff-4215-9667-29ccdc99e37c";
+  (function () {
+    d = document;
+    s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
+  $crisp.push(["safe", true])
+
+  const isChatBtn = true
+  const isChatHideShow = true
+
+  if (isChatBtn) {
+    const open = () => {
+      $crisp.push(["do", "chat:show"])
+      $crisp.push(["do", "chat:open"])
+    }
+
+    const close = () => {
+      $crisp.push(["do", "chat:hide"])
+    }
+
+    close()
+    $crisp.push(["on", "chat:closed", function() {
+      close()
+    }])
+
+    window.chatBtnFn = () => {
+      $crisp.is("chat:visible") ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => {
+        $crisp.push(["do", "chat:hide"])
+      },
+      show: () => {
+        $crisp.push(["do", "chat:show"])
+      }
+    }
+  }
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.9.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '50c58ab4ebca4b6a89fab2676a4728cb';
+  var gaud_map_key = '08b28608b71dc68619ecb29eec4aba45';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.312874,26.773117';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.js"></script><!-- hexo injector body_end end --></body></html>
