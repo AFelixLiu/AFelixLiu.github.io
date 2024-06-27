@@ -1,6 +1,533 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>11、集合框架</title>
+    <url>/posts/ce8ed1d4/</url>
+    <content><![CDATA[<h3 id="1-为什么使用集合框架">1. 为什么使用集合框架</h3>
+<blockquote>
+<p>如果并不知道程序运行时会需要多少对象，或者需要更复杂的方式存储对象，那我们就可以使用 Java 的集合框架！</p>
+</blockquote>
+<h3 id="2-集合框架包含的内容">2. 集合框架包含的内容</h3>
+<blockquote>
+<p>Java 集合框架提供了一套性能优良，使用方便的接口和类，Java 集合框架位于 <code>java.util</code> 包中</p>
+</blockquote>
+<img src="/posts/ce8ed1d4/Collection_Framework.gif" class="">
+<p>Java 集合框架主要包括两种类型的容器：</p>
+<ul>
+<li>
+<p>集合（Collection），存储一个元素集合</p>
+<blockquote>
+<p><font color = blue>Collection 接口</font>有 3 种<font color = blue>子接口，List、Set 和 Queue</font>，再下面是一些<font color = blue>抽象类</font>，最后是<font color = blue>具体实现类</font></p>
+</blockquote>
+</li>
+<li>
+<p>图（Map），存储键/值对映射</p>
+</li>
+</ul>
+<p>集合框架是一个用来代表和操纵集合的统一架构。所有的集合框架都包含如下内容：</p>
+<ul>
+<li>
+<p><strong>接口：</strong> 代表集合的抽象数据类型</p>
+<blockquote>
+<p>例如 Collection、List、Set、Map 等。之所以定义多个接口，是为了以不同的方式操作集合对象。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>实现（类）：</strong> 集合接口的具体实现</p>
+<blockquote>
+<p>从本质上讲，它们是可重复使用的数据结构，例如：ArrayList、LinkedList、HashSet、HashMap。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>算法：</strong> 实现集合接口的对象里的方法执行的一些有用的计算</p>
+<blockquote>
+<p>例如：搜索和排序，这些算法实现了多态，那是因为相同的方法可以在相似的接口上有着不同的实现。</p>
+</blockquote>
+</li>
+</ul>
+<p>集合框架体系如图所示：</p>
+<img src="/posts/ce8ed1d4/Collection_Framework_System.png" class="">
+<p><strong>常见的集合接口：</strong></p>
+<ul>
+<li>Collection 接口
+<ul>
+<li>存储一组<font color = red>不唯一、无序</font>的对象</li>
+<li>Java 不提供直接继承自Collection的类，只提供继承于 Collection 的子接口（如List和set）</li>
+</ul>
+</li>
+<li>List 接口
+<ul>
+<li>存储一组<font color = red>不唯一，有序</font>的对象</li>
+<li>动态增长，根据实际存储的数据的长度自动增长 List 的长度</li>
+<li>查找元素效率高</li>
+<li>插入删除效率低，因为会引起其他元素位置改变</li>
+</ul>
+</li>
+<li>Set 接口
+<ul>
+<li>存储一组<font color = red>唯一，无序</font>的对象</li>
+<li>检索效率低下</li>
+<li>删除和插入效率高，插入和删除不会引起元素位置改变</li>
+</ul>
+</li>
+<li>Map 接口
+<ul>
+<li>存储一组键值对象，提供 key 到 value 的映射</li>
+</ul>
+</li>
+</ul>
+<p><strong>常见的标准集合类：</strong></p>
+<ul>
+<li>
+<p>ArrayList</p>
+<ul>
+<li>
+<p>该类实现了 List 的接口；</p>
+</li>
+<li>
+<p>允许有 null 元素；</p>
+</li>
+<li>
+<p>实现了长度可变的数组，在内存中分配连续的空间；</p>
+</li>
+<li>
+<p>遍历元素和随机访问元素的效率比较高；</p>
+</li>
+<li>
+<p>ArrayList 增长当前长度的 50%，插入删除效率低；</p>
+</li>
+<li>
+<p>该类是非同步的,在多线程的情况下不要使用</p>
+</li>
+</ul>
+</li>
+<li>
+<p>LinkedList</p>
+<ul>
+<li>该类实现了 List 接口；</li>
+<li>允许有 null 元素；</li>
+<li>LinkedList 查找效率低；</li>
+<li>采用链表存储方式，插入、删除元素时效率比较高；</li>
+<li>该类没有同步方法</li>
+</ul>
+</li>
+<li>
+<p>HashSet</p>
+<ul>
+<li>
+<p>该类实现了 Set 接口；</p>
+</li>
+<li>
+<p>底层使用 HashMap 实现，查询效率较高；</p>
+</li>
+<li>
+<p>由于采用 hashCode 算法直接确定元素的内存地址，增删效率也挺高的；</p>
+</li>
+<li>
+<p>不允许出现重复元素；</p>
+</li>
+<li>
+<p>不保证集合中元素的顺序；</p>
+</li>
+<li>
+<p>允许包含值为 null 的元素，但最多只能一个</p>
+</li>
+</ul>
+</li>
+<li>
+<p>HashMap</p>
+<ul>
+<li>HashMap 是一个散列表，存储的内容是键值对（key-value）映射；</li>
+<li>该类实现了 Map 接口，根据键的 hashCode 值存储数据，具有很快的访问速度；</li>
+<li>最多允许一条记录的键为null，不支持线程同步</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-ArrayList-类">3. ArrayList 类</h3>
+<blockquote>
+<p>ArrayList 是可以动态增长和缩减的索引序列，它是基于数组实现的 List 类。该类封装了一个动态再分配的 Object[] 数组，每一个类对象都有一个 capacity 属性，表示它们所封装的 Object[] 数组的长度，当向 ArrayList 中添加元素时，该属性值会自动增加。</p>
+<p>如果想 ArrayList 中添加大量元素，可使用 <mark><code>ensureCapacity</code></mark> 方法一次性增加 capacity，可以减少增量重新分配的次数，提高性能。</p>
+</blockquote>
+<blockquote>
+<p>ArrayList 的用法和 Vector 相类似，但是 Vector 是一个较老的集合，具有很多缺点，不建议使用。</p>
+<p>另外，ArrayList和Vector的区别是：</p>
+<ul>
+<li>ArrayList 是线程不安全的，当多条线程访问同一个ArrayList集合时，程序需要手动保证该集合的同步性；</li>
+<li>Vector 则是线程安全的。</li>
+</ul>
+</blockquote>
+<p><font color = red>ArrayList 中的元素实际上是对象，如果我们要存储其他类型，而 &lt;E&gt; 只能为引用数据类型，这时我们就需要使用到基本类型的包装类。</font></p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ArrayList&lt;E&gt; obj =<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;E&gt;();</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="3-1-ArrayList-的数据结构">3.1 ArrayList 的数据结构</h5>
+<ul>
+<li>
+<p>ArrayList 是一种线性数据结构，它的底层是用数组实现的，相当于动态数组，其容量是动态调整的。</p>
+</li>
+<li>
+<p>数组元素类型为 Object 类型，即可以存放所有类型数据。对 ArrayList 类的实例的所有的操作底层都是基于数组的。</p>
+</li>
+</ul>
+<h5 id="3-2-ArrayList-源码分析">3.2 ArrayList 源码分析</h5>
+<blockquote>
+<p>为什么要先继承 AbstractList，而让 AbstractList 先实现 List 接口？而不是让 ArrayList 直接实现 List 接口？</p>
+<p><font color = green>原因：</font>接口中全都是抽象的方法，而抽象类中可以有抽象方法，还可以有具体的实现方法，正是利用了这一点，让 AbstractList 先实现接口中一些通用的方法，而具体的类通过继承（如 ArrayList 就继承这个 AbstractList 类）拿到一些通用的方法，然后自己再实现一些自己特有的方法，这样一来，让代码更简洁，减少重复代码。</p>
+</blockquote>
+<p><strong>ArrayList 实现的接口：</strong></p>
+<ol>
+<li>
+<p>List 接口</p>
+</li>
+<li>
+<p>RandomAccess 接口</p>
+<blockquote>
+<p>一个标记性接口，它的作用就是用来快速随机存取。</p>
+<ul>
+<li><font color=orange>如果实现了该接口，使用普通的 for 循环来遍历，性能更高，例如 ArrayList；</font></li>
+<li><font color=orange>而没有实现该接口，使用 Iterator 来迭代，这样性能更高，例如 LinkedList。</font></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>Cloneable 接口</p>
+<blockquote>
+<p>实现了该接口，就可以使用 <code>Object.clone()</code> 方法</p>
+</blockquote>
+</li>
+<li>
+<p>Serializable 接口</p>
+<blockquote>
+<p>实现该序列化接口，表明该类可以被序列化</p>
+<blockquote>
+<p><font color = purple>什么是序列化？</font>简单的说，就是能够从类变成字节流传输，然后还能从字节流变成原来的类。</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<p><strong>常用方法</strong></p>
+<ul>
+<li><code>boolean add(E e)</code> - 在列表的末尾顺序添加元素（起始索引位置从 0 开始）</li>
+<li><code>void add(int index, E element)</code> - 在指定的索引位置添加元素（索引位置必须介于 0 和列表中元素个数之间）</li>
+<li><code>void grow(int minCapacity)</code> - 扩展数组大小（<font color=red><strong>ArrayList 的核心方法</strong></font>）</li>
+<li><code>E get(int index)</code> - 返回指定索引位置处的元素（<font color=red>取出的元素是 Object 类型，使用前需要进行强制类型转换</font>）</li>
+<li><code>E set(int index, E element)</code> - 修改 ArrayList 中的元素</li>
+<li><code>boolean remove(Object o)</code> - 从列表中删除元素</li>
+<li><code>E remove(int index)</code> - 从列表中删除指定位置元素（起始索引位置从0开始）</li>
+<li><code>int size()</code> - 返回列表中的元素个数</li>
+<li><code>boolean contains(Object o)</code> - 判断列表中是否存在指定元素（可能需要重写 <code>equals()</code> 方法）</li>
+<li><code>indexOf(Object o)</code> - 从头开始查找与指定元素相等的元素（包括 null 元素）</li>
+<li><code>lastIndexOf(Object o)</code> - 与 <code>indexOf()</code> 方法方向相反</li>
+</ul>
+<blockquote>
+<p>更多方法内容详见：<a href="https://www.runoob.com/java/java-arraylist.html">Java ArrayList</a></p>
+</blockquote>
+<p><strong>构造函数</strong></p>
+<ol>
+<li><code>public ArrayList(int initialCapacity)</code></li>
+<li><code>public ArrayList()</code></li>
+<li><code>public ArrayList(Collection&lt;? extends E&gt; c)</code></li>
+</ol>
+<blockquote>
+<p>简单来说，<code>ArrayList</code> 的构造方法就是初始化一下储存数据的容器，即 <code>elementData</code> 元素</p>
+</blockquote>
+<h3 id="4-LinkedList-类">4. LinkedList 类</h3>
+<blockquote>
+<p>LinkedList 是非同步的。</p>
+</blockquote>
+<h5 id="4-1-LinkedList-的数据结构">4.1 LinkedList 的数据结构</h5>
+<ul>
+<li>LinkedList 是一种可以在任何位置进行高效地插入和移除操作的有序序列，基于<mark>双向链表</mark><font color=red>（不是双向循环列表）</font>实现。</li>
+<li>LinkedList 是一个继承于 AbstractSequentialList 的双向链表。它也可以被当作堆栈、队列或双端队列进行操作。</li>
+</ul>
+<h5 id="4-2-LinkedList-源码分析">4.2 LinkedList 源码分析</h5>
+<blockquote>
+<p>内部类 Node 是实现 LinkedList 的关键。</p>
+</blockquote>
+<p><strong>LinkedList 实现的接口：</strong></p>
+<ol>
+<li>
+<p>List 接口</p>
+<blockquote>
+<p>能对 LinkedList 进行队列操作</p>
+</blockquote>
+</li>
+<li>
+<p>Deque 接口</p>
+<blockquote>
+<p>能将 LinkedList 当作双端队列使用</p>
+</blockquote>
+</li>
+<li>
+<p>Cloneable 接口</p>
+<blockquote>
+<p>重写了函数 <code>clone()</code>，能实现克隆</p>
+</blockquote>
+</li>
+<li>
+<p>Serializable 接口</p>
+<blockquote>
+<p>意味着 LinkedList 支持序列化，能通过序列化去传输</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>构造函数</strong></p>
+<ol>
+<li><code>public LinkedList()</code></li>
+<li><code>public LinkedList(Collection&lt;? extends E&gt; c)</code></li>
+</ol>
+<p><strong>常用方法</strong></p>
+<ul>
+<li>
+<p><code>boolean add(E e)</code> - 向 LinkedList 中添加一个元素，并且添加到链表尾部</p>
+</li>
+<li>
+<p><code>boolean add(Collection&lt;? extends E&gt; c)</code> - 将一个集合的所有元素添加到链表后面</p>
+</li>
+<li>
+<p><code>boolean add(int index, Collection&lt;? extends E&gt; c)</code> - 将一个集合的所有元素添加到链表的指定位置后面</p>
+</li>
+<li>
+<p><code>void addFirst(E e)</code> - 在列表的首部添加元素</p>
+</li>
+<li>
+<p><code>void addLast(E e)</code> - 在列表的尾部添加元素</p>
+</li>
+<li>
+<p><code>E get(int index)</code> - 返回指定位置的元素</p>
+</li>
+<li>
+<p><code>E getFirst()</code> - 返回列表中的第一个元素</p>
+</li>
+<li>
+<p><code>E getLast()</code> - 返回列表中的最后一个元素</p>
+</li>
+<li>
+<p><code>boolean remove(Object o)</code> - 删除某一元素</p>
+</li>
+<li>
+<p><code>E removeFirst()</code> - 删除并返回列表中的第一个元素</p>
+</li>
+<li>
+<p><code>E removeLast()</code> - 删除并返回列表中的最后一个元素</p>
+</li>
+<li>
+<p><code>int indexOf(Object o)</code> - 查找指定元素从前往后第一次出现的索引</p>
+</li>
+</ul>
+<p><strong>迭代器</strong></p>
+<ol>
+<li><font color=blue>内部类 <code>ListItr</code></font></li>
+<li><font color=blue>内部类 <code>DescendingIterator</code></font></li>
+</ol>
+<h3 id="5-Vector-和-Stack">5. Vector 和 Stack</h3>
+<h4 id="5-1-Vector">5.1 Vector</h4>
+<ul>
+<li>Vector 是一个可变化长度的数组</li>
+<li>Vector 是一个线程安全的类，如果使用需要线程安全就使用 Vector，如果不需要，就使用 ArrayList</li>
+<li><font color=green>Vector 的继承关系和层次结构与 ArrayList 一模一样</font></li>
+<li>Vector 线程安全是因为它的方法都加了 <code>synchronized</code> 关键字</li>
+</ul>
+<blockquote>
+<p><font color=orange>在开发中，建议不用 Vector，如果需要线程安全的集合类直接用 <code>java.util.concurrent</code> 包下的类。</font></p>
+<p>原因：Vector 在你不需要进行线程安全的时候，也会给你加锁，导致了额外开销。</p>
+</blockquote>
+<h5 id="5-1-1-Vector-源码分析">5.1.1 Vector 源码分析</h5>
+<p>Vector 的本质是一个数组，特点能是能够自动扩增，扩增的方式跟 capacityIncrement 的值有关</p>
+<blockquote>
+<p>属性 <code>capacityIncrement</code> 小于或等于 0 时，扩展数组时每次扩展两倍，其余情况按属性实际大小进行</p>
+</blockquote>
+<p><strong>构造函数</strong></p>
+<ol>
+<li><code>public Vector(int initialCapacity, int capacityIncrement)</code></li>
+<li><code>public Vector(int initialCapacity)</code> - 内部调用构造函数 1，并使形参 capacityIncrement 为 0</li>
+<li><code>public Vector()</code> - 内部调用构造函数 2，并使形参 initialCapacity 为 10</li>
+<li><code>public Vector(Collection&lt;? extends E&gt; c)</code></li>
+</ol>
+<p><strong>核心方法</strong></p>
+<blockquote>
+<p><font color=red>每个方法上比 ArrayList 多了一个 <code>synchronized</code> 关键字，其他都一样。</font></p>
+</blockquote>
+<h4 id="5-2-Stack">5.2 Stack</h4>
+<p><mark>Stack 为 Vector 子类</mark></p>
+<p><strong>操作方法</strong></p>
+<ol>
+<li><code>E push(E item)</code> - 把项压入堆栈顶部</li>
+<li><code>synchronized E pop()</code> - 移除堆栈顶部的对象，并作为此函数的值返回该对象</li>
+<li><code>synchronized E peek()</code> - 查看堆栈顶部的对象，但不从堆栈中移除它</li>
+<li><code>boolean empty()</code> - 测试堆栈是否为空</li>
+<li><code>synchronized int search(Object o) </code>- 返回对象在堆栈中的位置，以 1 为基数</li>
+</ol>
+<p><mark>Stack 类的方法是同步的，所以也是线程安全</mark></p>
+<h3 id="6-List-总结">6. List 总结</h3>
+<h5 id="6-1-ArrayList-和-LinkedList-区别">6.1 ArrayList 和 LinkedList 区别</h5>
+<ul>
+<li>ArrayList 底层是用数组实现的顺序表，是<mark>随机存取类型</mark>，可自动扩增，并且在初始化时，数组的长度是0，只有在增加元素时，长度才会增加。默认是10，不能无限扩增，有上限，在查询操作的时候性能更好</li>
+<li>LinkedList 底层是用链表来实现的，是一个双向链表（注意这里不是双向循环链表），<mark>顺序存取类型</mark>。在源码中，似乎没有元素个数的限制，应该能无限增加下去，直到内存满了再进行删除，增加操作时性能更好。</li>
+</ul>
+<p><strong>两者都是线程不安全的，在 iterator 时，会发生 <font color=blue>fail-fast</font></strong></p>
+<h5 id="6-2-ArrayList-和-Vector-的区别">6.2 ArrayList 和 Vector 的区别</h5>
+<ul>
+<li>ArrayList 线程不安全，在用 iterator 时会发生 <font color=blue>fail-fast</font></li>
+<li>Vector 线程安全，因为在方法前加了 <code>synchronized</code> 关键字，<font color=red>也会发生 </font><font color=blue>fail-fast</font></li>
+</ul>
+<h3 id="7-fail-fast-和-fail-safe">7. fail-fast 和 fail-safe</h3>
+<h5 id="7-1-fail-fast-和-fail-safe-什么情况下会发生">7.1 fail-fast 和 fail-safe 什么情况下会发生</h5>
+<p><font color=orange>简单来说：在 <code>java.util</code> 下的集合都是发生 fail-fast，而在 <code>java.util.concurrent</code> 下的发生的都是fail-safe。</font></p>
+<h5 id="7-2-fail-fast-和-fail-safe-区别">7.2 fail-fast 和 fail-safe 区别</h5>
+<ul>
+<li>
+<p><font color=blue>fail-fast，快速失败</font></p>
+<blockquote>
+<p>例如在 ArrayList 中使用迭代器遍历时，有另外的线程对 ArrayList 的存储数组进行了改变，比如 add、delete 等，使之发生了结构上的改变，所以 Iterator 就会快速报一个 <code>java.util.ConcurrentModificationException</code> 异常（并发修改异常），这就是快速失败。</p>
+</blockquote>
+</li>
+<li>
+<p><font color=blue>fail-safe，安全失败</font></p>
+<blockquote>
+<p>在 <code>java.util.concurrent</code> 下的类，都是线程安全的类。</p>
+<p>在迭代的过程中，如果有线程进行结构的改变，不会报异常，而是正常遍历，这就是安全失败。</p>
+</blockquote>
+</li>
+<li>
+<p>为什么在 <code>java.util.concurrent</code> 包下对集合有结构的改变，却不会报异常？</p>
+<blockquote>
+<p>在 concurrent 下的集合类增加元素的时候使用 <code>Arrays.copyOf()</code> 来拷贝副本，在副本上增加元素，如果有其他线程在此改变了集合的结构，那也是在副本上的改变，而不是影响到原集合，迭代器还是照常遍历，遍历完之后，改变原引用指向副本，所以总的一句话，就是如果在此包下的类进行增加或删除操作，就会出现一个副本，所以能防止fail-fast。这种机制并不会出错，所以我们叫这种现象为fail-safe。</p>
+</blockquote>
+</li>
+<li>
+<p>Vector 也是线程安全的，为什么是 fail-fast 呢？</p>
+<blockquote>
+<p><font color=red>并不是说线程安全的集合就不会报 fail-fast，而是报 fail-safe。</font></p>
+<p>出现 fail-safe 是因为它们在实现增删的底层机制不一样，就像上面说的，会有一个副本，而像 ArrayList、LinkedList、Vector等，它们底层就是对着真正的引用进行操作，所以才会发生异常。</p>
+</blockquote>
+</li>
+<li>
+<p>既然是线程安全的，为什么在迭代的时候，还会有别的线程来改变其集合的结构呢？</p>
+<blockquote>
+<p>因为在迭代的时候，根本就没用到集合中的删除、增加、查询的操作，就拿 Vector 来说，我们都没有使用那些加锁的方法，即方法锁放在那没人拿，在迭代的过程中，有人拿了那把锁，我们也没有办法，因为那把锁就放在那边。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="8-HashMap">8. HashMap</h3>
+<p>HashMap 基于哈希表的 Map 接口实现，存储内容是键值对 <code>&lt;key,value&gt;</code> 映射。</p>
+<p>HashMap 类不保证映射的顺序。</p>
+<h5 id="8-1-HashMap-数据结构">8.1 HashMap 数据结构</h5>
+<p><mark>HashMap 在 JDK 1.8 前的数据结构为链表散列，在 JDK 1.8 后的数据结构为（数组+链表+红黑树）。</mark></p>
+<p>HashMap 类有两个属性影响性能：</p>
+<ol>
+<li><font color=blue>initialCapacity</font></li>
+</ol>
+<blockquote>
+<p>initialCapacity 就是数组的长度，一个初始化容量仅仅是在哈希表被创建时的容量；initialCapacity 默认为 16</p>
+</blockquote>
+<ol start="2">
+<li><font color=blue>loadFactor</font></li>
+</ol>
+<blockquote>
+<p>loadFactor 是控制数组存放数据的疏密程度。</p>
+<p>当 HashMap 条目数量超过了加载因子乘以当前的容量，那么哈希表将进行 rehash 操作（内部的数据结构会被重新建立），同时 HashMap 容量扩充至两倍；loadFactor 默认为 0.75</p>
+</blockquote>
+<h5 id="8-2-HashMap-源码分析">8.2 HashMap 源码分析</h5>
+<p><strong>HashMap 实现的接口</strong></p>
+<ol>
+<li>
+<p><code>Map&lt;K,V&gt;</code></p>
+</li>
+<li>
+<p><code>Cloneable</code></p>
+<blockquote>
+<p>能够使用 <code>clone()</code> 方法；</p>
+<p>在HashMap中，实现的是浅层次拷贝，即对拷贝对象的改变会影响被拷贝的对象</p>
+</blockquote>
+</li>
+<li>
+<p><code>Serializable</code></p>
+<blockquote>
+<p>能够使之序列化，即可以将HashMap对象保存至本地，之后可以恢复状态</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>HashMap 类属性</strong></p>
+<ul>
+<li>上述 <code>initialCapacity</code>、<code>loadFactor</code></li>
+<li><code>TREEIFY_THRESHOLD</code> - 链表转红黑树的阈值</li>
+<li><code>UNTREEIFY_THRESHOLD</code> - 红黑树转链表的阈值</li>
+<li><code>threshold</code> - 临界值，当实际大小（容量 * 填充因子）超过临界值时，会进行扩容</li>
+<li><code>MIN_TREEIFY_CAPACITY</code> - 可以对容器进行树化的 HashMap 容量阈值</li>
+<li>…</li>
+</ul>
+<p><strong>构造方法</strong></p>
+<blockquote>
+<p>构造方法中，并没有初始化数组的大小，数组在一开始就已经被创建了。</p>
+<p>构造方法只做两件事情：</p>
+<ol>
+<li>初始化 loadFactor</li>
+<li>用 threshold 记录下数组初始化的大小</li>
+</ol>
+</blockquote>
+<ol>
+<li><code>HashMap()</code></li>
+<li><code>HashMap(int initialCapacity)</code></li>
+<li><code>HashMap(int initialCapacity, float loadFactor)</code></li>
+<li><code>HashMap(Map&lt;? extends K, ? extends V&gt; m)</code></li>
+</ol>
+<p><strong>常用方法</strong></p>
+<ul>
+<li><code>V put(K key, V value)</code> - 将键/值对添加到 HashMap 中</li>
+<li><code>V get(Object key)</code> - 获取指定 key 对应的 value</li>
+</ul>
+<h3 id="9-迭代器">9. 迭代器</h3>
+<blockquote>
+<p>所有实现了 Collection 接口的容器类都有一个 <code>iterator()</code> 方法，用以返回一个实现 Iterator 接口的对象。</p>
+</blockquote>
+<p>Iterator 对象称作为迭代器，用以方便的对容器内元素的遍历操作，Iterator接口定义了如下方法：</p>
+<ul>
+<li><code>boolean hashNext()</code> - 判断集合是否还有元素</li>
+<li><code>Object next()</code> - 获取集合中遍历的当前元素</li>
+<li><code>void remove()</code> - 删除集合中的元素</li>
+</ul>
+<h3 id="10-泛型">10. 泛型</h3>
+<blockquote>
+<p>泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。</p>
+</blockquote>
+<p><strong>泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。</strong></p>
+<p><mark>通配符：?</mark></p>
+<blockquote>
+<p>用法：<code>&lt; ? &gt;</code></p>
+</blockquote>
+<h3 id="11-Collections-工具类">11. Collections 工具类</h3>
+<blockquote>
+<p>Java 提供了一个操作 Set、List 和 Map 等集合的工具类：<font color=blue>Collections</font>，该工具类提供了大量方法对集合进行排序、查询和修改等操作，还提供了将集合对象置为不可变、对集合对象实现同步控制等方法。</p>
+<p>Collections 类无需创建对象，完全由在 Collection 上进行操作或返回 Collection 的静态方法组成。</p>
+</blockquote>
+<p><strong>常用操作</strong></p>
+<ul>
+<li>
+<p>排序操作</p>
+</li>
+<li>
+<p>查找、替换操作</p>
+</li>
+<li>
+<p>同步控制</p>
+<blockquote>
+<p>Collections 类提供了多个 <code>synchronizedXxx()</code> 方法，该方法可以将指定集合包装成线程同步的集合，从而解决多线程并发访问集合时的线程安全问题。</p>
+</blockquote>
+</li>
+<li>
+<p>设置不可变集合</p>
+</li>
+<li>
+<p>…</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java 学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>10、常用类</title>
     <url>/posts/6dc6173b/</url>
     <content><![CDATA[<h3 id="1-Object-类">1. Object 类</h3>
@@ -666,533 +1193,6 @@
       </categories>
   </entry>
   <entry>
-    <title>11、集合框架</title>
-    <url>/posts/ce8ed1d4/</url>
-    <content><![CDATA[<h3 id="1-为什么使用集合框架">1. 为什么使用集合框架</h3>
-<blockquote>
-<p>如果并不知道程序运行时会需要多少对象，或者需要更复杂的方式存储对象，那我们就可以使用 Java 的集合框架！</p>
-</blockquote>
-<h3 id="2-集合框架包含的内容">2. 集合框架包含的内容</h3>
-<blockquote>
-<p>Java 集合框架提供了一套性能优良，使用方便的接口和类，Java 集合框架位于 <code>java.util</code> 包中</p>
-</blockquote>
-<img src="/posts/ce8ed1d4/Collection_Framework.gif" class="">
-<p>Java 集合框架主要包括两种类型的容器：</p>
-<ul>
-<li>
-<p>集合（Collection），存储一个元素集合</p>
-<blockquote>
-<p><font color = blue>Collection 接口</font>有 3 种<font color = blue>子接口，List、Set 和 Queue</font>，再下面是一些<font color = blue>抽象类</font>，最后是<font color = blue>具体实现类</font></p>
-</blockquote>
-</li>
-<li>
-<p>图（Map），存储键/值对映射</p>
-</li>
-</ul>
-<p>集合框架是一个用来代表和操纵集合的统一架构。所有的集合框架都包含如下内容：</p>
-<ul>
-<li>
-<p><strong>接口：</strong> 代表集合的抽象数据类型</p>
-<blockquote>
-<p>例如 Collection、List、Set、Map 等。之所以定义多个接口，是为了以不同的方式操作集合对象。</p>
-</blockquote>
-</li>
-<li>
-<p><strong>实现（类）：</strong> 集合接口的具体实现</p>
-<blockquote>
-<p>从本质上讲，它们是可重复使用的数据结构，例如：ArrayList、LinkedList、HashSet、HashMap。</p>
-</blockquote>
-</li>
-<li>
-<p><strong>算法：</strong> 实现集合接口的对象里的方法执行的一些有用的计算</p>
-<blockquote>
-<p>例如：搜索和排序，这些算法实现了多态，那是因为相同的方法可以在相似的接口上有着不同的实现。</p>
-</blockquote>
-</li>
-</ul>
-<p>集合框架体系如图所示：</p>
-<img src="/posts/ce8ed1d4/Collection_Framework_System.png" class="">
-<p><strong>常见的集合接口：</strong></p>
-<ul>
-<li>Collection 接口
-<ul>
-<li>存储一组<font color = red>不唯一、无序</font>的对象</li>
-<li>Java 不提供直接继承自Collection的类，只提供继承于 Collection 的子接口（如List和set）</li>
-</ul>
-</li>
-<li>List 接口
-<ul>
-<li>存储一组<font color = red>不唯一，有序</font>的对象</li>
-<li>动态增长，根据实际存储的数据的长度自动增长 List 的长度</li>
-<li>查找元素效率高</li>
-<li>插入删除效率低，因为会引起其他元素位置改变</li>
-</ul>
-</li>
-<li>Set 接口
-<ul>
-<li>存储一组<font color = red>唯一，无序</font>的对象</li>
-<li>检索效率低下</li>
-<li>删除和插入效率高，插入和删除不会引起元素位置改变</li>
-</ul>
-</li>
-<li>Map 接口
-<ul>
-<li>存储一组键值对象，提供 key 到 value 的映射</li>
-</ul>
-</li>
-</ul>
-<p><strong>常见的标准集合类：</strong></p>
-<ul>
-<li>
-<p>ArrayList</p>
-<ul>
-<li>
-<p>该类实现了 List 的接口；</p>
-</li>
-<li>
-<p>允许有 null 元素；</p>
-</li>
-<li>
-<p>实现了长度可变的数组，在内存中分配连续的空间；</p>
-</li>
-<li>
-<p>遍历元素和随机访问元素的效率比较高；</p>
-</li>
-<li>
-<p>ArrayList 增长当前长度的 50%，插入删除效率低；</p>
-</li>
-<li>
-<p>该类是非同步的,在多线程的情况下不要使用</p>
-</li>
-</ul>
-</li>
-<li>
-<p>LinkedList</p>
-<ul>
-<li>该类实现了 List 接口；</li>
-<li>允许有 null 元素；</li>
-<li>LinkedList 查找效率低；</li>
-<li>采用链表存储方式，插入、删除元素时效率比较高；</li>
-<li>该类没有同步方法</li>
-</ul>
-</li>
-<li>
-<p>HashSet</p>
-<ul>
-<li>
-<p>该类实现了 Set 接口；</p>
-</li>
-<li>
-<p>底层使用 HashMap 实现，查询效率较高；</p>
-</li>
-<li>
-<p>由于采用 hashCode 算法直接确定元素的内存地址，增删效率也挺高的；</p>
-</li>
-<li>
-<p>不允许出现重复元素；</p>
-</li>
-<li>
-<p>不保证集合中元素的顺序；</p>
-</li>
-<li>
-<p>允许包含值为 null 的元素，但最多只能一个</p>
-</li>
-</ul>
-</li>
-<li>
-<p>HashMap</p>
-<ul>
-<li>HashMap 是一个散列表，存储的内容是键值对（key-value）映射；</li>
-<li>该类实现了 Map 接口，根据键的 hashCode 值存储数据，具有很快的访问速度；</li>
-<li>最多允许一条记录的键为null，不支持线程同步</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-ArrayList-类">3. ArrayList 类</h3>
-<blockquote>
-<p>ArrayList 是可以动态增长和缩减的索引序列，它是基于数组实现的 List 类。该类封装了一个动态再分配的 Object[] 数组，每一个类对象都有一个 capacity 属性，表示它们所封装的 Object[] 数组的长度，当向 ArrayList 中添加元素时，该属性值会自动增加。</p>
-<p>如果想 ArrayList 中添加大量元素，可使用 <mark><code>ensureCapacity</code></mark> 方法一次性增加 capacity，可以减少增量重新分配的次数，提高性能。</p>
-</blockquote>
-<blockquote>
-<p>ArrayList 的用法和 Vector 相类似，但是 Vector 是一个较老的集合，具有很多缺点，不建议使用。</p>
-<p>另外，ArrayList和Vector的区别是：</p>
-<ul>
-<li>ArrayList 是线程不安全的，当多条线程访问同一个ArrayList集合时，程序需要手动保证该集合的同步性；</li>
-<li>Vector 则是线程安全的。</li>
-</ul>
-</blockquote>
-<p><font color = red>ArrayList 中的元素实际上是对象，如果我们要存储其他类型，而 &lt;E&gt; 只能为引用数据类型，这时我们就需要使用到基本类型的包装类。</font></p>
-<blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ArrayList&lt;E&gt; obj =<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;E&gt;();</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h5 id="3-1-ArrayList-的数据结构">3.1 ArrayList 的数据结构</h5>
-<ul>
-<li>
-<p>ArrayList 是一种线性数据结构，它的底层是用数组实现的，相当于动态数组，其容量是动态调整的。</p>
-</li>
-<li>
-<p>数组元素类型为 Object 类型，即可以存放所有类型数据。对 ArrayList 类的实例的所有的操作底层都是基于数组的。</p>
-</li>
-</ul>
-<h5 id="3-2-ArrayList-源码分析">3.2 ArrayList 源码分析</h5>
-<blockquote>
-<p>为什么要先继承 AbstractList，而让 AbstractList 先实现 List 接口？而不是让 ArrayList 直接实现 List 接口？</p>
-<p><font color = green>原因：</font>接口中全都是抽象的方法，而抽象类中可以有抽象方法，还可以有具体的实现方法，正是利用了这一点，让 AbstractList 先实现接口中一些通用的方法，而具体的类通过继承（如 ArrayList 就继承这个 AbstractList 类）拿到一些通用的方法，然后自己再实现一些自己特有的方法，这样一来，让代码更简洁，减少重复代码。</p>
-</blockquote>
-<p><strong>ArrayList 实现的接口：</strong></p>
-<ol>
-<li>
-<p>List 接口</p>
-</li>
-<li>
-<p>RandomAccess 接口</p>
-<blockquote>
-<p>一个标记性接口，它的作用就是用来快速随机存取。</p>
-<ul>
-<li><font color=orange>如果实现了该接口，使用普通的 for 循环来遍历，性能更高，例如 ArrayList；</font></li>
-<li><font color=orange>而没有实现该接口，使用 Iterator 来迭代，这样性能更高，例如 LinkedList。</font></li>
-</ul>
-</blockquote>
-</li>
-<li>
-<p>Cloneable 接口</p>
-<blockquote>
-<p>实现了该接口，就可以使用 <code>Object.clone()</code> 方法</p>
-</blockquote>
-</li>
-<li>
-<p>Serializable 接口</p>
-<blockquote>
-<p>实现该序列化接口，表明该类可以被序列化</p>
-<blockquote>
-<p><font color = purple>什么是序列化？</font>简单的说，就是能够从类变成字节流传输，然后还能从字节流变成原来的类。</p>
-</blockquote>
-</blockquote>
-</li>
-</ol>
-<p><strong>常用方法</strong></p>
-<ul>
-<li><code>boolean add(E e)</code> - 在列表的末尾顺序添加元素（起始索引位置从 0 开始）</li>
-<li><code>void add(int index, E element)</code> - 在指定的索引位置添加元素（索引位置必须介于 0 和列表中元素个数之间）</li>
-<li><code>void grow(int minCapacity)</code> - 扩展数组大小（<font color=red><strong>ArrayList 的核心方法</strong></font>）</li>
-<li><code>E get(int index)</code> - 返回指定索引位置处的元素（<font color=red>取出的元素是 Object 类型，使用前需要进行强制类型转换</font>）</li>
-<li><code>E set(int index, E element)</code> - 修改 ArrayList 中的元素</li>
-<li><code>boolean remove(Object o)</code> - 从列表中删除元素</li>
-<li><code>E remove(int index)</code> - 从列表中删除指定位置元素（起始索引位置从0开始）</li>
-<li><code>int size()</code> - 返回列表中的元素个数</li>
-<li><code>boolean contains(Object o)</code> - 判断列表中是否存在指定元素（可能需要重写 <code>equals()</code> 方法）</li>
-<li><code>indexOf(Object o)</code> - 从头开始查找与指定元素相等的元素（包括 null 元素）</li>
-<li><code>lastIndexOf(Object o)</code> - 与 <code>indexOf()</code> 方法方向相反</li>
-</ul>
-<blockquote>
-<p>更多方法内容详见：<a href="https://www.runoob.com/java/java-arraylist.html">Java ArrayList</a></p>
-</blockquote>
-<p><strong>构造函数</strong></p>
-<ol>
-<li><code>public ArrayList(int initialCapacity)</code></li>
-<li><code>public ArrayList()</code></li>
-<li><code>public ArrayList(Collection&lt;? extends E&gt; c)</code></li>
-</ol>
-<blockquote>
-<p>简单来说，<code>ArrayList</code> 的构造方法就是初始化一下储存数据的容器，即 <code>elementData</code> 元素</p>
-</blockquote>
-<h3 id="4-LinkedList-类">4. LinkedList 类</h3>
-<blockquote>
-<p>LinkedList 是非同步的。</p>
-</blockquote>
-<h5 id="4-1-LinkedList-的数据结构">4.1 LinkedList 的数据结构</h5>
-<ul>
-<li>LinkedList 是一种可以在任何位置进行高效地插入和移除操作的有序序列，基于<mark>双向链表</mark><font color=red>（不是双向循环列表）</font>实现。</li>
-<li>LinkedList 是一个继承于 AbstractSequentialList 的双向链表。它也可以被当作堆栈、队列或双端队列进行操作。</li>
-</ul>
-<h5 id="4-2-LinkedList-源码分析">4.2 LinkedList 源码分析</h5>
-<blockquote>
-<p>内部类 Node 是实现 LinkedList 的关键。</p>
-</blockquote>
-<p><strong>LinkedList 实现的接口：</strong></p>
-<ol>
-<li>
-<p>List 接口</p>
-<blockquote>
-<p>能对 LinkedList 进行队列操作</p>
-</blockquote>
-</li>
-<li>
-<p>Deque 接口</p>
-<blockquote>
-<p>能将 LinkedList 当作双端队列使用</p>
-</blockquote>
-</li>
-<li>
-<p>Cloneable 接口</p>
-<blockquote>
-<p>重写了函数 <code>clone()</code>，能实现克隆</p>
-</blockquote>
-</li>
-<li>
-<p>Serializable 接口</p>
-<blockquote>
-<p>意味着 LinkedList 支持序列化，能通过序列化去传输</p>
-</blockquote>
-</li>
-</ol>
-<p><strong>构造函数</strong></p>
-<ol>
-<li><code>public LinkedList()</code></li>
-<li><code>public LinkedList(Collection&lt;? extends E&gt; c)</code></li>
-</ol>
-<p><strong>常用方法</strong></p>
-<ul>
-<li>
-<p><code>boolean add(E e)</code> - 向 LinkedList 中添加一个元素，并且添加到链表尾部</p>
-</li>
-<li>
-<p><code>boolean add(Collection&lt;? extends E&gt; c)</code> - 将一个集合的所有元素添加到链表后面</p>
-</li>
-<li>
-<p><code>boolean add(int index, Collection&lt;? extends E&gt; c)</code> - 将一个集合的所有元素添加到链表的指定位置后面</p>
-</li>
-<li>
-<p><code>void addFirst(E e)</code> - 在列表的首部添加元素</p>
-</li>
-<li>
-<p><code>void addLast(E e)</code> - 在列表的尾部添加元素</p>
-</li>
-<li>
-<p><code>E get(int index)</code> - 返回指定位置的元素</p>
-</li>
-<li>
-<p><code>E getFirst()</code> - 返回列表中的第一个元素</p>
-</li>
-<li>
-<p><code>E getLast()</code> - 返回列表中的最后一个元素</p>
-</li>
-<li>
-<p><code>boolean remove(Object o)</code> - 删除某一元素</p>
-</li>
-<li>
-<p><code>E removeFirst()</code> - 删除并返回列表中的第一个元素</p>
-</li>
-<li>
-<p><code>E removeLast()</code> - 删除并返回列表中的最后一个元素</p>
-</li>
-<li>
-<p><code>int indexOf(Object o)</code> - 查找指定元素从前往后第一次出现的索引</p>
-</li>
-</ul>
-<p><strong>迭代器</strong></p>
-<ol>
-<li><font color=blue>内部类 <code>ListItr</code></font></li>
-<li><font color=blue>内部类 <code>DescendingIterator</code></font></li>
-</ol>
-<h3 id="5-Vector-和-Stack">5. Vector 和 Stack</h3>
-<h4 id="5-1-Vector">5.1 Vector</h4>
-<ul>
-<li>Vector 是一个可变化长度的数组</li>
-<li>Vector 是一个线程安全的类，如果使用需要线程安全就使用 Vector，如果不需要，就使用 ArrayList</li>
-<li><font color=green>Vector 的继承关系和层次结构与 ArrayList 一模一样</font></li>
-<li>Vector 线程安全是因为它的方法都加了 <code>synchronized</code> 关键字</li>
-</ul>
-<blockquote>
-<p><font color=orange>在开发中，建议不用 Vector，如果需要线程安全的集合类直接用 <code>java.util.concurrent</code> 包下的类。</font></p>
-<p>原因：Vector 在你不需要进行线程安全的时候，也会给你加锁，导致了额外开销。</p>
-</blockquote>
-<h5 id="5-1-1-Vector-源码分析">5.1.1 Vector 源码分析</h5>
-<p>Vector 的本质是一个数组，特点能是能够自动扩增，扩增的方式跟 capacityIncrement 的值有关</p>
-<blockquote>
-<p>属性 <code>capacityIncrement</code> 小于或等于 0 时，扩展数组时每次扩展两倍，其余情况按属性实际大小进行</p>
-</blockquote>
-<p><strong>构造函数</strong></p>
-<ol>
-<li><code>public Vector(int initialCapacity, int capacityIncrement)</code></li>
-<li><code>public Vector(int initialCapacity)</code> - 内部调用构造函数 1，并使形参 capacityIncrement 为 0</li>
-<li><code>public Vector()</code> - 内部调用构造函数 2，并使形参 initialCapacity 为 10</li>
-<li><code>public Vector(Collection&lt;? extends E&gt; c)</code></li>
-</ol>
-<p><strong>核心方法</strong></p>
-<blockquote>
-<p><font color=red>每个方法上比 ArrayList 多了一个 <code>synchronized</code> 关键字，其他都一样。</font></p>
-</blockquote>
-<h4 id="5-2-Stack">5.2 Stack</h4>
-<p><mark>Stack 为 Vector 子类</mark></p>
-<p><strong>操作方法</strong></p>
-<ol>
-<li><code>E push(E item)</code> - 把项压入堆栈顶部</li>
-<li><code>synchronized E pop()</code> - 移除堆栈顶部的对象，并作为此函数的值返回该对象</li>
-<li><code>synchronized E peek()</code> - 查看堆栈顶部的对象，但不从堆栈中移除它</li>
-<li><code>boolean empty()</code> - 测试堆栈是否为空</li>
-<li><code>synchronized int search(Object o) </code>- 返回对象在堆栈中的位置，以 1 为基数</li>
-</ol>
-<p><mark>Stack 类的方法是同步的，所以也是线程安全</mark></p>
-<h3 id="6-List-总结">6. List 总结</h3>
-<h5 id="6-1-ArrayList-和-LinkedList-区别">6.1 ArrayList 和 LinkedList 区别</h5>
-<ul>
-<li>ArrayList 底层是用数组实现的顺序表，是<mark>随机存取类型</mark>，可自动扩增，并且在初始化时，数组的长度是0，只有在增加元素时，长度才会增加。默认是10，不能无限扩增，有上限，在查询操作的时候性能更好</li>
-<li>LinkedList 底层是用链表来实现的，是一个双向链表（注意这里不是双向循环链表），<mark>顺序存取类型</mark>。在源码中，似乎没有元素个数的限制，应该能无限增加下去，直到内存满了再进行删除，增加操作时性能更好。</li>
-</ul>
-<p><strong>两者都是线程不安全的，在 iterator 时，会发生 <font color=blue>fail-fast</font></strong></p>
-<h5 id="6-2-ArrayList-和-Vector-的区别">6.2 ArrayList 和 Vector 的区别</h5>
-<ul>
-<li>ArrayList 线程不安全，在用 iterator 时会发生 <font color=blue>fail-fast</font></li>
-<li>Vector 线程安全，因为在方法前加了 <code>synchronized</code> 关键字，<font color=red>也会发生 </font><font color=blue>fail-fast</font></li>
-</ul>
-<h3 id="7-fail-fast-和-fail-safe">7. fail-fast 和 fail-safe</h3>
-<h5 id="7-1-fail-fast-和-fail-safe-什么情况下会发生">7.1 fail-fast 和 fail-safe 什么情况下会发生</h5>
-<p><font color=orange>简单来说：在 <code>java.util</code> 下的集合都是发生 fail-fast，而在 <code>java.util.concurrent</code> 下的发生的都是fail-safe。</font></p>
-<h5 id="7-2-fail-fast-和-fail-safe-区别">7.2 fail-fast 和 fail-safe 区别</h5>
-<ul>
-<li>
-<p><font color=blue>fail-fast，快速失败</font></p>
-<blockquote>
-<p>例如在 ArrayList 中使用迭代器遍历时，有另外的线程对 ArrayList 的存储数组进行了改变，比如 add、delete 等，使之发生了结构上的改变，所以 Iterator 就会快速报一个 <code>java.util.ConcurrentModificationException</code> 异常（并发修改异常），这就是快速失败。</p>
-</blockquote>
-</li>
-<li>
-<p><font color=blue>fail-safe，安全失败</font></p>
-<blockquote>
-<p>在 <code>java.util.concurrent</code> 下的类，都是线程安全的类。</p>
-<p>在迭代的过程中，如果有线程进行结构的改变，不会报异常，而是正常遍历，这就是安全失败。</p>
-</blockquote>
-</li>
-<li>
-<p>为什么在 <code>java.util.concurrent</code> 包下对集合有结构的改变，却不会报异常？</p>
-<blockquote>
-<p>在 concurrent 下的集合类增加元素的时候使用 <code>Arrays.copyOf()</code> 来拷贝副本，在副本上增加元素，如果有其他线程在此改变了集合的结构，那也是在副本上的改变，而不是影响到原集合，迭代器还是照常遍历，遍历完之后，改变原引用指向副本，所以总的一句话，就是如果在此包下的类进行增加或删除操作，就会出现一个副本，所以能防止fail-fast。这种机制并不会出错，所以我们叫这种现象为fail-safe。</p>
-</blockquote>
-</li>
-<li>
-<p>Vector 也是线程安全的，为什么是 fail-fast 呢？</p>
-<blockquote>
-<p><font color=red>并不是说线程安全的集合就不会报 fail-fast，而是报 fail-safe。</font></p>
-<p>出现 fail-safe 是因为它们在实现增删的底层机制不一样，就像上面说的，会有一个副本，而像 ArrayList、LinkedList、Vector等，它们底层就是对着真正的引用进行操作，所以才会发生异常。</p>
-</blockquote>
-</li>
-<li>
-<p>既然是线程安全的，为什么在迭代的时候，还会有别的线程来改变其集合的结构呢？</p>
-<blockquote>
-<p>因为在迭代的时候，根本就没用到集合中的删除、增加、查询的操作，就拿 Vector 来说，我们都没有使用那些加锁的方法，即方法锁放在那没人拿，在迭代的过程中，有人拿了那把锁，我们也没有办法，因为那把锁就放在那边。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="8-HashMap">8. HashMap</h3>
-<p>HashMap 基于哈希表的 Map 接口实现，存储内容是键值对 <code>&lt;key,value&gt;</code> 映射。</p>
-<p>HashMap 类不保证映射的顺序。</p>
-<h5 id="8-1-HashMap-数据结构">8.1 HashMap 数据结构</h5>
-<p><mark>HashMap 在 JDK 1.8 前的数据结构为链表散列，在 JDK 1.8 后的数据结构为（数组+链表+红黑树）。</mark></p>
-<p>HashMap 类有两个属性影响性能：</p>
-<ol>
-<li><font color=blue>initialCapacity</font></li>
-</ol>
-<blockquote>
-<p>initialCapacity 就是数组的长度，一个初始化容量仅仅是在哈希表被创建时的容量；initialCapacity 默认为 16</p>
-</blockquote>
-<ol start="2">
-<li><font color=blue>loadFactor</font></li>
-</ol>
-<blockquote>
-<p>loadFactor 是控制数组存放数据的疏密程度。</p>
-<p>当 HashMap 条目数量超过了加载因子乘以当前的容量，那么哈希表将进行 rehash 操作（内部的数据结构会被重新建立），同时 HashMap 容量扩充至两倍；loadFactor 默认为 0.75</p>
-</blockquote>
-<h5 id="8-2-HashMap-源码分析">8.2 HashMap 源码分析</h5>
-<p><strong>HashMap 实现的接口</strong></p>
-<ol>
-<li>
-<p><code>Map&lt;K,V&gt;</code></p>
-</li>
-<li>
-<p><code>Cloneable</code></p>
-<blockquote>
-<p>能够使用 <code>clone()</code> 方法；</p>
-<p>在HashMap中，实现的是浅层次拷贝，即对拷贝对象的改变会影响被拷贝的对象</p>
-</blockquote>
-</li>
-<li>
-<p><code>Serializable</code></p>
-<blockquote>
-<p>能够使之序列化，即可以将HashMap对象保存至本地，之后可以恢复状态</p>
-</blockquote>
-</li>
-</ol>
-<p><strong>HashMap 类属性</strong></p>
-<ul>
-<li>上述 <code>initialCapacity</code>、<code>loadFactor</code></li>
-<li><code>TREEIFY_THRESHOLD</code> - 链表转红黑树的阈值</li>
-<li><code>UNTREEIFY_THRESHOLD</code> - 红黑树转链表的阈值</li>
-<li><code>threshold</code> - 临界值，当实际大小（容量 * 填充因子）超过临界值时，会进行扩容</li>
-<li><code>MIN_TREEIFY_CAPACITY</code> - 可以对容器进行树化的 HashMap 容量阈值</li>
-<li>…</li>
-</ul>
-<p><strong>构造方法</strong></p>
-<blockquote>
-<p>构造方法中，并没有初始化数组的大小，数组在一开始就已经被创建了。</p>
-<p>构造方法只做两件事情：</p>
-<ol>
-<li>初始化 loadFactor</li>
-<li>用 threshold 记录下数组初始化的大小</li>
-</ol>
-</blockquote>
-<ol>
-<li><code>HashMap()</code></li>
-<li><code>HashMap(int initialCapacity)</code></li>
-<li><code>HashMap(int initialCapacity, float loadFactor)</code></li>
-<li><code>HashMap(Map&lt;? extends K, ? extends V&gt; m)</code></li>
-</ol>
-<p><strong>常用方法</strong></p>
-<ul>
-<li><code>V put(K key, V value)</code> - 将键/值对添加到 HashMap 中</li>
-<li><code>V get(Object key)</code> - 获取指定 key 对应的 value</li>
-</ul>
-<h3 id="9-迭代器">9. 迭代器</h3>
-<blockquote>
-<p>所有实现了 Collection 接口的容器类都有一个 <code>iterator()</code> 方法，用以返回一个实现 Iterator 接口的对象。</p>
-</blockquote>
-<p>Iterator 对象称作为迭代器，用以方便的对容器内元素的遍历操作，Iterator接口定义了如下方法：</p>
-<ul>
-<li><code>boolean hashNext()</code> - 判断集合是否还有元素</li>
-<li><code>Object next()</code> - 获取集合中遍历的当前元素</li>
-<li><code>void remove()</code> - 删除集合中的元素</li>
-</ul>
-<h3 id="10-泛型">10. 泛型</h3>
-<blockquote>
-<p>泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。</p>
-</blockquote>
-<p><strong>泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。</strong></p>
-<p><mark>通配符：?</mark></p>
-<blockquote>
-<p>用法：<code>&lt; ? &gt;</code></p>
-</blockquote>
-<h3 id="11-Collections-工具类">11. Collections 工具类</h3>
-<blockquote>
-<p>Java 提供了一个操作 Set、List 和 Map 等集合的工具类：<font color=blue>Collections</font>，该工具类提供了大量方法对集合进行排序、查询和修改等操作，还提供了将集合对象置为不可变、对集合对象实现同步控制等方法。</p>
-<p>Collections 类无需创建对象，完全由在 Collection 上进行操作或返回 Collection 的静态方法组成。</p>
-</blockquote>
-<p><strong>常用操作</strong></p>
-<ul>
-<li>
-<p>排序操作</p>
-</li>
-<li>
-<p>查找、替换操作</p>
-</li>
-<li>
-<p>同步控制</p>
-<blockquote>
-<p>Collections 类提供了多个 <code>synchronizedXxx()</code> 方法，该方法可以将指定集合包装成线程同步的集合，从而解决多线程并发访问集合时的线程安全问题。</p>
-</blockquote>
-</li>
-<li>
-<p>设置不可变集合</p>
-</li>
-<li>
-<p>…</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java 学习</category>
-      </categories>
-  </entry>
-  <entry>
     <title>12、IO流</title>
     <url>/posts/c2f5123/</url>
     <content><![CDATA[<h3 id="1-I-O-流分类">1. I/O 流分类</h3>
@@ -1439,6 +1439,39 @@
 <p><code>Externalizable</code> 接口：自定义序列化和反序列化，<font color=red>需要实现 <code>writeExternal()</code> 和 <code>readExternal()</code> 方法</font></p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>Java 学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>1、前言</title>
+    <url>/posts/d3815a2f/</url>
+    <content><![CDATA[<h5 id="1-Java-应用场景">1. Java 应用场景</h5>
+<ul>
+<li>银行系统</li>
+<li>支付系统</li>
+<li>政企信息系统</li>
+<li>大数据平台</li>
+<li>网站后台</li>
+<li>SaaS 云</li>
+<li>手机 App</li>
+<li>云管理系统后台</li>
+<li>电商系统后台</li>
+<li>桌面工具</li>
+</ul>
+<h5 id="2-Java-学习路径">2. Java 学习路径</h5>
+<ol>
+<li>JavaSE</li>
+<li>数据库</li>
+<li>前端</li>
+<li>JavaWeb</li>
+<li>SSM 框架</li>
+<li>Linux</li>
+<li>SpringBoot</li>
+<li>SpringCloud</li>
+<li>Hadoop</li>
+</ol>
 ]]></content>
       <categories>
         <category>Java 学习</category>
@@ -2136,33 +2169,60 @@
       </categories>
   </entry>
   <entry>
-    <title>1、前言</title>
-    <url>/posts/d3815a2f/</url>
-    <content><![CDATA[<h5 id="1-Java-应用场景">1. Java 应用场景</h5>
+    <title>3、Java 入门</title>
+    <url>/posts/7d4d06c8/</url>
+    <content><![CDATA[<h5 id="1-Java-特性和优势">1. Java 特性和优势</h5>
 <ul>
-<li>银行系统</li>
-<li>支付系统</li>
-<li>政企信息系统</li>
-<li>大数据平台</li>
-<li>网站后台</li>
-<li>SaaS 云</li>
-<li>手机 App</li>
-<li>云管理系统后台</li>
-<li>电商系统后台</li>
-<li>桌面工具</li>
+<li>简单性</li>
+<li>面向对象</li>
+<li>可移植性</li>
+<li>高性能</li>
+<li>分布式</li>
+<li>动态性</li>
+<li>多线程</li>
+<li>安全性</li>
+<li>健壮性</li>
 </ul>
-<h5 id="2-Java-学习路径">2. Java 学习路径</h5>
-<ol>
-<li>JavaSE</li>
-<li>数据库</li>
-<li>前端</li>
-<li>JavaWeb</li>
-<li>SSM 框架</li>
-<li>Linux</li>
-<li>SpringBoot</li>
-<li>SpringCloud</li>
-<li>Hadoop</li>
-</ol>
+<h5 id="2-Java-三大版本">2. Java 三大版本</h5>
+<ul>
+<li>JavaSE：标准版（桌面程序，控制台开发…）</li>
+<li>JavaME：嵌入式开发（手机，小家电…）</li>
+<li>JavaEE：企业级开发（web端，服务器开发.…）</li>
+</ul>
+<h5 id="3-JDK、JRE、JVM">3. JDK、JRE、JVM</h5>
+<ul>
+<li>JDK：Java Development Kit</li>
+<li>JRE：Java Runtime Environment</li>
+<li>JVM：Java Virtual Machine</li>
+</ul>
+<p>三者关系：</p>
+<img src="/posts/7d4d06c8/JDK_JRE_JVM.png" class="">
+<h5 id="4-编译型和解释型">4. 编译型和解释型</h5>
+<p>编译型语言和解释型语言的执行流程：</p>
+<img src="/posts/7d4d06c8/Flow.png" class="">
+<p><mark>Java 语言同时兼有编译型和解释型特点。</mark></p>
+<p>程序运行机制：</p>
+<img src="/posts/7d4d06c8/Mechanism.png" class="">
+]]></content>
+      <categories>
+        <category>Java 学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>2、预科</title>
+    <url>/posts/62190bc8/</url>
+    <content><![CDATA[<h5 id="1-冯∙诺依曼体系结构">1. 冯∙诺依曼体系结构</h5>
+<img src="/posts/62190bc8/Von_Neumann_architecture.png" class="">
+<h5 id="2-基础的Dos命令">2. 基础的Dos命令</h5>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dir</span> <span class="comment"># 查看当前目录下的文件和子目录</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d (盘符) <span class="comment"># 通过 cd 命令切换盘符</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cls <span class="comment"># 清理终端</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exit</span> <span class="comment"># 退出终端</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-计算机语言发展史">3. 计算机语言发展史</h5>
+<div class="mermaid-wrap"><pre class="mermaid-src" hidden>
+  graph LR
+A[机器语言] --&gt; B[汇编语言] --&gt; C[高级语言]
+  </pre></div>
 ]]></content>
       <categories>
         <category>Java 学习</category>
@@ -2616,60 +2676,129 @@
       </categories>
   </entry>
   <entry>
-    <title>3、Java 入门</title>
-    <url>/posts/7d4d06c8/</url>
-    <content><![CDATA[<h5 id="1-Java-特性和优势">1. Java 特性和优势</h5>
+    <title>5、Java 流程控制</title>
+    <url>/posts/136df49a/</url>
+    <content><![CDATA[<h3 id="1-用户交互">1. 用户交互</h3>
+<p><code>java.util.Scanner</code> 是 Java 5 的新特征，通过 Scanner 类来获取用户的输入。</p>
+<p>通过 Scanner 类的 <code>next()</code> 与 <code>nextLine()</code> 方法获取输入的字符串</p>
 <ul>
-<li>简单性</li>
-<li>面向对象</li>
-<li>可移植性</li>
-<li>高性能</li>
-<li>分布式</li>
-<li>动态性</li>
-<li>多线程</li>
-<li>安全性</li>
-<li>健壮性</li>
+<li>在读取前一般需要使用 <code>hasNext()</code> 与 <code>hasNextLine()</code> 判断是否还有输入的数据</li>
 </ul>
-<h5 id="2-Java-三大版本">2. Java 三大版本</h5>
+<p><code>next()</code> 与 <code>nextLine()</code> 区别</p>
 <ul>
-<li>JavaSE：标准版（桌面程序，控制台开发…）</li>
-<li>JavaME：嵌入式开发（手机，小家电…）</li>
-<li>JavaEE：企业级开发（web端，服务器开发.…）</li>
-</ul>
-<h5 id="3-JDK、JRE、JVM">3. JDK、JRE、JVM</h5>
+<li>
+<p>next()</p>
 <ul>
-<li>JDK：Java Development Kit</li>
-<li>JRE：Java Runtime Environment</li>
-<li>JVM：Java Virtual Machine</li>
+<li>一定要读取到有效字符后才可以结束输入</li>
+<li>对输入有效字符<mark>之前</mark>遇到的空白，<code>next()</code> 方法会自动将其去掉</li>
+<li>只有输入有效字符后才将其后面输入的空白作为分隔符或者结束符</li>
+<li><font color = red>next() 不能得到带有空格的字符串</font></li>
 </ul>
-<p>三者关系：</p>
-<img src="/posts/7d4d06c8/JDK_JRE_JVM.png" class="">
-<h5 id="4-编译型和解释型">4. 编译型和解释型</h5>
-<p>编译型语言和解释型语言的执行流程：</p>
-<img src="/posts/7d4d06c8/Flow.png" class="">
-<p><mark>Java 语言同时兼有编译型和解释型特点。</mark></p>
-<p>程序运行机制：</p>
-<img src="/posts/7d4d06c8/Mechanism.png" class="">
-]]></content>
-      <categories>
-        <category>Java 学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>2、预科</title>
-    <url>/posts/62190bc8/</url>
-    <content><![CDATA[<h5 id="1-冯∙诺依曼体系结构">1. 冯∙诺依曼体系结构</h5>
-<img src="/posts/62190bc8/Von_Neumann_architecture.png" class="">
-<h5 id="2-基础的Dos命令">2. 基础的Dos命令</h5>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dir</span> <span class="comment"># 查看当前目录下的文件和子目录</span></span><br></pre></td></tr></table></figure>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d (盘符) <span class="comment"># 通过 cd 命令切换盘符</span></span><br></pre></td></tr></table></figure>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cls <span class="comment"># 清理终端</span></span><br></pre></td></tr></table></figure>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exit</span> <span class="comment"># 退出终端</span></span><br></pre></td></tr></table></figure>
-<h5 id="3-计算机语言发展史">3. 计算机语言发展史</h5>
-<div class="mermaid-wrap"><pre class="mermaid-src" hidden>
-  graph LR
-A[机器语言] --&gt; B[汇编语言] --&gt; C[高级语言]
-  </pre></div>
+</li>
+<li>
+<p>nextLine()</p>
+<ul>
+<li>以 Enter 为结束符，<code>nextLine()</code> 方法返回的是输入回车之前的所有字符</li>
+<li>可以获得空白</li>
+</ul>
+</li>
+</ul>
+<p>Scanner 类也支持输入 int 或 float 类型的数据，但在输入之前最好先使用 <code>hasNextXxx()</code> 方法进行验证，再使用 <code>nextXxx()</code> 来读取。</p>
+<p>通常，为了节省内存，选择调用 close() 方法关闭 Scanner 对象。</p>
+<ul>
+<li>
+<p>原因：</p>
+<p>如果一个方法中创建了 Scanner 对象，却没有关闭，那么在方法结束后，Scanner 对象虽然会进入被回收的队列中，但不是立刻回收，而这会给计算机带来一定的负担。为了避免造成大量的内存占据，至少在方法结束前应该调用 Scanner 的 close() 方法。</p>
+</li>
+<li>
+<p><mark>注意</mark>：</p>
+<blockquote>
+<p>如果在代码中关闭了 Scanner，那么在接下来的代码中将无法再使用 Scanner，即便再次声明了一个新的 Scanner 对象也是如此。Scanner 的 close() 方法会关闭 <a href="http://System.in">System.in</a>，也就是Scanner对象在被初始化时所传入的参数。<a href="http://System.in">System.in</a> 是一个 final 常量，在整个方法中只会被实例化一次。这也就导致了在第二次创建 Scanner 对象的时候并没有一个全新的 <a href="http://System.in">System.in</a> 被传入，而是一个已经被关闭了的 <a href="http://System.in">System.in</a>。</p>
+</blockquote>
+</li>
+</ul>
+<p><font color = red>如果要关闭 Scanner 的话一定要确保在同一方法下接下来不会再调用 Scanner 来接受输入。</font></p>
+<h3 id="2-顺序结构">2. 顺序结构</h3>
+<blockquote>
+<p>顺序结构是最简单的算法结构，它是任何一个算法都离不开的一种基本算法结构。</p>
+</blockquote>
+<h3 id="3-选择结构">3. 选择结构</h3>
+<h5 id="3-1-if-选择结构">3.1 if 选择结构</h5>
+<blockquote>
+<p>推荐使用 <code>str1.equals(str2)</code> 方法判断两个字符串是否相等，原因详见此文：<a href="https://blog.csdn.net/nxj_climb/article/details/113175127">JAVA中判断两个字符串是否相等</a></p>
+</blockquote>
+<p>语法格式：</p>
+<ul>
+<li>
+<p>if 单选择结构</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (布尔表达式) &#123;</span><br><span class="line">    <span class="comment">//如果布尔表达式为true将执行的语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>if 双选择结构</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (布尔表达式) &#123;</span><br><span class="line">    <span class="comment">//如果布尔表达式的值为true</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//如果布尔表达式的值为false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>if 多选择结构</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (布尔表达式<span class="number">1</span>) &#123;</span><br><span class="line">	<span class="comment">// 如果布尔表达式1的值为true执行代码</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (布尔表达式<span class="number">2</span>) &#123;</span><br><span class="line">	<span class="comment">// 如果布尔表达式2的值为true执行代码</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (布尔表达式<span class="number">3</span>) &#123;</span><br><span class="line">	<span class="comment">// 如果布尔表达式3的值为true执行代码</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 如果以上布尔表达式都不为true执行代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>嵌套的 if 结构</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (布尔表达式<span class="number">1</span>) &#123;</span><br><span class="line">	<span class="comment">// 如果布尔表达式1的值为true执行代码</span></span><br><span class="line">	<span class="keyword">if</span> (布尔表达式<span class="number">2</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果布尔表达式2的值为true执行代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="3-2-switch-选择结构">3.2 switch 选择结构</h5>
+<p>switch case 语句判断一个变量与一系列值中某个值是否相等，每个值称为一个分支。</p>
+<p>语法格式：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (expression) &#123;</span><br><span class="line">    <span class="keyword">case</span> value:</span><br><span class="line">        <span class="comment">// 语句</span></span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// 可选</span></span><br><span class="line">    <span class="keyword">case</span> value:</span><br><span class="line">        <span class="comment">// 语句</span></span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// 可选</span></span><br><span class="line">    <span class="comment">//你可以有任意数量的case语句</span></span><br><span class="line">    <span class="keyword">default</span>: <span class="comment">// 可选</span></span><br><span class="line">        <span class="comment">// 语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>switch 语句中的变量类型可以是：</p>
+<ul>
+<li>byte、short、int 或者 char</li>
+<li><mark>从 JavaSE 7 开始，switch 支持字符串 String 类型</mark></li>
+<li>case 标签必须为字符串常量或字面量</li>
+</ul>
+<h3 id="4-循环结构">4. 循环结构</h3>
+<h5 id="4-1-while-循环">4.1 while 循环</h5>
+<p>语法格式：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (布尔表达式) &#123;</span><br><span class="line">    <span class="comment">// 循环内容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-2-do…while-循环">4.2 do…while 循环</h5>
+<p>语法格式：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="comment">// 代码语句</span></span><br><span class="line">&#125; <span class="keyword">while</span> (布尔表达式);</span><br></pre></td></tr></table></figure>
+<p>while 和 do…while 的区别：</p>
+<ul>
+<li>while 先判断后执行；do…while 是先执行后判断！</li>
+<li>do…while 总是保证循环体会被至少执行一次！</li>
+</ul>
+<h5 id="4-3-for-循环">4.3 for 循环</h5>
+<blockquote>
+<p>for 循环语句是支持迭代的一种通用结构，是最有效、最灵活的循环结构。</p>
+</blockquote>
+<p>语法格式：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (初始化; 布尔表达式; 更新) &#123;</span><br><span class="line">	<span class="comment">// 代码语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-4-增强-for-循环">4.4 增强 for 循环</h5>
+<blockquote>
+<p>Java5 引入了增强型 for 循环，用来循环遍历数组和集合。</p>
+</blockquote>
+<p>语法格式：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (声明语句: 表达式) &#123;</span><br><span class="line">	<span class="comment">// 代码句子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>声明语句：声明新的局部变量，该变量的<mark>类型必须和数组元素的类型匹配</mark>。其作用域限定在循环语句块，其值与此时数组元素的值相等。</li>
+<li>表达式：表达式是要访问的数组名，或者是返回值为数组的方法。</li>
+</ul>
+<h5 id="4-5-break-continue">4.5 break continue</h5>
+<ul>
+<li>break
+<ul>
+<li>在任何循环语句的主体部分，均可用 break 控制循环的流程</li>
+<li>break 用于强行退出循环，不执行循环中剩余的语句</li>
+<li>break 语句也在 switch 语句中使用</li>
+</ul>
+</li>
+<li>continue
+<ul>
+<li>continue 语句用在循环语句体中，用于跳过循环体中尚未执行的语句，接着进行下一次是否执行循环的判定</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Java 学习</category>
@@ -2966,135 +3095,6 @@ A(byte, short, char) --&gt; B(int) --&gt; C(long) --&gt; D(float) --&gt; E(doubl
       </categories>
   </entry>
   <entry>
-    <title>5、Java 流程控制</title>
-    <url>/posts/136df49a/</url>
-    <content><![CDATA[<h3 id="1-用户交互">1. 用户交互</h3>
-<p><code>java.util.Scanner</code> 是 Java 5 的新特征，通过 Scanner 类来获取用户的输入。</p>
-<p>通过 Scanner 类的 <code>next()</code> 与 <code>nextLine()</code> 方法获取输入的字符串</p>
-<ul>
-<li>在读取前一般需要使用 <code>hasNext()</code> 与 <code>hasNextLine()</code> 判断是否还有输入的数据</li>
-</ul>
-<p><code>next()</code> 与 <code>nextLine()</code> 区别</p>
-<ul>
-<li>
-<p>next()</p>
-<ul>
-<li>一定要读取到有效字符后才可以结束输入</li>
-<li>对输入有效字符<mark>之前</mark>遇到的空白，<code>next()</code> 方法会自动将其去掉</li>
-<li>只有输入有效字符后才将其后面输入的空白作为分隔符或者结束符</li>
-<li><font color = red>next() 不能得到带有空格的字符串</font></li>
-</ul>
-</li>
-<li>
-<p>nextLine()</p>
-<ul>
-<li>以 Enter 为结束符，<code>nextLine()</code> 方法返回的是输入回车之前的所有字符</li>
-<li>可以获得空白</li>
-</ul>
-</li>
-</ul>
-<p>Scanner 类也支持输入 int 或 float 类型的数据，但在输入之前最好先使用 <code>hasNextXxx()</code> 方法进行验证，再使用 <code>nextXxx()</code> 来读取。</p>
-<p>通常，为了节省内存，选择调用 close() 方法关闭 Scanner 对象。</p>
-<ul>
-<li>
-<p>原因：</p>
-<p>如果一个方法中创建了 Scanner 对象，却没有关闭，那么在方法结束后，Scanner 对象虽然会进入被回收的队列中，但不是立刻回收，而这会给计算机带来一定的负担。为了避免造成大量的内存占据，至少在方法结束前应该调用 Scanner 的 close() 方法。</p>
-</li>
-<li>
-<p><mark>注意</mark>：</p>
-<blockquote>
-<p>如果在代码中关闭了 Scanner，那么在接下来的代码中将无法再使用 Scanner，即便再次声明了一个新的 Scanner 对象也是如此。Scanner 的 close() 方法会关闭 <a href="http://System.in">System.in</a>，也就是Scanner对象在被初始化时所传入的参数。<a href="http://System.in">System.in</a> 是一个 final 常量，在整个方法中只会被实例化一次。这也就导致了在第二次创建 Scanner 对象的时候并没有一个全新的 <a href="http://System.in">System.in</a> 被传入，而是一个已经被关闭了的 <a href="http://System.in">System.in</a>。</p>
-</blockquote>
-</li>
-</ul>
-<p><font color = red>如果要关闭 Scanner 的话一定要确保在同一方法下接下来不会再调用 Scanner 来接受输入。</font></p>
-<h3 id="2-顺序结构">2. 顺序结构</h3>
-<blockquote>
-<p>顺序结构是最简单的算法结构，它是任何一个算法都离不开的一种基本算法结构。</p>
-</blockquote>
-<h3 id="3-选择结构">3. 选择结构</h3>
-<h5 id="3-1-if-选择结构">3.1 if 选择结构</h5>
-<blockquote>
-<p>推荐使用 <code>str1.equals(str2)</code> 方法判断两个字符串是否相等，原因详见此文：<a href="https://blog.csdn.net/nxj_climb/article/details/113175127">JAVA中判断两个字符串是否相等</a></p>
-</blockquote>
-<p>语法格式：</p>
-<ul>
-<li>
-<p>if 单选择结构</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (布尔表达式) &#123;</span><br><span class="line">    <span class="comment">//如果布尔表达式为true将执行的语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>if 双选择结构</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (布尔表达式) &#123;</span><br><span class="line">    <span class="comment">//如果布尔表达式的值为true</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//如果布尔表达式的值为false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>if 多选择结构</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (布尔表达式<span class="number">1</span>) &#123;</span><br><span class="line">	<span class="comment">// 如果布尔表达式1的值为true执行代码</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (布尔表达式<span class="number">2</span>) &#123;</span><br><span class="line">	<span class="comment">// 如果布尔表达式2的值为true执行代码</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (布尔表达式<span class="number">3</span>) &#123;</span><br><span class="line">	<span class="comment">// 如果布尔表达式3的值为true执行代码</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 如果以上布尔表达式都不为true执行代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>嵌套的 if 结构</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (布尔表达式<span class="number">1</span>) &#123;</span><br><span class="line">	<span class="comment">// 如果布尔表达式1的值为true执行代码</span></span><br><span class="line">	<span class="keyword">if</span> (布尔表达式<span class="number">2</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果布尔表达式2的值为true执行代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="3-2-switch-选择结构">3.2 switch 选择结构</h5>
-<p>switch case 语句判断一个变量与一系列值中某个值是否相等，每个值称为一个分支。</p>
-<p>语法格式：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (expression) &#123;</span><br><span class="line">    <span class="keyword">case</span> value:</span><br><span class="line">        <span class="comment">// 语句</span></span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// 可选</span></span><br><span class="line">    <span class="keyword">case</span> value:</span><br><span class="line">        <span class="comment">// 语句</span></span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// 可选</span></span><br><span class="line">    <span class="comment">//你可以有任意数量的case语句</span></span><br><span class="line">    <span class="keyword">default</span>: <span class="comment">// 可选</span></span><br><span class="line">        <span class="comment">// 语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>switch 语句中的变量类型可以是：</p>
-<ul>
-<li>byte、short、int 或者 char</li>
-<li><mark>从 JavaSE 7 开始，switch 支持字符串 String 类型</mark></li>
-<li>case 标签必须为字符串常量或字面量</li>
-</ul>
-<h3 id="4-循环结构">4. 循环结构</h3>
-<h5 id="4-1-while-循环">4.1 while 循环</h5>
-<p>语法格式：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (布尔表达式) &#123;</span><br><span class="line">    <span class="comment">// 循环内容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="4-2-do…while-循环">4.2 do…while 循环</h5>
-<p>语法格式：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="comment">// 代码语句</span></span><br><span class="line">&#125; <span class="keyword">while</span> (布尔表达式);</span><br></pre></td></tr></table></figure>
-<p>while 和 do…while 的区别：</p>
-<ul>
-<li>while 先判断后执行；do…while 是先执行后判断！</li>
-<li>do…while 总是保证循环体会被至少执行一次！</li>
-</ul>
-<h5 id="4-3-for-循环">4.3 for 循环</h5>
-<blockquote>
-<p>for 循环语句是支持迭代的一种通用结构，是最有效、最灵活的循环结构。</p>
-</blockquote>
-<p>语法格式：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (初始化; 布尔表达式; 更新) &#123;</span><br><span class="line">	<span class="comment">// 代码语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="4-4-增强-for-循环">4.4 增强 for 循环</h5>
-<blockquote>
-<p>Java5 引入了增强型 for 循环，用来循环遍历数组和集合。</p>
-</blockquote>
-<p>语法格式：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (声明语句: 表达式) &#123;</span><br><span class="line">	<span class="comment">// 代码句子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>声明语句：声明新的局部变量，该变量的<mark>类型必须和数组元素的类型匹配</mark>。其作用域限定在循环语句块，其值与此时数组元素的值相等。</li>
-<li>表达式：表达式是要访问的数组名，或者是返回值为数组的方法。</li>
-</ul>
-<h5 id="4-5-break-continue">4.5 break continue</h5>
-<ul>
-<li>break
-<ul>
-<li>在任何循环语句的主体部分，均可用 break 控制循环的流程</li>
-<li>break 用于强行退出循环，不执行循环中剩余的语句</li>
-<li>break 语句也在 switch 语句中使用</li>
-</ul>
-</li>
-<li>continue
-<ul>
-<li>continue 语句用在循环语句体中，用于跳过循环体中尚未执行的语句，接着进行下一次是否执行循环的判定</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java 学习</category>
-      </categories>
-  </entry>
-  <entry>
     <title>6、Java 方法</title>
     <url>/posts/570d2512/</url>
     <content><![CDATA[<h3 id="1-何谓方法">1. 何谓方法</h3>
@@ -3348,6 +3348,189 @@ A(byte, short, char) --&gt; B(int) --&gt; C(long) --&gt; D(float) --&gt; E(doubl
 ]]></content>
       <categories>
         <category>Java 学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>9、异常</title>
+    <url>/posts/9bec04e7/</url>
+    <content><![CDATA[<h4 id="1-什么是异常">1. 什么是异常</h4>
+<blockquote>
+<p>异常指程序运行中出现的不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等，它影响了正常的程序执行流程。</p>
+</blockquote>
+<p>异常类型：</p>
+<ul>
+<li>
+<p>检查性异常</p>
+<p>最具代表的检查性异常是用户错误或问题引起的异常，这是程序员无法预见的。</p>
+</li>
+<li>
+<p>运行时异常</p>
+<p>运行时异常是可能被程序员避免的异常。与检查性异常相反，运行时异常可以在编译时被忽略。</p>
+</li>
+<li>
+<p>错误<br>
+错误不是异常，而是脱离程序员控制的问题。错误在代码中通常被忽略。</p>
+</li>
+</ul>
+<p>异常体系结构：</p>
+<blockquote>
+<p>所有的异常类是从 java.lang.Exception 类继承的子类。</p>
+<p>Exception 类是 Throwable 类的子类。除了 Exception 类外，Throwable 还有一个子类 Error。</p>
+</blockquote>
+<img src="/posts/9bec04e7/Exception.png" class="">
+<ul>
+<li>
+<p>Error</p>
+<ul>
+<li>Error 类对象由 JVM 生成并抛出，大多数错误与代码编写者所执行的操作无关。</li>
+<li>错误一般发生在严重故障时，它们在 Java 程序处理的范畴之外。</li>
+</ul>
+</li>
+<li>
+<p>Exception<br>
+在 Exception 分支中有一个重要的子类 RuntimeException（运行时异常），这类异常一般是由程序逻辑错误引起的，程序应该从逻辑角度尽可能避免这类异常的发生。</p>
+</li>
+</ul>
+<p>Error 和 Exception 的区别：</p>
+<ul>
+<li>
+<p>Error 通常是灾难性的致命的错误，是程序无法控制和处理的，当出现这些异常时，JVM 一般会选择终止线程；</p>
+</li>
+<li>
+<p>Exception 通常情况下是可以被程序处理的，并且在程序中应该尽可能的去外理这些呈常。</p>
+</li>
+</ul>
+<h4 id="2-异常处理机制">2. 异常处理机制</h4>
+<p><strong>捕获异常</strong></p>
+<blockquote>
+<p>使用 <font color = blue>try</font> 和 <font color = blue>catch</font> 关键字可以捕获异常。</p>
+<p><code>try/catch</code> 代码块放在异常可能发生的地方。<code>try/catch</code> 代码块中的代码称为保护代码。</p>
+</blockquote>
+<p>使用 try/catch 的语法如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ExceptionName e) &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ExceptionName e) &#123; <span class="comment">// 可以在 try 语句后面添加任意数量的 catch 块</span></span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><font color = blue><code>finally</code></font> 关键字用来创建在 try 代码块后面执行的代码块。</p>
+<ul>
+<li>
+<p>无论是否发生异常，finally 代码块中的代码总会被执行。</p>
+</li>
+<li>
+<p>在 finally 代码块中，可以运行清理类型等收尾善后性质的语句。</p>
+</li>
+</ul>
+<p>finally 代码块出现在 catch 代码块最后，语法如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ExceptionName e) &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ExceptionName e) &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>不要在 <code>finally</code> 块中使用 <code>return</code></mark></p>
+<blockquote>
+<p>原因：try 块中的 return 语句执行成功后，并不马上返回，而是继续执行 finally 块中的语句，如果此处存在 return 语句，则会在此直接返回，无情丢弃掉 try 块中的返回点。</p>
+</blockquote>
+<p>注意事项：</p>
+<ul>
+<li>catch 不能独立于 try 存在</li>
+<li>在 try/catch 后面添加 finally 块并非强制性要求</li>
+<li>try 代码后不能既没 catch 块也没 finally 块</li>
+<li>try, catch, finally 块之间不能添加任何代码</li>
+</ul>
+<p><strong>抛出异常</strong></p>
+<p>在 Java 中， <font color = blue>throw</font> 和 <font color = blue>throws</font> 关键字是用于处理异常的。</p>
+<ul>
+<li>throw 关键字用于在代码中抛出异常</li>
+<li>throws 关键字用于在方法声明中指定可能会抛出的异常类型</li>
+</ul>
+<h4 id="3-自定义异常">3. 自定义异常</h4>
+<blockquote>
+<p>使用 Java 内置的异常类可以描述在编程时出现的大部分异常情况。除此之外，用户还可以自定义异常。</p>
+</blockquote>
+<p>一个异常类和其它任何类一样，包含有变量和方法。</p>
+<p>在程序中使用自定义异常类，大体可分为以下几个步骤：</p>
+<ol>
+<li>创建自定义异常类</li>
+<li>在方法中通过 throw 关键字抛出异常对象</li>
+<li>如果在当前抛出异常的方法中处理异常，可以使用 <code>try/catch</code> 语句捕获并处理；否则在方法的声明处通过 throws 关键字指明要抛出给方法调用者的异常，继续进行下一步操作</li>
+<li>在出现异常方法的调用者中捕获并处理异常</li>
+</ol>
+<p>注意事项：</p>
+<ul>
+<li>所有异常都必须是 Throwable 的子类</li>
+<li>如果希望写一个检查性异常类，则需要继承 Exception 类</li>
+<li>如果你想写一个运行时异常类，那么需要继承 RuntimeException 类。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java 学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Blog 美化 | 导航栏添加天气组件</title>
+    <url>/posts/b168c33/</url>
+    <content><![CDATA[<h4 id="1-和风天气小组件">1. 和风天气小组件</h4>
+<blockquote>
+<p>参考：<a href="https://cnhuazhu.top/butterfly/2021/02/24/Hexo%E9%AD%94%E6%94%B9/Hexo%E5%9C%A8%E9%A1%B6%E9%83%A8%E5%A2%9E%E5%8A%A0%E5%A4%A9%E6%B0%94%E5%B0%8F%E9%83%A8%E4%BB%B6/">Hexo在顶部增加天气小部件 | 花猪</a></p>
+</blockquote>
+<h4 id="2-心知天气小组件">2. 心知天气小组件</h4>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/qq_51604330/article/details/118000200">Hexo-Butterfly添加天气插件 | 半生瓜のblog</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Blog 美化</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SQL 连接（JOIN）</title>
+    <url>/posts/3b50e134/</url>
+    <content><![CDATA[<p>连接方式分类：</p>
+<img src="/posts/3b50e134/join.png" class="">
+<ul>
+<li>
+<p><strong>内连接</strong><br>
+在连接结果中会舍弃掉不满足连接条件的元组</p>
+<ol>
+<li>
+<p><font color=blue>等值连接</font></p>
+<blockquote>
+<p>前提：两个关系必须要有相同的属性列，如果没有就谈不上等值连接</p>
+</blockquote>
+<p>在两个关系的笛卡尔积中，对于相同的属性列，结果仅保留属性值相同的元组</p>
+</li>
+<li>
+<p><font color=blue>自然连接</font><br>
+一种特殊的等值连接，在等值连接的基础上把重复的属性列去掉</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>外连接</strong><br>
+如果希望不满足连接条件的元组也出现在连接结果当中，则可以通过外连接来实现</p>
+<ol>
+<li>
+<p><font color=blue>左连接</font><br>
+在自然连接的基础上，加上左边表上不包含自然连接中所含元组（行）的元组，没有属性的列补空值</p>
+</li>
+<li>
+<p><font color=blue>右连接</font><br>
+在自然连接的基础上，加上右边表上不包含自然连接中所含元组（行）的元组，没有属性的列补空值</p>
+</li>
+<li>
+<p><font color=blue>全连接</font><br>
+左连接+右连接</p>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p><em>Tip：<strong>在连接查询中，通常不用 WHERE 而是用 ON，因为 WHERE 没有 ON 效率高。</strong></em></p>
+</blockquote>
+<p><em>参考资料：</em></p>
+<blockquote>
+<ol>
+<li><a href="https://blog.csdn.net/m0_46515170/article/details/106216689?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-106216689-blog-80682821.235%5Ev43%5Econtrol&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-106216689-blog-80682821.235%5Ev43%5Econtrol&amp;utm_relevant_index=2">关系代数之专门的关系运算（连接）</a></li>
+<li><a href="https://blog.csdn.net/f_kld/article/details/77168351">关系代数运算之连接</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/46037197">图解 SQL 中各种连接 JOIN</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>SQL</category>
       </categories>
   </entry>
   <entry>
@@ -3628,7 +3811,10 @@ A(byte, short, char) --&gt; B(int) --&gt; C(long) --&gt; D(float) --&gt; E(doubl
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 代码块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>在程序中，代码块与类的构造方法执行先后顺序：<strong>静态代码块</strong> &gt; <strong>匿名代码块</strong> &gt; <strong>类的构造方法</strong></p>
+<p>在程序中，代码块与类的构造方法执行先后顺序：<font color=red><strong>静态代码块</strong> &gt; <strong>匿名代码块</strong> &gt; <strong>类的构造方法</strong></font></p>
+<blockquote>
+<p>记忆：<font color=orange>（1）静态优先，普通块随后，构造方法次之；（2）无论静态还是块或者构造，先父再子</font></p>
+</blockquote>
 <p><strong><mark>静态导包</mark></strong></p>
 <p>静态导包就是 Java 包的静态导入，是 JDK 1.5 中的新特性。</p>
 <p>语法格式：</p>
@@ -3779,189 +3965,6 @@ A(byte, short, char) --&gt; B(int) --&gt; C(long) --&gt; D(float) --&gt; E(doubl
       </categories>
   </entry>
   <entry>
-    <title>Blog 美化 | 导航栏添加天气组件</title>
-    <url>/posts/b168c33/</url>
-    <content><![CDATA[<h4 id="1-和风天气小组件">1. 和风天气小组件</h4>
-<blockquote>
-<p>参考：<a href="https://cnhuazhu.top/butterfly/2021/02/24/Hexo%E9%AD%94%E6%94%B9/Hexo%E5%9C%A8%E9%A1%B6%E9%83%A8%E5%A2%9E%E5%8A%A0%E5%A4%A9%E6%B0%94%E5%B0%8F%E9%83%A8%E4%BB%B6/">Hexo在顶部增加天气小部件 | 花猪</a></p>
-</blockquote>
-<h4 id="2-心知天气小组件">2. 心知天气小组件</h4>
-<blockquote>
-<p>参考：<a href="https://blog.csdn.net/qq_51604330/article/details/118000200">Hexo-Butterfly添加天气插件 | 半生瓜のblog</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Blog 美化</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>9、异常</title>
-    <url>/posts/9bec04e7/</url>
-    <content><![CDATA[<h4 id="1-什么是异常">1. 什么是异常</h4>
-<blockquote>
-<p>异常指程序运行中出现的不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等，它影响了正常的程序执行流程。</p>
-</blockquote>
-<p>异常类型：</p>
-<ul>
-<li>
-<p>检查性异常</p>
-<p>最具代表的检查性异常是用户错误或问题引起的异常，这是程序员无法预见的。</p>
-</li>
-<li>
-<p>运行时异常</p>
-<p>运行时异常是可能被程序员避免的异常。与检查性异常相反，运行时异常可以在编译时被忽略。</p>
-</li>
-<li>
-<p>错误<br>
-错误不是异常，而是脱离程序员控制的问题。错误在代码中通常被忽略。</p>
-</li>
-</ul>
-<p>异常体系结构：</p>
-<blockquote>
-<p>所有的异常类是从 java.lang.Exception 类继承的子类。</p>
-<p>Exception 类是 Throwable 类的子类。除了 Exception 类外，Throwable 还有一个子类 Error。</p>
-</blockquote>
-<img src="/posts/9bec04e7/Exception.png" class="">
-<ul>
-<li>
-<p>Error</p>
-<ul>
-<li>Error 类对象由 JVM 生成并抛出，大多数错误与代码编写者所执行的操作无关。</li>
-<li>错误一般发生在严重故障时，它们在 Java 程序处理的范畴之外。</li>
-</ul>
-</li>
-<li>
-<p>Exception<br>
-在 Exception 分支中有一个重要的子类 RuntimeException（运行时异常），这类异常一般是由程序逻辑错误引起的，程序应该从逻辑角度尽可能避免这类异常的发生。</p>
-</li>
-</ul>
-<p>Error 和 Exception 的区别：</p>
-<ul>
-<li>
-<p>Error 通常是灾难性的致命的错误，是程序无法控制和处理的，当出现这些异常时，JVM 一般会选择终止线程；</p>
-</li>
-<li>
-<p>Exception 通常情况下是可以被程序处理的，并且在程序中应该尽可能的去外理这些呈常。</p>
-</li>
-</ul>
-<h4 id="2-异常处理机制">2. 异常处理机制</h4>
-<p><strong>捕获异常</strong></p>
-<blockquote>
-<p>使用 <font color = blue>try</font> 和 <font color = blue>catch</font> 关键字可以捕获异常。</p>
-<p><code>try/catch</code> 代码块放在异常可能发生的地方。<code>try/catch</code> 代码块中的代码称为保护代码。</p>
-</blockquote>
-<p>使用 try/catch 的语法如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ExceptionName e) &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ExceptionName e) &#123; <span class="comment">// 可以在 try 语句后面添加任意数量的 catch 块</span></span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><font color = blue><code>finally</code></font> 关键字用来创建在 try 代码块后面执行的代码块。</p>
-<ul>
-<li>
-<p>无论是否发生异常，finally 代码块中的代码总会被执行。</p>
-</li>
-<li>
-<p>在 finally 代码块中，可以运行清理类型等收尾善后性质的语句。</p>
-</li>
-</ul>
-<p>finally 代码块出现在 catch 代码块最后，语法如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ExceptionName e) &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ExceptionName e) &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>不要在 <code>finally</code> 块中使用 <code>return</code></mark></p>
-<blockquote>
-<p>原因：try 块中的 return 语句执行成功后，并不马上返回，而是继续执行 finally 块中的语句，如果此处存在 return 语句，则会在此直接返回，无情丢弃掉 try 块中的返回点。</p>
-</blockquote>
-<p>注意事项：</p>
-<ul>
-<li>catch 不能独立于 try 存在</li>
-<li>在 try/catch 后面添加 finally 块并非强制性要求</li>
-<li>try 代码后不能既没 catch 块也没 finally 块</li>
-<li>try, catch, finally 块之间不能添加任何代码</li>
-</ul>
-<p><strong>抛出异常</strong></p>
-<p>在 Java 中， <font color = blue>throw</font> 和 <font color = blue>throws</font> 关键字是用于处理异常的。</p>
-<ul>
-<li>throw 关键字用于在代码中抛出异常</li>
-<li>throws 关键字用于在方法声明中指定可能会抛出的异常类型</li>
-</ul>
-<h4 id="3-自定义异常">3. 自定义异常</h4>
-<blockquote>
-<p>使用 Java 内置的异常类可以描述在编程时出现的大部分异常情况。除此之外，用户还可以自定义异常。</p>
-</blockquote>
-<p>一个异常类和其它任何类一样，包含有变量和方法。</p>
-<p>在程序中使用自定义异常类，大体可分为以下几个步骤：</p>
-<ol>
-<li>创建自定义异常类</li>
-<li>在方法中通过 throw 关键字抛出异常对象</li>
-<li>如果在当前抛出异常的方法中处理异常，可以使用 <code>try/catch</code> 语句捕获并处理；否则在方法的声明处通过 throws 关键字指明要抛出给方法调用者的异常，继续进行下一步操作</li>
-<li>在出现异常方法的调用者中捕获并处理异常</li>
-</ol>
-<p>注意事项：</p>
-<ul>
-<li>所有异常都必须是 Throwable 的子类</li>
-<li>如果希望写一个检查性异常类，则需要继承 Exception 类</li>
-<li>如果你想写一个运行时异常类，那么需要继承 RuntimeException 类。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java 学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>SQL 连接（JOIN）</title>
-    <url>/posts/3b50e134/</url>
-    <content><![CDATA[<p>连接方式分类：</p>
-<img src="/posts/3b50e134/join.png" class="">
-<ul>
-<li>
-<p><strong>内连接</strong><br>
-在连接结果中会舍弃掉不满足连接条件的元组</p>
-<ol>
-<li>
-<p><font color=blue>等值连接</font></p>
-<blockquote>
-<p>前提：两个关系必须要有相同的属性列，如果没有就谈不上等值连接</p>
-</blockquote>
-<p>在两个关系的笛卡尔积中，对于相同的属性列，结果仅保留属性值相同的元组</p>
-</li>
-<li>
-<p><font color=blue>自然连接</font><br>
-一种特殊的等值连接，在等值连接的基础上把重复的属性列去掉</p>
-</li>
-</ol>
-</li>
-<li>
-<p><strong>外连接</strong><br>
-如果希望不满足连接条件的元组也出现在连接结果当中，则可以通过外连接来实现</p>
-<ol>
-<li>
-<p><font color=blue>左连接</font><br>
-在自然连接的基础上，加上左边表上不包含自然连接中所含元组（行）的元组，没有属性的列补空值</p>
-</li>
-<li>
-<p><font color=blue>右连接</font><br>
-在自然连接的基础上，加上右边表上不包含自然连接中所含元组（行）的元组，没有属性的列补空值</p>
-</li>
-<li>
-<p><font color=blue>全连接</font><br>
-左连接+右连接</p>
-</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p><em>Tip：<strong>在连接查询中，通常不用 WHERE 而是用 ON，因为 WHERE 没有 ON 效率高。</strong></em></p>
-</blockquote>
-<p><em>参考资料：</em></p>
-<blockquote>
-<ol>
-<li><a href="https://blog.csdn.net/m0_46515170/article/details/106216689?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-106216689-blog-80682821.235%5Ev43%5Econtrol&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-106216689-blog-80682821.235%5Ev43%5Econtrol&amp;utm_relevant_index=2">关系代数之专门的关系运算（连接）</a></li>
-<li><a href="https://blog.csdn.net/f_kld/article/details/77168351">关系代数运算之连接</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/46037197">图解 SQL 中各种连接 JOIN</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>SQL</category>
-      </categories>
-  </entry>
-  <entry>
     <title>暂退法（Dropout）笔记</title>
     <url>/posts/27f8298d/</url>
     <content><![CDATA[<ol>
@@ -4048,170 +4051,6 @@ A(byte, short, char) --&gt; B(int) --&gt; C(long) --&gt; D(float) --&gt; E(doubl
 ]]></content>
       <categories>
         <category>软件配置</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>机器学习 | 基础概念</title>
-    <url>/posts/5cf718ba/</url>
-    <content><![CDATA[<h3 id="1、什么是机器学习">1、什么是机器学习</h3>
-<p>机器学习是让计算机通过数据学习，从中发现模式和规律，并利用这些学习来做出预测或进行决策的过程。它使用统计学和算法技术来构建模型，通过对大量数据的训练和优化来提高模型的准确性和性能。</p>
-<p>机器学习可以分为以下几个关键要素：</p>
-<ul>
-<li>
-<p><strong>数据</strong></p>
-<p>数据是机器学习的基础，算法通过分析和处理大量的数据来学习模式和规律。</p>
-<p>数据可以是<mark>结构化数据</mark>（如表格数据）或<mark>非结构化数据</mark>（如文本、图像、音频等）。</p>
-</li>
-</ul>
-<ul>
-<li>
-<p><strong>特征提取</strong></p>
-<p>特征是对数据进行描述和表示的属性或指标，用于训练模型和进行预测。</p>
-</li>
-<li>
-<p><strong>模型构建</strong></p>
-<p>机器学习算法利用数据和特征来构建数学模型.</p>
-</li>
-<li>
-<p><strong>训练和优化</strong></p>
-<p>通过使用训练数据，机器学习模型通过调整模型参数和优化算法来学习数据中的模式和规律。</p>
-</li>
-<li>
-<p><strong>预测和推断</strong></p>
-<p>模型通过输入新的数据来做出预测，根据学习到的模式和规律来进行决策或分类。</p>
-</li>
-</ul>
-<h3 id="2、机器学习用来干什么">2、机器学习用来干什么</h3>
-<p>机器学习在许多领域有广泛的应用，包括：</p>
-<ul>
-<li>
-<p><strong>图像和语音识别</strong></p>
-<p>识别和分类图像中的对象、识别人脸、进行文字识别，还可以转录语音为文本，实现语音助手和语音指令的理解。</p>
-</li>
-<li>
-<p><strong>自然语言处理</strong></p>
-<p>用于文本分类、情感分析、机器翻译、问题回答等任务，帮助计算机理解和处理人类语言。</p>
-</li>
-<li>
-<p><strong>推荐系统</strong></p>
-<p>根据用户的历史行为和兴趣，为用户推荐个性化的产品、内容或服务。</p>
-</li>
-<li>
-<p><strong>预测和分类</strong></p>
-<p>根据历史数据和特征来预测未来事件的可能结果，并对数据进行分类。例如预测股票市场走势、天气预报、销售趋势、客户行为等。</p>
-</li>
-<li>
-<p><strong>欺诈检测和安全</strong></p>
-<p>用于检测和预防欺诈行为。例如信用卡欺诈检测、网络入侵检测和垃圾邮件过滤。</p>
-</li>
-<li>
-<p><strong>医学诊断</strong></p>
-<p>辅助医生进行诊断和预测疾病风险。</p>
-</li>
-</ul>
-<p>除上述应用外，机器学习还广泛应用于金融、交通、能源、制造业等领域，用于数据分析、优化流程、改进决策等。</p>
-<h3 id="3、什么是数据集">3、什么是数据集</h3>
-<p>数据集是指在机器学习和数据科学中用于训练、评估和验证模型的数据的集合。数据集由一组相关的数据样本组成，每个数据样本都包含一组特征和对应的标签或目标值。</p>
-<p>数据集可以分为以下几种类型：</p>
-<ol>
-<li>
-<p><strong>训练集（Training Set）</strong></p>
-<p>训练集是用于训练机器学习模型的数据集。通过对训练集进行模型训练，机器学习模型可以学习到数据的模式和规律。</p>
-</li>
-<li>
-<p><strong>验证集（Validation Set）</strong></p>
-<p>验证集是用于调整和优化模型超参数、选择最佳模型或进行模型选择的数据集。在训练过程中，通过使用验证集来评估模型的性能和泛化能力，并根据验证集上的表现进行调整。</p>
-</li>
-<li>
-<p><strong>测试集（Test Set）</strong></p>
-<p>测试集是用于评估训练好的模型在未见过的数据上的性能和泛化能力的数据集。测试集是独立于训练集和验证集的数据，用于模拟模型在实际应用场景中的表现。</p>
-</li>
-</ol>
-<h3 id="4、机器学习算法分类">4、机器学习算法分类</h3>
-<ul>
-<li>
-<p><strong>监督学习（Supervised Learning）</strong></p>
-<ul>
-<li>
-<p>回归（Regression）</p>
-<p>监督学习算法使用带有标签的训练数据来学习输入特征与<mark>连续型</mark>目标变量之间的关系。</p>
-<p>回归模型的目标是根据输入特征<font color = blue>预测出一个连续值</font>。</p>
-</li>
-<li>
-<p>分类（Classification）</p>
-<p>监督学习算法使用带有标签的训练数据来学习输入特征与<mark>离散型</mark>目标变量之间的关系。</p>
-<p>分类模型的目标是根据输入特征<font color = blue>将数据分为不同的类别或标签</font>。</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>无监督学习（Unsupervised Learning）</strong></p>
-<ul>
-<li>聚类（Clustering）</li>
-<li>异常检测（Anomaly detection）</li>
-<li>降维（Dimensionality reduction）</li>
-<li>密度估计（Density Estimation）</li>
-</ul>
-</li>
-<li>
-<p><strong>强化学习（Reinforcement Learning）</strong></p>
-</li>
-</ul>
-<h3 id="5、经典的机器学习算法">5、经典的机器学习算法</h3>
-<ul>
-<li>线性回归（Linear Regression）</li>
-<li>逻辑回归（Logistic Regression）</li>
-<li>决策树（Decision Tree）</li>
-<li>随机森林（Random Forest）</li>
-<li>支持向量机（Support Vector Machine，SVM）</li>
-<li>神经网络（Neural Networks）</li>
-<li>朴素贝叶斯（Naive Bayes）</li>
-<li>K近邻算法（K-Nearest Neighbors，KNN）</li>
-<li>K均值聚类（K-Means Clustering）</li>
-<li>主成分分析（Principal Component Analysis，PCA）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>NLP</category>
-        <category>机器学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>范式</title>
-    <url>/posts/5a711144/</url>
-    <content><![CDATA[<h3 id="1NF">1NF</h3>
-<p>若关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的每一个分量都是不可再分的数据项，则关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 属于第一范式（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>）。</p>
-<h3 id="2NF">2NF</h3>
-<p>若关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>，且每一个<mark>非主属性</mark>完全依赖于主键，则关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>2</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in2NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>。</p>
-<blockquote>
-<p>换句话说，当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span> 消除了<mark>非主属性</mark>对码的部分函数依赖，则称为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">2NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>。</p>
-</blockquote>
-<h3 id="3NF">3NF</h3>
-<p>若关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>U</mi><mo separator="true">,</mo><mi>F</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(U,F)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span></span></span></span> 中不存在这样的码 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>、属性组 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> 及非主属性 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi></mrow><annotation encoding="application/x-tex">Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi></mrow><annotation encoding="application/x-tex">Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span> 不属于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>)，使得 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X \to Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>↛</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">Y \nrightarrow X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">↛</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>→</mo><mi>Z</mi></mrow><annotation encoding="application/x-tex">Y \to Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span> 成立，则称关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>3</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in3NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">3</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>。</p>
-<blockquote>
-<p>换句话说，当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">2NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span> 消除了<mark>非主属性</mark>对码的传递函数依赖，则称为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">3NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">3</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>。</p>
-</blockquote>
-<h3 id="BCNF">BCNF</h3>
-<p>若关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>，若 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X \to Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>，且 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> 属于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> 必含有码，则关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mi>B</mi><mi>C</mi><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R \in BCNF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">BCNF</span></span></span></span>。</p>
-<blockquote>
-<p>换句话说，当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">3NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">3</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span> 消除了<mark>主属性</mark>对码的部分和传递函数依赖，则称为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>C</mi><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">BCNF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">BCNF</span></span></span></span>。</p>
-</blockquote>
-<p>Tip:</p>
-<ol>
-<li>
-<p>当1个关系模式中主键由2个及以上的属性组成时，非主属性只依赖于其中1个主属性，就是<font color=blue>部分函数依赖</font>。</p>
-</li>
-<li>
-<p>当关系模式中，出现非主属性决定非主属性时，就是<font color=blue>传递函数依赖</font>。</p>
-</li>
-</ol>
-<p>参考资料：</p>
-<blockquote>
-<p><a href="https://blog.csdn.net/yx1166/article/details/120301365">数据库部分函数依赖、传递函数依赖的区别以及范式判断</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>SQL</category>
       </categories>
   </entry>
   <entry>
@@ -4851,6 +4690,132 @@ C:\Program Files\StarUML\resources\asar\src\engine</p>
       </categories>
   </entry>
   <entry>
+    <title>机器学习 | 基础概念</title>
+    <url>/posts/5cf718ba/</url>
+    <content><![CDATA[<h3 id="1、什么是机器学习">1、什么是机器学习</h3>
+<p>机器学习是让计算机通过数据学习，从中发现模式和规律，并利用这些学习来做出预测或进行决策的过程。它使用统计学和算法技术来构建模型，通过对大量数据的训练和优化来提高模型的准确性和性能。</p>
+<p>机器学习可以分为以下几个关键要素：</p>
+<ul>
+<li>
+<p><strong>数据</strong></p>
+<p>数据是机器学习的基础，算法通过分析和处理大量的数据来学习模式和规律。</p>
+<p>数据可以是<mark>结构化数据</mark>（如表格数据）或<mark>非结构化数据</mark>（如文本、图像、音频等）。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>特征提取</strong></p>
+<p>特征是对数据进行描述和表示的属性或指标，用于训练模型和进行预测。</p>
+</li>
+<li>
+<p><strong>模型构建</strong></p>
+<p>机器学习算法利用数据和特征来构建数学模型.</p>
+</li>
+<li>
+<p><strong>训练和优化</strong></p>
+<p>通过使用训练数据，机器学习模型通过调整模型参数和优化算法来学习数据中的模式和规律。</p>
+</li>
+<li>
+<p><strong>预测和推断</strong></p>
+<p>模型通过输入新的数据来做出预测，根据学习到的模式和规律来进行决策或分类。</p>
+</li>
+</ul>
+<h3 id="2、机器学习用来干什么">2、机器学习用来干什么</h3>
+<p>机器学习在许多领域有广泛的应用，包括：</p>
+<ul>
+<li>
+<p><strong>图像和语音识别</strong></p>
+<p>识别和分类图像中的对象、识别人脸、进行文字识别，还可以转录语音为文本，实现语音助手和语音指令的理解。</p>
+</li>
+<li>
+<p><strong>自然语言处理</strong></p>
+<p>用于文本分类、情感分析、机器翻译、问题回答等任务，帮助计算机理解和处理人类语言。</p>
+</li>
+<li>
+<p><strong>推荐系统</strong></p>
+<p>根据用户的历史行为和兴趣，为用户推荐个性化的产品、内容或服务。</p>
+</li>
+<li>
+<p><strong>预测和分类</strong></p>
+<p>根据历史数据和特征来预测未来事件的可能结果，并对数据进行分类。例如预测股票市场走势、天气预报、销售趋势、客户行为等。</p>
+</li>
+<li>
+<p><strong>欺诈检测和安全</strong></p>
+<p>用于检测和预防欺诈行为。例如信用卡欺诈检测、网络入侵检测和垃圾邮件过滤。</p>
+</li>
+<li>
+<p><strong>医学诊断</strong></p>
+<p>辅助医生进行诊断和预测疾病风险。</p>
+</li>
+</ul>
+<p>除上述应用外，机器学习还广泛应用于金融、交通、能源、制造业等领域，用于数据分析、优化流程、改进决策等。</p>
+<h3 id="3、什么是数据集">3、什么是数据集</h3>
+<p>数据集是指在机器学习和数据科学中用于训练、评估和验证模型的数据的集合。数据集由一组相关的数据样本组成，每个数据样本都包含一组特征和对应的标签或目标值。</p>
+<p>数据集可以分为以下几种类型：</p>
+<ol>
+<li>
+<p><strong>训练集（Training Set）</strong></p>
+<p>训练集是用于训练机器学习模型的数据集。通过对训练集进行模型训练，机器学习模型可以学习到数据的模式和规律。</p>
+</li>
+<li>
+<p><strong>验证集（Validation Set）</strong></p>
+<p>验证集是用于调整和优化模型超参数、选择最佳模型或进行模型选择的数据集。在训练过程中，通过使用验证集来评估模型的性能和泛化能力，并根据验证集上的表现进行调整。</p>
+</li>
+<li>
+<p><strong>测试集（Test Set）</strong></p>
+<p>测试集是用于评估训练好的模型在未见过的数据上的性能和泛化能力的数据集。测试集是独立于训练集和验证集的数据，用于模拟模型在实际应用场景中的表现。</p>
+</li>
+</ol>
+<h3 id="4、机器学习算法分类">4、机器学习算法分类</h3>
+<ul>
+<li>
+<p><strong>监督学习（Supervised Learning）</strong></p>
+<ul>
+<li>
+<p>回归（Regression）</p>
+<p>监督学习算法使用带有标签的训练数据来学习输入特征与<mark>连续型</mark>目标变量之间的关系。</p>
+<p>回归模型的目标是根据输入特征<font color = blue>预测出一个连续值</font>。</p>
+</li>
+<li>
+<p>分类（Classification）</p>
+<p>监督学习算法使用带有标签的训练数据来学习输入特征与<mark>离散型</mark>目标变量之间的关系。</p>
+<p>分类模型的目标是根据输入特征<font color = blue>将数据分为不同的类别或标签</font>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>无监督学习（Unsupervised Learning）</strong></p>
+<ul>
+<li>聚类（Clustering）</li>
+<li>异常检测（Anomaly detection）</li>
+<li>降维（Dimensionality reduction）</li>
+<li>密度估计（Density Estimation）</li>
+</ul>
+</li>
+<li>
+<p><strong>强化学习（Reinforcement Learning）</strong></p>
+</li>
+</ul>
+<h3 id="5、经典的机器学习算法">5、经典的机器学习算法</h3>
+<ul>
+<li>线性回归（Linear Regression）</li>
+<li>逻辑回归（Logistic Regression）</li>
+<li>决策树（Decision Tree）</li>
+<li>随机森林（Random Forest）</li>
+<li>支持向量机（Support Vector Machine，SVM）</li>
+<li>神经网络（Neural Networks）</li>
+<li>朴素贝叶斯（Naive Bayes）</li>
+<li>K近邻算法（K-Nearest Neighbors，KNN）</li>
+<li>K均值聚类（K-Means Clustering）</li>
+<li>主成分分析（Principal Component Analysis，PCA）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>NLP</category>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>详解 Hierarchical Softmax</title>
     <url>/posts/66b1af6d/</url>
     <content><![CDATA[<p>内容通俗易懂，故在此标记，以防忘记</p>
@@ -4862,6 +4827,44 @@ C:\Program Files\StarUML\resources\asar\src\engine</p>
       <categories>
         <category>NLP</category>
         <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>范式</title>
+    <url>/posts/5a711144/</url>
+    <content><![CDATA[<h3 id="1NF">1NF</h3>
+<p>若关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的每一个分量都是不可再分的数据项，则关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 属于第一范式（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>）。</p>
+<h3 id="2NF">2NF</h3>
+<p>若关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>，且每一个<mark>非主属性</mark>完全依赖于主键，则关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>2</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in2NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>。</p>
+<blockquote>
+<p>换句话说，当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span> 消除了<mark>非主属性</mark>对码的部分函数依赖，则称为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">2NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>。</p>
+</blockquote>
+<h3 id="3NF">3NF</h3>
+<p>若关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>U</mi><mo separator="true">,</mo><mi>F</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(U,F)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span></span></span></span> 中不存在这样的码 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>、属性组 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> 及非主属性 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi></mrow><annotation encoding="application/x-tex">Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi></mrow><annotation encoding="application/x-tex">Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span> 不属于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>)，使得 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X \to Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>↛</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">Y \nrightarrow X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">↛</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>→</mo><mi>Z</mi></mrow><annotation encoding="application/x-tex">Y \to Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span> 成立，则称关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>3</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in3NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">3</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>。</p>
+<blockquote>
+<p>换句话说，当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">2NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span> 消除了<mark>非主属性</mark>对码的传递函数依赖，则称为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">3NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">3</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>。</p>
+</blockquote>
+<h3 id="BCNF">BCNF</h3>
+<p>若关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>，若 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X \to Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>，且 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> 属于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> 必含有码，则关系模式 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mi>B</mi><mi>C</mi><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R \in BCNF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">BCNF</span></span></span></span>。</p>
+<blockquote>
+<p>换句话说，当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">3NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">3</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span> 消除了<mark>主属性</mark>对码的部分和传递函数依赖，则称为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>C</mi><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">BCNF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">BCNF</span></span></span></span>。</p>
+</blockquote>
+<p>Tip:</p>
+<ol>
+<li>
+<p>当1个关系模式中主键由2个及以上的属性组成时，非主属性只依赖于其中1个主属性，就是<font color=blue>部分函数依赖</font>。</p>
+</li>
+<li>
+<p>当关系模式中，出现非主属性决定非主属性时，就是<font color=blue>传递函数依赖</font>。</p>
+</li>
+</ol>
+<p>参考资料：</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/yx1166/article/details/120301365">数据库部分函数依赖、传递函数依赖的区别以及范式判断</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>SQL</category>
       </categories>
   </entry>
 </search>
