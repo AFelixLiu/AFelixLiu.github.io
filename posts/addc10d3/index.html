@@ -508,6 +508,9 @@ document.addEventListener('pjax:send', () => {
 <li>第二个线程访问，发现同步监视器没有锁，然后锁定并访问</li>
 </ol>
 <blockquote>
+<p><code>synchronized</code> 保证三大性，原子性，有序性，可见性，<code>volatile</code>保证有序性，可见性，不能保证原子性。</p>
+</blockquote>
+<blockquote>
 <p>JUC 工具类</p>
 </blockquote>
 <p><strong>死锁</strong></p>
