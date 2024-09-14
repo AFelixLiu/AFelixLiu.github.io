@@ -1,0 +1,1406 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>16、MySQL | 红油曲奇的个人博客</title><meta name="author" content="红油曲奇"><meta name="copyright" content="红油曲奇"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Java 笔记-16">
+<meta property="og:type" content="article">
+<meta property="og:title" content="16、MySQL">
+<meta property="og:url" content="https://afelixliu.site/posts/6d51b58c/index.html">
+<meta property="og:site_name" content="红油曲奇的个人博客">
+<meta property="og:description" content="Java 笔记-16">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2024-09-14T18:40:56.000Z">
+<meta property="article:modified_time" content="2024-09-14T18:51:57.000Z">
+<meta property="article:author" content="红油曲奇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://afelixliu.site/posts/6d51b58c/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.9.0"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@5.0.19/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":180},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":60,"languages":{"author":"作者: 红油曲奇","link":"链接: ","source":"来源: 红油曲奇的个人博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"rgba(79, 195, 247, 0.6)","bgDark":"rgba(178, 178, 178, 0.5)","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://unpkg.com/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://unpkg.com/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '16、MySQL',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-15 02:51:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"/><link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"><link rel="stylesheet" href="/css/wave.css"><link rel="stylesheet" href="/css/windmill.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/pace-minimal.css"/><script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="红油曲奇的个人博客"><span class="site-name">红油曲奇的个人博客</span></a></span><div id="tp-weather-widget"></div><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">16、MySQL</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-14T18:40:56.000Z" title="发表于 2024-09-15 02:40:56">2024-09-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-14T18:51:57.000Z" title="更新于 2024-09-15 02:51:57">2024-09-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java-%E5%AD%A6%E4%B9%A0/">Java 学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">9.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>35分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="16、MySQL"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/6d51b58c/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="1-数据库的重要性">1. 数据库的重要性</h3>
+<p>数据库几乎是软件体系中最核心的一个存在。</p>
+<h3 id="2-数据库分类">2. 数据库分类</h3>
+<ul>
+<li>
+<p>关系型数据库（SQL DB）</p>
+<blockquote>
+<p>使用关系模型组织数据；</p>
+<p>包括MySQL、Oracle、SQL Server、SQLite、DB2、…</p>
+</blockquote>
+</li>
+<li>
+<p>非关系型数据库（NoSQL DB）</p>
+<blockquote>
+<p>数据通常以对象的形式存储在数据库中；</p>
+<p>对象之间的关系通过每个对象自身的属性来决定；</p>
+<p>常用于存储非结构化的数据</p>
+<p>包括 Redis、MongoDB、…</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="3-数据库操作">3. 数据库操作</h3>
+<blockquote>
+<p>MySQL 常用命令参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_61370021/article/details/130797638">MySQL 数据库常用命令大全（完整版）_mysql数据库命令大全</a></p>
+</blockquote>
+<h4 id="3-1-SQL-语言分类">3.1 SQL 语言分类</h4>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDL（数据定义语言）</td>
+<td>CREATE、DROP、ALTER</td>
+<td>维护存储数据的结构，如数据库、表、视图、索引等</td>
+</tr>
+<tr>
+<td>DML（数据操作语言）</td>
+<td>INSERT、UPDATE、DELETE</td>
+<td>操作数据库对象中所包含的数据</td>
+</tr>
+<tr>
+<td>DQL（数据查询语言）</td>
+<td>SELECT</td>
+<td>查询数据库当中的数据</td>
+</tr>
+<tr>
+<td>DCL（数据控制语言）</td>
+<td>GRANT、commit、rollback</td>
+<td>管理数据库，包括管理权限及数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-2-存储引擎">3.2 存储引擎</h4>
+<p>存储引擎就是存储数据、建立索引、更新/查询数据等技术的实现方法。</p>
+<p>使用命令 <code>show engines;</code> 查看数据库可以支持的存储引擎，命令可以显示当前数据库支持的存储引擎情况。</p>
+<p>MySQL 数据库支持多种存储引擎，如 MyISAM、InnoDB、MEMORY、…</p>
+<p>MyISAM 与 InnoDB 对比：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>MyISAM</th>
+<th>InnoDB</th>
+<th>MEMORY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>事务安全</strong></td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>空间使用</strong></td>
+<td><font color=green>小</font></td>
+<td><font color=red>大</font></td>
+<td><font color=green>小</font></td>
+</tr>
+<tr>
+<td><strong>内存使用</strong></td>
+<td><font color=green>小</font></td>
+<td><font color=red>大</font></td>
+<td><font color=red>大</font></td>
+</tr>
+<tr>
+<td><strong>插入数据速度</strong></td>
+<td><font color=green>快</font></td>
+<td><font color=red>慢</font></td>
+<td><font color=green>快</font></td>
+</tr>
+<tr>
+<td><strong>支持外键</strong></td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>全文索引</strong></td>
+<td>✅</td>
+<td>✅ (since MySQL 5.6)</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>适用场合</strong></td>
+<td>安全性、事务处理以及多用户操作</td>
+<td>节约空间、速度快</td>
+<td>安全性要求较低、速度快</td>
+</tr>
+</tbody>
+</table>
+<p>InnoDB 是 MySQL 的默认存储引擎。</p>
+<h4 id="3-3-存储位置（仅针对-MySQL-8-0）">3.3 存储位置（仅针对 MySQL 8.0）</h4>
+<p>MySQL 数据以文件方式存储在磁盘中，包括表文件、数据文件、以及数据库的选项文件</p>
+<blockquote>
+<p>位置：<code>C:\ProgramData\MySQL\MySQL Server 8.0\Data</code></p>
+<p>Data目录下存储数据，目录名对应数据库名，该目录下文件名对应数据表</p>
+</blockquote>
+<p><font color=red><strong>注意：</strong></font></p>
+<ul>
+<li>InnoDB 类型的数据表只有一个 <code>*.ibd</code> 文件，以及上一级目录（<code>...\Data</code>）中的 <code>ibdata1</code> 文件；</li>
+<li>MyISAM 类型的数据表对应三个文件：
+<ul>
+<li><code>*.sdi</code> 文件 - 表结构信息文件</li>
+<li><code>*.MYD</code> 文件 - 数据文件</li>
+<li><code>*.MYI</code> 文件 - 索引文件</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>参考来源：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ebb29bbe/article/details/134435197?spm=1001.2014.3001.5501">⑩【MySQL】存储引擎详解， InnoDB、MyISAM、Memory。</a></p>
+</blockquote>
+<h4 id="3-4-MySQL-字符集和排序规则">3.4 MySQL 字符集和排序规则</h4>
+<p>字符集：推荐 <code>utf8mb4</code></p>
+<p>排序规则：推荐 <code> utf8mb4_0900_ai_ci</code></p>
+<blockquote>
+<p>参考来源：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_47406832/article/details/135395392">【MySQL】如何选择字符集与排序规则（字符集校验规则）_mysql字符集和排序规则如何选择</a></p>
+</blockquote>
+<h4 id="3-5-MySQL-注释">3.5 MySQL 注释</h4>
+<p>单行注释：以 <code>--</code> 开头</p>
+<p>多行注释：以 <code>/*</code> 开头并以 <code>*/</code> 结尾</p>
+<h4 id="3-6-DDL">3.6 DDL</h4>
+<h5 id="3-5-1-操作数据库">3.5.1 操作数据库</h5>
+<ul>
+<li>查看所有数据库：<code>show databases;</code></li>
+<li>创建数据库：<code>create database [if not exists] DBName;</code></li>
+<li>使用数据库：<code>use DBName;</code></li>
+<li>查看当前使用的数据库：<code>select database();</code></li>
+<li>删除数据库：<code>drop database [if exists] DBName;</code></li>
+</ul>
+<h5 id="3-5-2-操作数据表">3.5.2 操作数据表</h5>
+<ul>
+<li>
+<p>查看当前数据库下的所有数据表：<code>show tables;</code></p>
+</li>
+<li>
+<p>查看数据表的结构：<code>desc tableName;</code></p>
+</li>
+<li>
+<p>创建数据表：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table [if not exists] `tableName` (</span><br><span class="line">    &#x27;字段名1&#x27; 数据类型 [属性][索引][注释],</span><br><span class="line">    &#x27;字段名2&#x27; 数据类型 [属性][索引][注释],</span><br><span class="line">    #...</span><br><span class="line">    &#x27;字段名n&#x27; 数据类型 [属性][索引][注释]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改数据表：</p>
+<ul>
+<li>修改表名：<code>alter table oldTableName rename as/to newName;</code></li>
+<li>增加字段：<code>alter table tableName add 字段名 数据类型;</code></li>
+<li>修改数据类型：<code>alter table tableName modify 字段名 新数据类型;</code></li>
+<li>修改字段名和数据类型：<code>alter table tableName change 字段名 新字段名 新数据类型;</code></li>
+<li>删除列：<code>alter table tableName drop 字段名;</code></li>
+</ul>
+</li>
+<li>
+<p>删除数据表：<code>drop table [if exists] tableName;</code></p>
+</li>
+</ul>
+<h4 id="3-7-DML">3.7 DML</h4>
+<ul>
+<li>
+<p>添加数据：<code>INSERT INTO tableName(column1, column2, ...) VALUES(value1, value2, ...);</code></p>
+</li>
+<li>
+<p>修改数据：<code>UPDATE tableName SET column1 = value1, column2 = value2, ... [WHERE condition];</code></p>
+</li>
+<li>
+<p>删除数据：<code>DELETE FROM tableName [WHERE condition];</code></p>
+</li>
+<li>
+<p>清空表数据但表结构、索引、约束等不变：<code>TRUNCATE TABLE tableName;</code></p>
+<blockquote>
+<p>Notice: 使用 TRUNCATE TABLE 会重新设置 AUTO_INCREMENT 计数器</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="3-8-DQL">3.8 DQL</h4>
+<ul>
+<li>
+<p><font color=red>【<strong>Important</strong>】</font>SQL 查询语句执行顺序：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select [all | distinct] &#123;* | table.* | [table.field_1 [as alias_1][, table.field_2 [as alias_2]][, ...]]&#125;</span><br><span class="line">from table_name [as table_alias]</span><br><span class="line">[left | right | inner join table_name_2] -- 连接查询</span><br><span class="line">[where ...] -- 指定结果需满足的条件</span><br><span class="line">[group by ...] -- 指定结果按照哪几个字段来分组</span><br><span class="line">[having] -- 过滤分组的记录必须满足的次要条件</span><br><span class="line">[order by ...] -- 指定查询记录按一个或多个条件排序</span><br><span class="line">[limit &#123;[offset,] rows | rows OFFSET offset&#125;]; -- 指定查询的记录从哪条至哪条</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>​	优先级：where &gt; group by &gt; having &gt; order by &gt; limit</p>
+<ul>
+<li>
+<p>模糊查询（between…and…\like\in）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- between...and... 示例</span><br><span class="line">select sno, sname, score from student where score between 0 and 100;</span><br><span class="line"></span><br><span class="line">-- like 示例</span><br><span class="line">select sno, sname, score from student where sname like &quot;felix_&quot;; -- 下划线 &quot;_&quot; 代表1个字符</span><br><span class="line">select sno, sname, score from student where sname like &quot;felix%&quot;; -- &quot;%&quot; 代表0到任意个字符</span><br><span class="line"></span><br><span class="line">-- in 示例</span><br><span class="line">select sno, sname, address from student where address in (&#x27;北京&#x27;, &#x27;南京&#x27;, &#x27;重庆&#x27;);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>连接查询</p>
+<blockquote>
+<p>参考博客：<a href="https://afelixliu.site/posts/3b50e134/">SQL 连接（JOIN）</a></p>
+</blockquote>
+</li>
+<li>
+<p>排序</p>
+<p>语法：<code>order by 字段名 desc/asc</code>，desc 代表降序排序，asc 则表示升序排序</p>
+</li>
+<li>
+<p>分页</p>
+<p>语法：<code>select * from tableName limit [offset,] rows | rows OFFSET offset</code></p>
+<blockquote>
+<p>limit 子句可以被用于强制 select 语句返回指定的记录数；</p>
+<p>limit 接受一个或两个数字参数，参数必须是一个整数常量：</p>
+<ul>
+<li>
+<p>如果给定两个参数，第一个参数指定第一个返回记录行的偏移量，第二个参数指定返回记录行的最大数目。</p>
+<blockquote>
+<p>初始记录行的偏移量是 0，而不是 1</p>
+</blockquote>
+</li>
+<li>
+<p>如果只给定一个参数，它表示返回最大的记录行数目</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>子查询</p>
+<blockquote>
+<p>所谓子查询，就是在查询语句中的 where 条件子句中，又嵌套了另一个查询语句</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="3-9-外键">3.9 外键</h4>
+<p>在数据库中，外键用于建立表与表之间的引用关系，维护数据的一致性和完整性。</p>
+<p>外键字段关联到另一个表的主键字段，以建立两个表之间的关系。</p>
+<ul>
+<li>
+<p>创建外键</p>
+<ul>
+<li>
+<p>方式一：创建数据表时同时创建外键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">-- 示例</span><br><span class="line">-- 解释：CONSTRAINT constraintName 子句作用是为外键约束定义约束名称。如果省略它，MySQL 将自动生成一个名称。</span><br><span class="line"></span><br><span class="line">CREATE TABLE `grade` (</span><br><span class="line">    `gradeid` INT(10) NOT NULL AUTO_INCREMENT COMMENT &#x27;年级ID&#x27;,</span><br><span class="line">    `gradename` VARCHAR(50) NOT NULL COMMENT &#x27;年级名称&#x27;,</span><br><span class="line">	PRIMARY KEY (`gradeid`)</span><br><span class="line">) ENGINE=INNODB DEFAULT CHARSET=utf8</span><br><span class="line"></span><br><span class="line">CREATE TABLE `student` (</span><br><span class="line">	`studentno` INT(4) NOT NULL COMMENT &#x27;学号&#x27;,</span><br><span class="line">	`studentname` VARCHAR(20) NOT NULL DEFAULT &#x27;匿名&#x27; COMMENT &#x27;姓名&#x27;,</span><br><span class="line">	`sex` TINYINT(1) DEFAULT &#x27;1&#x27; COMMENT &#x27;性别&#x27;,</span><br><span class="line">	`gradeid` INT(10) DEFAULT NULL COMMENT &#x27;年级&#x27;,</span><br><span class="line">	`phoneNum` VARCHAR(50) NOT NULL COMMENT &#x27;手机&#x27;,</span><br><span class="line">	`address` VARCHAR(255) DEFAULT NULL COMMENT &#x27;地址&#x27;,</span><br><span class="line">	`borndate` DATETIME DEFAULT NULL COMMENT &#x27;生日&#x27;,</span><br><span class="line">	`email` VARCHAR(50) DEFAULT NULL COMMENT &#x27;邮箱&#x27;,</span><br><span class="line">	`idCard` VARCHAR(18) DEFAULT NULL COMMENT &#x27;身份证号&#x27;,</span><br><span class="line">	PRIMARY KEY (`studentno`),</span><br><span class="line">	KEY `FK_gradeid` (`gradeid`),</span><br><span class="line">	CONSTRAINT `FK_gradeid` FOREIGN KEY (`gradeid`) REFERENCES `grade` (`gradeid`)</span><br><span class="line">) ENGINE=INNODB DEFAULT CHARSET=utf8</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>方式二：创建数据表完成后，修改数据表添加主键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 示例</span><br><span class="line">-- 解释：CONSTRAINT FK_gradeid 子句作用是为外键约束定义约束名称。如果省略它，MySQL 将自动生成一个名称。</span><br><span class="line"></span><br><span class="line">ALTER TABLE `student` ADD CONSTRAINT constraintName FOREIGN KEY (`gradeid`) REFERENCES `grade` (`gradeid`);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>删除外键：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 第一步：删除外键</span><br><span class="line">alter table tableName drop foreign key constraintName;</span><br><span class="line"></span><br><span class="line">-- 第二步：删除外键索引</span><br><span class="line">alter table tableName drop index constrainName;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><font color=red>【强制】</font>不得使用外键与级联，一切外键概念必须在应用层解决。</p>
+</blockquote>
+<h3 id="4-MySQL-函数">4. MySQL 函数</h3>
+<blockquote>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/functions.html">MySQL :: MySQL 8.0 Reference Manual :: 14 Functions and Operators</a></p>
+</blockquote>
+<h4 id="4-1-常用函数">4.1 常用函数</h4>
+<p><strong>数据函数</strong></p>
+<ul>
+<li><code>SELECT ABS(-8);</code> – 绝对值</li>
+<li><code>SELECT CEILING(9.4);</code> --向上取整</li>
+<li><code>SELECT FLOOR(9.4);</code> --向下取整</li>
+<li><code>SELECT RAND();</code> --随机数，返回一个 0~1 之间的随机数</li>
+<li><code>SELECT SIGN(0);</code> --符号函数: 负数返回-1，正数返回1，0返回0</li>
+</ul>
+<p><strong>字符串函数</strong></p>
+<ul>
+<li><code>SELECT CHAR_LENGTH('坚持就是胜利');</code> – 返回字符串包含的字符数</li>
+<li><code>SELECT CONCAT('我','爱','编程');</code> – 合并字符串，参数可以有多个</li>
+<li><code>SELECT INSERT(s1, x, len, s2);</code> – 使用字符串 s2 替换字符串 s1 部分，起始于字符串 s1 的 x 位置，共替换字符串 s1 的 len 长度</li>
+<li><code>SELECT LOWER('KuangShen');</code> – 转小写</li>
+<li><code>SELECT UPPER('KuangShen');</code> – 转大写</li>
+<li><code>SELECT LEFT('hello,world',5);</code> – 从左边截取</li>
+<li><code>SELECT RIGHT('hello,world',5);</code> – 从右边截取</li>
+<li><code>SELECT REPLACE('坚持就能成功','坚持','努力');</code> – 替换字符串</li>
+<li><code>SELECT SUBSTR('坚持就能成功',4,6);</code> – 截取子字符串，开始和长度</li>
+<li><code>SELECT REVERSE('坚持就能成功');</code> – 字符反转</li>
+</ul>
+<p><strong>日期时间函数</strong></p>
+<ul>
+<li><code>SELECT CURRENT_DATE();</code> – 获取当前日期</li>
+<li><code>SELECT CURDATE();</code> – 获取当前日期</li>
+<li><code>SELECT NOW();</code> – 获取当前日期和时间</li>
+<li><code>SELECT LOCALTIME();</code> – 获取当前日期和时间</li>
+<li><code>SELECT SYSDATE();</code> – 获取当前日期和时间</li>
+<li><code>SELECT YEAR(NOW());</code> – 获取年</li>
+<li><code>SELECT MONTH(NOW());</code> – 获取月</li>
+<li><code>SELECT DAY(NOW());</code> – 获取日</li>
+<li><code>SELECT HOUR(NOW());</code> – 获取时</li>
+<li><code>SELECT MINUTE(NOW());</code> – 获取分</li>
+<li><code>SELECT SECOND(NOW());</code> – 获取秒</li>
+</ul>
+<p><strong>系统信息函数</strong></p>
+<ul>
+<li><code>SELECT VERSION();</code> --查看 MySQL 版本</li>
+<li><code>SELECT USER();</code> --查看当前用户</li>
+</ul>
+<p><strong>加密函数</strong></p>
+<ul>
+<li><code>md5()</code> – 信息加密</li>
+</ul>
+<h4 id="4-2-聚合函数">4.2 聚合函数</h4>
+<ul>
+<li>
+<p><code>COUNT()</code> – 返回满足 select 条件的记录总和数</p>
+<blockquote>
+<ul>
+<li>
+<p><code>count(字段名)</code> 会统计该字段在表中出现的次数，<font color=orange>忽略字段为 null 的情况</font>；</p>
+</li>
+<li>
+<p><code>count(*)</code> 包括了所有的列，相当于行数，在统计结果的时候，包含字段为 null 的记录；</p>
+</li>
+<li>
+<p><code>count(1)</code> 用 1 代表代码行，在统计结果的时候，包含字段为 null 的记录 。</p>
+</li>
+</ul>
+<p>从含义上讲，<code>count(1)</code> 与 <code>count(*)</code> 都表示对全部数据行的查询：</p>
+<p>​	1）在表没有主键时，count(1)比count(*)快；</p>
+<p>​	2）有主键时，主键作为计算条件，count(主键)效率最高；</p>
+<p>​	3）若表格只有一个字段，则count(*)效率较高。</p>
+<p><font color=green>推荐使用 <code>count(1)</code></font></p>
+</blockquote>
+</li>
+<li>
+<p><code>SUM()</code> – 返回数字字段或表达式列作统计，返回一列的总和。</p>
+</li>
+<li>
+<p><code>AVG()</code> – 通常为数值字段或表达列作统计，返回一列的平均值</p>
+</li>
+<li>
+<p><code>MAX()</code> – 可以为数值字段，字符字段或表达式列作统计，返回最大的值。</p>
+</li>
+<li>
+<p><code>MIN()</code> – 可以为数值字段，字符字段或表达式列作统计，返回最小的值。</p>
+</li>
+</ul>
+<h3 id="5-事务">5. 事务</h3>
+<blockquote>
+<p>事务是一组 SQL 语句的执行，被视为一个单独的工作单元。</p>
+<ul>
+<li><font color=red>在 MySQL 中，只有使用了 InnoDB 数据库引擎的数据库或表才支持事务</font></li>
+<li>事务处理可以用来维护数据库的完整性，保证成批的 SQL 语句<font color=orange>要么全部执行，要么全部不执行</font></li>
+<li>事务用来管理 <strong>insert、update、delete</strong> 语句</li>
+</ul>
+</blockquote>
+<p><strong>事务特性（ACID）</strong></p>
+<ul>
+<li>
+<p>原子性（<strong>A</strong>tomicity）</p>
+<blockquote>
+<p>一个事务中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。</p>
+<p>事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。</p>
+</blockquote>
+</li>
+<li>
+<p>一致性（<strong>C</strong>onsistency）</p>
+<blockquote>
+<p>事务完成后，所有数据的状态都是一致的。</p>
+<p>“以转账为例，假设有五个账户，每个账户余额是100元，五个账户总额是500元，如果在这个5个账户之间同时发生多个转账，无论并发多少个，比如在A与B账户之间转账5元，在C与D账户之间转账10元，在B与E之间转账15元，五个账户总额也应该还是500元。”</p>
+</blockquote>
+</li>
+<li>
+<p>隔离性（<strong>I</strong>solation）</p>
+<blockquote>
+<p>数据库允许多个事务同时对其数据进行读写和修改，而隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致，如：</p>
+<ul>
+<li><mark>脏读</mark>：A 事务正在修改数据但未提交，此时 B 事务去读取此条数据，B 事务读取的是未提交的数据，A 事务回滚。</li>
+<li><mark>不可重复读</mark>：事务 A 多次读取同一数据，但事务 B 在事务 A 多次读取的过程中，对数据作了更新并提交，导致事务 A 多次读取同一数据时，结果不一致。</li>
+<li><mark>幻读</mark>：事务 A 第一次查询查到 5 条数据，第二次查到 8 条数据，这是因为在两次查询的间隙，事务 B 插入了 3 条数据。</li>
+</ul>
+<p>不可重复读与幻读区别：</p>
+<ul>
+<li>不可重复读是读取了其他事务更改的数据，<strong>针对 update 操作</strong></li>
+<li>幻读是读取了其他事务新增的数据，<strong>针对 insert 和 delete 操作</strong></li>
+</ul>
+<p>为了防止多个事务执行间的混淆，必须串行化或序列化请求，使得在同一时间仅有一个请求用于同一数据。</p>
+<p>SQL 标准定义四种隔离级别，包括：</p>
+<ul>
+<li>读未提交（Read uncommitted）</li>
+<li>读提交（read committed）</li>
+<li>可重复读（repeatable read）</li>
+<li>串行化（Serializable）</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>持久性（<strong>D</strong>urability）</p>
+<blockquote>
+<p>事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>事务实现</strong></p>
+<ul>
+<li>
+<p><font color=red><strong>Notice</strong></font>: MySQL 中默认是自动提交，使用事务时应先关闭自动提交</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 使用 set 语句改变自动提交模式</span><br><span class="line"></span><br><span class="line">SET autocommit = 0; -- 关闭自动提交</span><br><span class="line"></span><br><span class="line">SET autocommit = 1; -- 开启自动提交</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>事务处理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SET autocommit = 0; -- 关闭自动提交</span><br><span class="line"></span><br><span class="line">START TRANSACTION -- 开始一个事务，标记事务的起始点</span><br><span class="line">/*</span><br><span class="line">（待执行的SQL 语句）</span><br><span class="line">*/</span><br><span class="line">COMMIT -- 提交一个事务给数据库</span><br><span class="line"></span><br><span class="line">ROLLBACK -- 将事务回滚，数据回到本次事务的初始状态</span><br><span class="line"></span><br><span class="line">SET autocommit = 1 -- 还原MySQL数据库的自动提交</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>保存点（SAVEPOINT）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SAVEPOINT sp_name -- 设置保存点(一个事务中可以有多个 SAVEPOINT)</span><br><span class="line"></span><br><span class="line">ROLLBACK TO SAVEPOINT sp_name -- 回滚到保存点</span><br><span class="line"></span><br><span class="line">RELEASE SAVEPOINT sp_name -- 删除保存点</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="6-索引">6. 索引</h3>
+<h4 id="6-1-索引作用">6.1 索引作用</h4>
+<ul>
+<li>提高查询速度</li>
+<li>确保数据的唯一性</li>
+<li>可以加速表和表之间的连接，实现表与表之间的参照完整性</li>
+<li>使用分组和排序子句进行数据检索时可以显著减少分组和排序的时间</li>
+<li>全文检索字段进行搜索优化</li>
+</ul>
+<h4 id="6-2-索引分类">6.2 索引分类</h4>
+<ul>
+<li>
+<p>主键索引 - <code>PRIMARY KEY</code></p>
+<blockquote>
+<p>特点：</p>
+<ul>
+<li>确保数据记录的唯一性</li>
+<li>确定特定数据记录在数据库中的位置</li>
+<li><font color=red>一张数据表中最多只能有一个主键</font></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>唯一索引 - <code>UNIQUE KEY</code></p>
+<blockquote>
+<p>作用： 避免同一个表中某个字段的值重复</p>
+<p><font color=red>一张数据表中可以创建多个唯一索引</font></p>
+</blockquote>
+</li>
+<li>
+<p>普通索引 - <code>INDEX/KEY</code></p>
+<blockquote>
+<p>作用 : 快速定位特定数据</p>
+<p>注意：不宜添加太多普通索引，影响数据的插入、删除和修改操作</p>
+</blockquote>
+</li>
+<li>
+<p>全文索引 - <code>FULLTEXT KEY</code></p>
+<blockquote>
+<p>作用：快速定位特定数据</p>
+<p>注意：</p>
+<ul>
+<li>
+<p>只能用于 MyISAM 类型的数据表</p>
+</li>
+<li>
+<p>只能用于 char, varchar, text 数据列类型</p>
+</li>
+<li>
+<p>适合大型数据集</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="6-3-创建索引">6.3 创建索引</h4>
+<ul>
+<li>
+<p>方式一：创建数据表时同时创建索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tableName (</span><br><span class="line">    字段名1 数据类型 [完整性约束条件…],</span><br><span class="line">    字段名2 数据类型 [完整性约束条件…],</span><br><span class="line">    [UNIQUE | FULLTEXT | SPATIAL ] INDEX | KEY [索引名] (字段名[(长度)] [ASC |DESC])</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>方式二：在已创建的数据表上创建索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- CREATE 命令</span><br><span class="line">CREATE [UNIQUE | FULLTEXT | SPATIAL ] INDEX index_name ON table_name (字段名[(长度)] [ASC |DESC]);</span><br><span class="line"></span><br><span class="line">-- ALTER 命令</span><br><span class="line">ALTER TABLE table_name ADD [UNIQUE | FULLTEXT | SPATIAL ] INDEX index_name (字段名[(长度)] [ASC |DESC]);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>显示索引信息：</strong><code>	SHOW INDEX FROM tableName;</code></p>
+<h4 id="6-4-删除索引">6.4 删除索引</h4>
+<p>命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 方式一</span><br><span class="line">DROP INDEX 索引名 ON 表名字;</span><br><span class="line"></span><br><span class="line">-- 方式二</span><br><span class="line">ALTER TABLE 表名 DROP IDNEX index_name;</span><br></pre></td></tr></table></figure>
+<h4 id="6-5-索引准则">6.5 索引准则</h4>
+<ul>
+<li>索引不是越多越好</li>
+<li>不要对经常变动的数据加索引</li>
+<li>小数据量的表建议不要加索引</li>
+<li>索引一般应加在查找条件的字段</li>
+</ul>
+<blockquote>
+<p>扩展阅读：<a target="_blank" rel="noopener" href="https://blog.codinglabs.org/articles/theory-of-mysql-index.html">CodingLabs - MySQL索引背后的数据结构及算法原理</a></p>
+</blockquote>
+<h3 id="7-权限管理">7. 权限管理</h3>
+<h4 id="7-1-用户管理">7.1 用户管理</h4>
+<ul>
+<li>
+<p>用户信息表：mysql.user</p>
+</li>
+<li>
+<p>刷新权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>增加用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &#x27;userName&#x27;@&#x27;host&#x27; IDENTIFIED BY [PASSWORD] &#x27;pwd&#x27;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong></p>
+<ul>
+<li>必须拥有 MySQL 数据库的全局 CREATE USER 权限，或拥有 INSERT 权限</li>
+<li>只能创建用户，不能赋予权限</li>
+<li>注意用户名格式，userName 表示用户名，host 指定该用户在哪个主机可以登录
+<ul>
+<li>如果是本地用户，host 可用 <code>localhost</code></li>
+<li>如果想让该用户可以从任意远程主机登陆，host 可以使用通配符 <code>%</code></li>
+</ul>
+</li>
+<li>密码需要引号，即使是纯数字密码也要加引号
+<ul>
+<li>如果密码是一个普通的字符串，则不需要使用 PASSWORD 关键字</li>
+<li>如果要把密码指定为由PASSWORD()函数返回的混编值，需包含 PASSWORD 关键字</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>重命名用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RENAME USER old_user TO new_user</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 为当前用户设置密码</span><br><span class="line">SET PASSWORD = PASSWORD(&#x27;pwd&#x27;);</span><br><span class="line"></span><br><span class="line">-- 为指定用户设置密码</span><br><span class="line">SET PASSWORD FOR 用户名 = PASSWORD(&#x27;pwd&#x27;);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>删除用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP USER userName;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>查看用户权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- 查看权限</span><br><span class="line">SHOW GRANTS FOR 用户名</span><br><span class="line"></span><br><span class="line">-- 查看当前用户权限</span><br><span class="line">SHOW GRANTS; -- 或</span><br><span class="line">SHOW GRANTS FOR CURRENT_USER; -- 或</span><br><span class="line">SHOW GRANTS FOR CURRENT_USER();</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>MySQL 权限解释</p>
+<table>
+  <thead>
+    <tr>
+      <th>权限类型</th>
+      <th>权限说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All/All Privileges</td>
+      <td>代表全局或者全数据库对象级别的所有权限</td>
+    </tr>
+    <tr>
+      <td>Alter</td>
+      <td>代表允许修改表结构的权限，但必须要求有create和insert权限配合。如果是rename表名，则要求有alter和drop原表， create和insert新表的权限</td>
+    </tr>
+    <tr>
+      <td>Alter routine</td>
+      <td>代表允许修改或者删除存储过程、函数的权限</td>
+    </tr>
+    <tr>
+      <td>Create</td>
+      <td>代表允许创建新的数据库和表的权限</td>
+    </tr>
+    <tr>
+      <td>Create routine</td>
+      <td>代表允许创建存储过程、函数的权限</td>
+    </tr>
+    <tr>
+      <td>Create tablespace</td>
+      <td>代表允许创建、修改、删除表空间和日志组的权限</td>
+    </tr>
+    <tr>
+      <td>Create temporary tables</td>
+      <td>代表允许创建临时表的权限</td>
+    </tr>
+    <tr>
+      <td>Create user</td>
+      <td>代表允许创建、修改、删除、重命名user的权限</td>
+    </tr>
+    <tr>
+      <td>Create view</td>
+      <td>代表允许创建视图的权限</td>
+    </tr>
+    <tr>
+      <td>Delete</td>
+      <td>允许执行delete操作</td>
+    </tr>
+    <tr>
+      <td>Drop</td>
+      <td>代表允许删除数据库、表、视图的权限，包括truncate table命令</td>
+    </tr>
+    <tr>
+      <td>Event</td>
+      <td>代表允许查询，创建，修改，删除MySQL事件</td>
+    </tr>
+    <tr>
+      <td>Execute</td>
+      <td>代表允许执行存储过程和函数的权限</td>
+    </tr>
+    <tr>
+      <td>File</td>
+      <td>代表允许在MySQL可以访问的目录进行读写磁盘文件操作，可使用的命令包括load data infile,select … into outfile,load file()函数</td>
+    </tr>
+    <tr>
+      <td>Grant option</td>
+      <td>代表是否允许此用户授权或者收回给其他用户你给予的权限,重新付给管理员的时候需要加上这个权限</td>
+    </tr>
+    <tr>
+      <td>Index</td>
+      <td>代表是否允许创建和删除索引</td>
+    </tr>
+    <tr>
+      <td>Insert</td>
+      <td>代表是否允许在表里插入数据，同时在执行analyze table,optimize table,repair table语句的时候也需要insert权限</td>
+    </tr>
+    <tr>
+      <td>Lock tables</td>
+      <td>代表允许对拥有select权限的表进行锁定，以防止其他链接对此表的读或写</td>
+    </tr>
+    <tr>
+      <td>Process</td>
+      <td>代表允许查看MySQL中的进程信息，比如执行show processlist, mysqladmin processlist, show engine等命令</td>
+    </tr>
+    <tr>
+      <td>Reference</td>
+      <td>是在5.7.6版本之后引入，代表是否允许创建外键</td>
+    </tr>
+    <tr>
+      <td>Reload</td>
+      <td>代表允许执行flush命令，指明重新加载权限表到系统内存中，refresh命令代表关闭和重新开启日志文件并刷新所有的表</td>
+    </tr>
+    <tr>
+      <td>lication client</td>
+      <td>代表允许执行show master status,show slave status,show binary logs命令</td>
+    </tr>
+    <tr>
+      <td>Replication slave</td>
+      <td>代表允许slave主机通过此用户连接master以便建立主从复制关系</td>
+    </tr>
+    <tr>
+      <td>Select</td>
+      <td>允许执行select操作</td>
+    </tr>
+    <tr>
+      <td>Show databases</td>
+      <td>代表允许执行show databases命令查看所有的数据库名</td>
+    </tr>
+    <tr>
+      <td>Show view</td>
+      <td>代表允许执行show create view命令查看视图创建的语句</td>
+    </tr>
+    <tr>
+      <td>Shutdown</td>
+      <td>代表允许关闭数据库实例，执行语句包括mysqladmin shutdown</td>
+    </tr>
+    <tr>
+      <td>Super</td>
+      <td>代表允许执行一系列数据库管理命令，包括kill强制关闭某个连接命令， change master to创建复制关系命令，以及create/alter/drop server等命令</td>
+    </tr>
+    <tr>
+      <td>Trigger</td>
+      <td>代表允许创建，删除，执行，显示触发器的权限</td>
+    </tr>
+    <tr>
+      <td>Update</td>
+      <td>允许执行update操作</td>
+    </tr>
+    <tr>
+      <td>Usage</td>
+      <td>是创建一个用户之后的默认权限，其本身代表连接登录权限。使用create user语句创建的用户，默认就拥有这个usage权限，但是除了能登录之外，</td>
+    </tr>
+  </tbody>
+</table>
+</li>
+<li>
+<p>授权</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GRANT 权限列表 ON 表名 TO 用户名 [IDENTIFIED BY [PASSWORD] &#x27;password&#x27;]</span><br><span class="line"></span><br><span class="line">-- *.* 表示所有库的所有表</span><br><span class="line">-- 库名.表名 表示某库下面的某表</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>撤销权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REVOKE 权限列表 ON 表名 FROM 用户名</span><br><span class="line"></span><br><span class="line">REVOKE ALL PRIVILEGES, GRANT OPTION FROM 用户名 -- 撤销所有权限</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="7-2-MySQL-备份">7.2 MySQL 备份</h4>
+<ul>
+<li>
+<p>MySQL 数据库备份方法</p>
+<ul>
+<li>备份工具，如 mysqldump, …</li>
+<li>数据库管理工具</li>
+<li>直接拷贝数据库文件和相关配置文件</li>
+</ul>
+</li>
+<li>
+<p>mysqldump 使用</p>
+<ul>
+<li>
+<p>导出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-- 导出一张表</span><br><span class="line">mysqldump -u用户名 -p密码 库名 表名 &gt; 文件名(一般为.sql后缀)</span><br><span class="line"></span><br><span class="line">-- 导出多张表</span><br><span class="line">mysqldump -u用户名 -p密码 库名 表1 表2 表3 &gt; 文件名</span><br><span class="line"></span><br><span class="line">-- 导出所有表</span><br><span class="line">mysqldump -u用户名 -p密码 库名 &gt; 文件名</span><br><span class="line"></span><br><span class="line">-- 导出一个库</span><br><span class="line">mysqldump -u用户名 -p密码 -B 库名 &gt; 文件名</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>导入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 在登录mysql的情况下</span><br><span class="line">source 备份文件</span><br><span class="line"></span><br><span class="line">-- 在不登录的情况下</span><br><span class="line">mysql -u用户名 -p密码 库名 &lt; 备份文件</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-数据库规范化">8. 数据库规范化</h3>
+<blockquote>
+<p><a href="https://afelixliu.site/posts/5a711144/">范式</a></p>
+</blockquote>
+<h3 id="9-JDBC">9. JDBC</h3>
+<h4 id="9-1-数据库驱动">9.1 数据库驱动</h4>
+<ul>
+<li>数据库驱动就是直接操作数据库的一个程序</li>
+<li>不同数据库产品的数据库驱动名字有差异</li>
+<li>在程序中需要依赖数据库驱动来完成对数据库的操作</li>
+</ul>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/6d51b58c/Driver.jpg" class="">
+<h4 id="9-2-JDBC">9.2 JDBC</h4>
+<blockquote>
+<p>SUN 公司为了简化、统一对数据库的操作，定义了一套 Java 操作数据库的规范（接口），称之为 JDBC。</p>
+<p>这套接口由数据库厂商去实现，这样，开发人员只需要学习 jdbc 接口，并通过 jdbc 加载具体的驱动，就可以操作数据库。</p>
+</blockquote>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/6d51b58c/JDBC.jpg" class="">
+<p>JDBC 全称为：Java Database Connectivity（java 数据库连接），它主要由接口组成。</p>
+<p>组成 JDBC 的 2 个包：java.sql、javax.sql</p>
+<p>开发 JDBC 应用需要以上 2 个包的支持外，还需要导入相应 JDBC 的数据库实现（即数据库驱动）。</p>
+<h4 id="9-3-编写-JDBC-程序">9.3 编写 JDBC 程序</h4>
+<ol>
+<li>
+<p>导入 JDBC 驱动</p>
+<p>驱动下载地址：<a target="_blank" rel="noopener" href="https://mvnrepository.com/artifact/com.mysql/mysql-connector-j">Maven Repository: com.mysql » mysql-connector-j</a></p>
+</li>
+<li>
+<p>编写程序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> pers.afelixliu.study.db;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DBConnect</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 0. 准备数据库连接信息</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://localhost:3306/tmp?characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;1019&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 1. 加载数据库驱动</span></span><br><span class="line">            Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 2. 连接数据库</span></span><br><span class="line">            <span class="type">Connection</span> <span class="variable">connect</span> <span class="operator">=</span> DriverManager.getConnection(url, username, password);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 3. 创建操作对象</span></span><br><span class="line">            <span class="type">Statement</span> <span class="variable">statement</span> <span class="operator">=</span> connect.createStatement();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 4. 执行SQL语句</span></span><br><span class="line">            <span class="type">ResultSet</span> <span class="variable">result</span> <span class="operator">=</span> statement.executeQuery(<span class="string">&quot;select * from book&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 5. 处理执行结果</span></span><br><span class="line">            <span class="keyword">while</span> (result.next()) &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> result.getString(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">                <span class="type">String</span> <span class="variable">author</span> <span class="operator">=</span> result.getString(<span class="string">&quot;author&quot;</span>);</span><br><span class="line">                <span class="type">double</span> <span class="variable">price</span> <span class="operator">=</span> result.getDouble(<span class="string">&quot;price&quot;</span>);</span><br><span class="line">                System.out.println(<span class="string">&quot;Name: &quot;</span> + name + <span class="string">&quot;, Author: &quot;</span> + author + <span class="string">&quot;, Price: &quot;</span> + price);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 6. 释放资源</span></span><br><span class="line">            result.close();</span><br><span class="line">            statement.close();</span><br><span class="line">            connect.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException | SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>详细解释：</p>
+<ul>
+<li><strong>DriverManager 类</strong>用于注册驱动，并创建与数据库的连接</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>Connection 类</strong>用于代表数据库的连接，客户端与数据库所有交互都是通过 Connection 对象完成的，常用方法如下：</p>
+<ul>
+<li>
+<p>createStatement()：创建向数据库发送 sql 的 statement 对象</p>
+</li>
+<li>
+<p>prepareStatement(sql)：创建向数据库发送预编译 sql 的 PrepareSatement 对象</p>
+</li>
+<li>
+<p>setAutoCommit(boolean autoCommit)：设置事务是否自动提交</p>
+</li>
+<li>
+<p>commit()：在连接上提交事务</p>
+</li>
+<li>
+<p>rollback()：在此连接上回滚事务</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>Statement 类</strong>用于向数据库发送 SQL 语句，常用方法如下：</p>
+<ul>
+<li>
+<p>executeQuery(String sql)：用于向数据发送查询语句</p>
+</li>
+<li>
+<p>executeUpdate(String sql)：用于向数据库发送 insert、update 或 delete 语句</p>
+</li>
+<li>
+<p>execute(String sql)：用于向数据库发送任意 sql 语句</p>
+</li>
+<li>
+<p>addBatch(String sql)：把多条 sql 语句放到一个批处理中</p>
+</li>
+<li>
+<p>executeBatch()：向数据库发送一批 sql 语句执行</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>ResultSet 类</strong>用于代表 sql 语句的执行结果。</p>
+<p>ResultSet 封装执行结果时，采用的类似于表格的方式：ResultSet 对象维护了一个指向表格数据行的游标，<font color=blue>初始的时候，游标在第一行之前</font>，调用 <code>ResultSet.next()</code> 方法，可以使游标指向具体的数据行，进行调用方法获取该行的数据。</p>
+<p>ResultSet 对象提供的都是用于获取数据的get方法：</p>
+<ul>
+<li>
+<p>获取任意类型的数据</p>
+<ul>
+<li>
+<p>getObject(int index)</p>
+</li>
+<li>
+<p>getObject(string columnName)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>获取指定类型的数据，例如：</p>
+<ul>
+<li>
+<p>getString(int index)</p>
+</li>
+<li>
+<p>getString(String columnName)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>ResultSet 还提供了对结果集进行滚动的方法：</p>
+<ul>
+<li>
+<p>next()：移动到下一行</p>
+</li>
+<li>
+<p>Previous()：移动到前一行</p>
+</li>
+<li>
+<p>absolute(int row)：移动到指定行</p>
+</li>
+<li>
+<p>beforeFirst()：移动 resultSet 的最前面。</p>
+</li>
+<li>
+<p>afterLast() ：移动到resultSet的最后面。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>为确保资源释放代码能运行，资源释放代码一定要放在 finally 语句块中。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="9-4-Connection-类处理事务">9.4 Connection 类处理事务</h4>
+<p>当 JDBC 程序向数据库获得一个 Connection 对象时，默认情况下这个 Connection 对象会自动向数据库提交在它上面发送的 SQL 语句。若想关闭这种默认提交方式，让多条SQL在一个事务中执行，可使用下列的 JDBC 控制事务语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关闭事务自动提交（开启事务）</span></span><br><span class="line">Connection.setAutoCommit(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回滚事务</span></span><br><span class="line">Connection.rollback();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提交事务</span></span><br><span class="line">Connection.commit();</span><br></pre></td></tr></table></figure>
+<h4 id="9-5-详解-Statement-类">9.5 详解 Statement 类</h4>
+<p>JDBC 中的 Statement 对象用于向数据库发送 SQL 语句，想完成对数据库的增删改查，只需要通过这个对象向数据库发送增删改查语句即可。</p>
+<ul>
+<li>
+<p>Statement 类的 <code>executeUpdate()</code> 方法，用于向数据库发送增、删、改的 sql 语句，<code>executeUpdate()</code> 执行完后，将会返回一个整数（即增删改语句导致了数据库几行数据发生了变化）</p>
+</li>
+<li>
+<p>Statement 类的 <code>executeQuery()</code> 方法用于向数据库发送查询语句，<code>executeQuery()</code> 方法返回代表查询结果的ResultSet对象</p>
+</li>
+</ul>
+<h4 id="9-6-自定义-JDBC-工具类">9.6 自定义 JDBC 工具类</h4>
+<p><strong>第一步</strong>、在 src 目录下创建 <code>db.properties</code> 文件</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">driver</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/tmp?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">1019</span></span><br></pre></td></tr></table></figure>
+<p><strong>第二步</strong>、在 src 目录下创建 utils 文件夹，并在 utils 文件夹中创建 JDBCUtils.java 文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JDBCUtils</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">driver</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">InputStream</span> <span class="variable">resource</span> <span class="operator">=</span> JDBCUtils.class.getClassLoader().getResourceAsStream(<span class="string">&quot;db.properties&quot;</span>);</span><br><span class="line">            <span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">            properties.load(resource);</span><br><span class="line">            driver = properties.getProperty(<span class="string">&quot;driver&quot;</span>);</span><br><span class="line">            url = properties.getProperty(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">            username = properties.getProperty(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">            password = properties.getProperty(<span class="string">&quot;password&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 加载数据库驱动</span></span><br><span class="line">            Class.forName(driver);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException | IOException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 连接数据库</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="keyword">return</span> DriverManager.getConnection(url, username, password);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 释放资源</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">(Connection conn, Statement stmt, ResultSet rs)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (rs != <span class="literal">null</span>) &#123;</span><br><span class="line">                rs.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (stmt != <span class="literal">null</span>) &#123;</span><br><span class="line">                stmt.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (conn != <span class="literal">null</span>) &#123;</span><br><span class="line">                conn.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="9-7-SQL-注入问题">9.7 SQL 注入问题</h4>
+<blockquote>
+<p>SQL 注入就是攻击者通过在输入数据中注入恶意的 SQL 语句，利用应用程序对用户输入的不当处理，欺骗数据库服务器执行恶意的 SQL 指令，从而达到获取、篡改或破坏数据库中数据的目的。</p>
+</blockquote>
+<p><strong>举例：</strong></p>
+<p>比如一个登录表单，攻击者在用户名字段输入 <code>admin' --</code>，如果后端 SQL 语句是：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username <span class="operator">=</span> <span class="string">&#x27;[用户输入]&#x27;</span> <span class="keyword">AND</span> password <span class="operator">=</span> <span class="string">&#x27;[用户输入]</span></span><br></pre></td></tr></table></figure>
+<p>则实际执行的 SQL 语句变成了：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username <span class="operator">=</span> <span class="string">&#x27;admin&#x27;</span> <span class="comment">--&#x27; AND password = &#x27;[用户输入]&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>这里 <code>--</code> 后面的内容被注释掉，因此 SQL 语句实际上忽略了密码检查。</p>
+<h4 id="9-8-PreparedStatement-类">9.8 PreparedStatement 类</h4>
+<blockquote>
+<p>PreparedStatement 类是 Statement 类的子类，它的实例对象可以通过调用 <code>Connection.preparedStatement()</code> 方法获得。</p>
+<p>PreparedStatement 类的优点：</p>
+<ul>
+<li>
+<p><strong><font color=purple>相对于 Statement 类而言，PreparedStatement 类可以避免 SQL 注入的问题。</font></strong></p>
+</li>
+<li>
+<p>Statement 类会使数据库频繁编译 SQL，可能造成数据库缓冲区溢出；<font color=blue>PreparedStatement 类可对 SQL 进行预编译，从而提高数据库的执行效率。</font></p>
+</li>
+<li>
+<p><font color=blue>PreparedStatement 类对于 sql 中的参数，允许使用占位符的形式进行替换，简化 sql 语句的编写。</font></p>
+</li>
+</ul>
+</blockquote>
+<p>使用举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> pers.afelixliu.study.db;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> utils.JDBCUtils;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PreparedStatementTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">PreparedStatement</span> <span class="variable">pstmt</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">preSQL</span> <span class="operator">=</span> <span class="string">&quot;insert into book(`name`, `author`, `price`, `create_time`) values(?, ?, ?, ?)&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            conn = JDBCUtils.getConnection();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 预编译</span></span><br><span class="line">            pstmt = conn.prepareStatement(preSQL);</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             为SQL语句中的参数赋值</span></span><br><span class="line"><span class="comment">             注意：索引是从1开始的</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            pstmt.setString(<span class="number">1</span>, <span class="string">&quot;文城&quot;</span>);</span><br><span class="line">            pstmt.setString(<span class="number">2</span>, <span class="string">&quot;余华&quot;</span>);</span><br><span class="line">            pstmt.setDouble(<span class="number">3</span>, <span class="number">59.00</span>);</span><br><span class="line">            pstmt.setDate(<span class="number">4</span>, <span class="keyword">new</span> <span class="title class_">java</span>.sql.Date(<span class="keyword">new</span> <span class="title class_">Date</span>().getTime()));</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> pstmt.executeUpdate();</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;insert success&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            JDBCUtils.close(conn, pstmt, rs);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>PreparedStatement 类防止 SQL 注入的原因：</strong></p>
+<p>SQL执行的时候<font color=red>把整个参数用引号包起来，并把参数中的引号作为转义字符</font>，从而避免了参数也作为条件的一部分。</p>
+<h4 id="9-9-数据库连接池">9.9 数据库连接池</h4>
+<h5 id="9-9-1-连接池基础">9.9.1 连接池基础</h5>
+<ul>
+<li><strong>什么是数据库连接池？</strong></li>
+</ul>
+<blockquote>
+<p>数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是重新建立一个。</p>
+</blockquote>
+<ul>
+<li><strong>为什么要使用连接池？</strong></li>
+</ul>
+<blockquote>
+<p>数据库连接是一种关键的有限的昂贵的资源，这一点在多用户的网页应用程序中体现的尤为突出。一个数据库连接对象均对应一个物理数据库连接，每次操作都打开一个物理连接，用完就关闭连接，这样造成系统的性能低下。</p>
+<p>数据库连接池的解决方案是在应用程序启动时建立足够的数据库连接，并将这些连接组成一个连接池（简单说：在一个“池”里放了好多半成品的数据库连接对象），由应用程序动态地对池中的连接进行申请、使用和释放。对于多于连接池中连接数的并发请求，应该在请求队列中排队等待。并且应用程序可以根据池中连接的使用率，动态增加或减少池中的连接数。</p>
+<p>连接池技术尽可能多地重用了消耗内存的资源，大大节省了内存，提高了服务器的服务效率，能够支持更多的客户服务。</p>
+<p>通过使用连接池，将大大提高程序运行效率，同时，我们可以通过其自身的管理机制来监视数据库连接的数量、使用情况等。</p>
+</blockquote>
+<p>数据库连接池在初始化时将创建一定数量的数据库连接放到连接池中，这些数据库连接的数量是由最小数据库连接数来设定的。无论这些数据库连接是否被使用，连接池都将一直保证至少拥有这么多的连接数量。连接池的最大数据库连接数量限定了这个连接池能占有的最大连接数，当应用程序向连接池请求的连接数超过最大连接数量时，这些请求将被加入到等待队列中。</p>
+<p>数据库连接池的最小连接数和最大连接数的设置要考虑到以下几个因素：</p>
+<ol>
+<li>
+<p>最小连接数是连接池一直保持的数据库连接，但如果应用程序对数据库连接的使用量不大，将会有大量的数据库连接资源被浪费。</p>
+</li>
+<li>
+<p>最大连接数是连接池能申请的最大连接数，如果数据库连接请求超过次数，后面的数据库连接请求将被加入到等待队列中，这会影响以后的数据库操作。</p>
+</li>
+<li>
+<p>如果最小连接数与最大连接数相差很大，那么最先连接请求将会获利，之后超过最小连接数量的连接请求等价于建立一个新的数据库连接。不过，这些大于最小连接数的数据库连接在使用完不会马上被释放，它将被放到连接池中等待重复使用或是空闲超时后被释放。</p>
+</li>
+</ol>
+<p><font color=red><strong>编写连接池需实现 <code>java.sql.DataSource</code> 接口。</strong></font></p>
+<ul>
+<li><strong>开源数据库连接池</strong></li>
+</ul>
+<blockquote>
+<p>目前很多 WEB 服务器（Weblogic, WebSphere, Tomcat）都提供了 DataSoruce 接口的实现，即连接池的实现。</p>
+<p><strong>通常我们把 DataSource 的实现，按其英文含义称之为数据源，数据源中都包含了数据库连接池的实现。</strong></p>
+<p>有一些开源组织提供了数据源的独立实现：</p>
+<ul>
+<li>DBCP / DPCP2 数据库连接池</li>
+<li>C3P0 数据库连接池</li>
+</ul>
+<p>在使用了数据库连接池之后，在项目的实际开发中就不需要编写连接数据库的代码了，直接从数据源获得数据库的连接。</p>
+</blockquote>
+<h5 id="9-9-2-使用-DBCP2-数据源">9.9.2 使用 DBCP2 数据源</h5>
+<p><strong>第一步</strong>、加载以下依赖库</p>
+<ul>
+<li><code>commons-logging-版本号.jar</code></li>
+<li><code>commons-pool2-版本号.jar</code></li>
+<li><code>commons-dbcp2-版本号.jar</code></li>
+</ul>
+<p><strong>第二步</strong>、在 src 目录下创建 <code>dbcp.properties</code> 文件</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">driverClassName</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/tmp?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">1019</span></span><br><span class="line"></span><br><span class="line"><span class="attr">initialSize</span>=<span class="string">10</span></span><br><span class="line"><span class="attr">maxActive</span>=<span class="string">50</span></span><br><span class="line"><span class="attr">maxIdle</span>=<span class="string">20</span></span><br><span class="line"><span class="attr">minIdle</span>=<span class="string">5</span></span><br><span class="line"><span class="attr">maxWait</span>=<span class="string">60000</span></span><br><span class="line"><span class="attr">defaultAutoCommit</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+<p><strong>第三步</strong>、在 src 目录下创建 utils 文件夹，并在 utils 文件夹中创建 DBCPUtils.java 文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.commons.dbcp2.BasicDataSourceFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DBCPUtils</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">DataSource</span> <span class="variable">ds</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 加载配置文件</span></span><br><span class="line">            <span class="type">InputStream</span> <span class="variable">resource</span> <span class="operator">=</span> DBCPUtils.class.getClassLoader().getResourceAsStream(<span class="string">&quot;dbcpconfig.properties&quot;</span>);</span><br><span class="line">            <span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">            properties.load(resource);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 创建数据源</span></span><br><span class="line">            ds = BasicDataSourceFactory.createDataSource(properties);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ExceptionInInitializerError</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 连接数据库</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="keyword">return</span> ds.getConnection();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 释放资源</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">(Connection conn, Statement stmt, ResultSet rs)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (rs != <span class="literal">null</span>) &#123;</span><br><span class="line">                rs.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (stmt != <span class="literal">null</span>) &#123;</span><br><span class="line">                stmt.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (conn != <span class="literal">null</span>) &#123;</span><br><span class="line">                conn.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="9-9-3-使用-C3P0-数据源">9.9.3 使用 C3P0 数据源</h5>
+<p>C3P0 与 DBCP 区别：DBCP 没有自动回收空闲连接的功能；C3P0 有自动回收空闲连接功能。</p>
+<p><strong>第一步</strong>、加载以下依赖库</p>
+<ul>
+<li><code>c3p0-版本号.jar</code></li>
+<li><code>mchange-commons-java-版本号.jar</code></li>
+</ul>
+<p><strong>第二步</strong>、在 src 目录下创建 <code>c3p0-config.xml</code> 文件</p>
+<p><font color=red><strong>注意事项：</strong></font></p>
+<ul>
+<li>
+<p>配置文件名只能是 <code>c3p0-config.xml</code></p>
+</li>
+<li>
+<p>在 xml 文件中，‘&amp;’ 符号需要进行转义，使用 ‘&amp;amp;’ 来代替 ‘&amp;’</p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">c3p0-config</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- C3P0的缺省(默认)配置</span></span><br><span class="line"><span class="comment">    如果在代码中 “ComboPooledDataSource ds = new ComboPooledDataSource();” 这样写就表示使用的是C3P0的缺省(默认)配置信息来创建数据源</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">default-config</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClass&quot;</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 在 xml 文件中，&#x27;&amp;&#x27; 符号需要进行转义，使用 &#x27;&amp;amp;&#x27; 来代替 &#x27;&amp;&#x27; --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;jdbcUrl&quot;</span>&gt;</span>jdbc:mysql://localhost:3306/tmp?useSSL=false<span class="symbol">&amp;amp;</span>useUnicode=true<span class="symbol">&amp;amp;</span>characterEncoding=utf-8<span class="symbol">&amp;amp;</span>serverTimezone=Asia/Shanghai<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span>1019<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 当连接池中的连接耗尽的时候 c3p0 一次同时获取的连接数 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;acquireIncrement&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 初始化连接数，取值应在 minPoolSize 与 maxPoolSize 之间 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;initialPoolSize&quot;</span>&gt;</span>10<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 设置最小连接数，当连接池还有 5 个的时候，就开始申请连接数--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;minPoolSize&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 设置最大连接数，最多只能有 20 个连接--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxPoolSize&quot;</span>&gt;</span>20<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义在从数据库获取新连接失败后重复尝试的次数 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;acquireRetryAttempts&quot;</span>&gt;</span>30<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 两次连接中间隔时间，单位毫秒 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;acquireRetryDelay&quot;</span>&gt;</span>1000<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 连接关闭时默认将所有未提交的操作回滚 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;autoCommitOnClose&quot;</span>&gt;</span>false<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 每 60 秒检查所有连接池中的空闲连接 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;idleConnectionTestPeriod&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 连接超时时间，如果是0，表示无限等待 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;checkoutTimeout&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">default-config</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- C3P0的自定义配置</span></span><br><span class="line"><span class="comment">    如果在代码中 “ComboPooledDataSource ds = new ComboPooledDataSource(&quot;MySQL&quot;);” 这样写就表示使用的是name是MySQL的配置信息来创建数据源</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">named-config</span> <span class="attr">name</span>=<span class="string">&quot;MySQL&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClass&quot;</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;jdbcUrl&quot;</span>&gt;</span>jdbc:mysql://localhost:3306/tmp?useSSL=false<span class="symbol">&amp;amp;</span>useUnicode=true<span class="symbol">&amp;amp;</span>characterEncoding=utf-8<span class="symbol">&amp;amp;</span>serverTimezone=Asia/Shanghai<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span>1019<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 当连接池中的连接耗尽的时候 c3p0 一次同时获取的连接数 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;acquireIncrement&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 初始化连接数，取值应在 minPoolSize 与 maxPoolSize 之间 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;initialPoolSize&quot;</span>&gt;</span>10<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 设置最小连接数，当连接池还有 5 个的时候，就开始申请连接数--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;minPoolSize&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 设置最大连接数，最多只能有 20 个连接--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxPoolSize&quot;</span>&gt;</span>20<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义在从数据库获取新连接失败后重复尝试的次数 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;acquireRetryAttempts&quot;</span>&gt;</span>30<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 两次连接中间隔时间，单位毫秒 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;acquireRetryDelay&quot;</span>&gt;</span>1000<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 连接关闭时默认将所有未提交的操作回滚 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;autoCommitOnClose&quot;</span>&gt;</span>false<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 每 60 秒检查所有连接池中的空闲连接 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;idleConnectionTestPeriod&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 连接超时时间，如果是0，表示无限等待 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;checkoutTimeout&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">named-config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">c3p0-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>第三步</strong>、在 src 目录下创建 utils 文件夹，并在 utils 文件夹中创建 DBCPUtils.java 文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.ComboPooledDataSource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">C3P0Utils</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">ComboPooledDataSource</span> <span class="variable">ds</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 使用 C3P0 的默认配置来创建数据源</span></span><br><span class="line">            <span class="comment">//ds = new ComboPooledDataSource();</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 使用 C3P0 的自定义配置来创建数据源</span></span><br><span class="line">            ds = <span class="keyword">new</span> <span class="title class_">ComboPooledDataSource</span>(<span class="string">&quot;MySQL&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ExceptionInInitializerError</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 连接数据库</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="keyword">return</span> ds.getConnection();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 释放资源</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">(Connection conn, Statement stmt, ResultSet rs)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (rs != <span class="literal">null</span>) &#123;</span><br><span class="line">                rs.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (stmt != <span class="literal">null</span>) &#123;</span><br><span class="line">                stmt.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (conn != <span class="literal">null</span>) &#123;</span><br><span class="line">                conn.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://afelixliu.site">红油曲奇</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://afelixliu.site/posts/6d51b58c/">https://afelixliu.site/posts/6d51b58c/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://afelixliu.site" target="_blank">红油曲奇的个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_twitter"></a><a class="a2a_button_pocket"></a><a class="a2a_button_evernote"></a><a class="a2a_button_wechat"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/e5c2928/" title="15、注解和反射"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">15、注解和反射</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Twikoo</span><span class="switch-btn"></span><span class="second-comment">Giscus</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">红油曲奇</div><div class="author-info__description">“技术探索与分享”</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/AFelixLiu"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">HELLO, WELCOME TO MY BLOG!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">1. 数据库的重要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB"><span class="toc-text">2. 数据库分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-text">3. 数据库操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-SQL-%E8%AF%AD%E8%A8%80%E5%88%86%E7%B1%BB"><span class="toc-text">3.1 SQL 语言分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-text">3.2 存储引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE%EF%BC%88%E4%BB%85%E9%92%88%E5%AF%B9-MySQL-8-0%EF%BC%89"><span class="toc-text">3.3 存储位置（仅针对 MySQL 8.0）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-MySQL-%E5%AD%97%E7%AC%A6%E9%9B%86%E5%92%8C%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99"><span class="toc-text">3.4 MySQL 字符集和排序规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-MySQL-%E6%B3%A8%E9%87%8A"><span class="toc-text">3.5 MySQL 注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6-DDL"><span class="toc-text">3.6 DDL</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-5-1-%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">3.5.1 操作数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-5-2-%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-text">3.5.2 操作数据表</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-7-DML"><span class="toc-text">3.7 DML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8-DQL"><span class="toc-text">3.8 DQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-9-%E5%A4%96%E9%94%AE"><span class="toc-text">3.9 外键</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-MySQL-%E5%87%BD%E6%95%B0"><span class="toc-text">4. MySQL 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-text">4.1 常用函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="toc-text">4.2 聚合函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%BA%8B%E5%8A%A1"><span class="toc-text">5. 事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%B4%A2%E5%BC%95"><span class="toc-text">6. 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-%E7%B4%A2%E5%BC%95%E4%BD%9C%E7%94%A8"><span class="toc-text">6.1 索引作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-%E7%B4%A2%E5%BC%95%E5%88%86%E7%B1%BB"><span class="toc-text">6.2 索引分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="toc-text">6.3 创建索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4-%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="toc-text">6.4 删除索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-5-%E7%B4%A2%E5%BC%95%E5%87%86%E5%88%99"><span class="toc-text">6.5 索引准则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-text">7. 权限管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-text">7.1 用户管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2-MySQL-%E5%A4%87%E4%BB%BD"><span class="toc-text">7.2 MySQL 备份</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%84%E8%8C%83%E5%8C%96"><span class="toc-text">8. 数据库规范化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-JDBC"><span class="toc-text">9. JDBC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-1-%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A9%B1%E5%8A%A8"><span class="toc-text">9.1 数据库驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-2-JDBC"><span class="toc-text">9.2 JDBC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3-%E7%BC%96%E5%86%99-JDBC-%E7%A8%8B%E5%BA%8F"><span class="toc-text">9.3 编写 JDBC 程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-4-Connection-%E7%B1%BB%E5%A4%84%E7%90%86%E4%BA%8B%E5%8A%A1"><span class="toc-text">9.4 Connection 类处理事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-5-%E8%AF%A6%E8%A7%A3-Statement-%E7%B1%BB"><span class="toc-text">9.5 详解 Statement 类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-6-%E8%87%AA%E5%AE%9A%E4%B9%89-JDBC-%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-text">9.6 自定义 JDBC 工具类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-7-SQL-%E6%B3%A8%E5%85%A5%E9%97%AE%E9%A2%98"><span class="toc-text">9.7 SQL 注入问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-8-PreparedStatement-%E7%B1%BB"><span class="toc-text">9.8 PreparedStatement 类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-9-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="toc-text">9.9 数据库连接池</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#9-9-1-%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%9F%BA%E7%A1%80"><span class="toc-text">9.9.1 连接池基础</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-9-2-%E4%BD%BF%E7%94%A8-DBCP2-%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="toc-text">9.9.2 使用 DBCP2 数据源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-9-3-%E4%BD%BF%E7%94%A8-C3P0-%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="toc-text">9.9.3 使用 C3P0 数据源</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/6d51b58c/" title="16、MySQL"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="16、MySQL"/></a><div class="content"><a class="title" href="/posts/6d51b58c/" title="16、MySQL">16、MySQL</a><time datetime="2024-09-14T18:51:57.000Z" title="更新于 2024-09-15 02:51:57">2024-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/de0d014a/" title="8、面向对象"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="8、面向对象"/></a><div class="content"><a class="title" href="/posts/de0d014a/" title="8、面向对象">8、面向对象</a><time datetime="2024-07-31T13:45:36.000Z" title="更新于 2024-07-31 21:45:36">2024-07-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ce8ed1d4/" title="11、集合框架"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="11、集合框架"/></a><div class="content"><a class="title" href="/posts/ce8ed1d4/" title="11、集合框架">11、集合框架</a><time datetime="2024-06-30T15:43:39.000Z" title="更新于 2024-06-30 23:43:39">2024-06-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 红油曲奇</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.9.0"></script><script src="/js/main.js?v=4.9.0"></script><script src="/js/tw_cn.js?v=4.9.0"></script><script src="https://unpkg.com/@fancyapps/ui@5.0.19/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://unpkg.com/vanilla-lazyload@17.8.3/dist/lazyload.iife.min.js"></script><script src="https://unpkg.com/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://unpkg.com/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://unpkg.com/katex@0.16.7/dist/katex.min.css"><script src="https://unpkg.com/katex@0.16.7/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://unpkg.com/mermaid@10.2.2/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  function abcjsInit() {
+    function abcjsFn() {
+      for (let abcContainer of document.getElementsByClassName("abc-music-sheet")) {
+        ABCJS.renderAbc(abcContainer, abcContainer.innerHTML, {responsive: 'resize'})
+      }
+    }
+    
+    typeof ABCJS === 'object' ? abcjsFn()
+      : getScript('https://unpkg.com/abcjs@6.2.2/dist/abcjs-basic-min.js').then(abcjsFn)
+  }
+
+  window.pjax ? abcjsInit() : document.addEventListener('DOMContentLoaded', abcjsInit)
+})()</script><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.vercel.afelixliu.site/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.vercel.afelixliu.site/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.textContent = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://unpkg.com/twikoo@1.6.16/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script><script>function getGiscusTheme (theme) {
+  return theme === 'dark' ? 'dark' : 'light'
+}
+
+function loadGiscus () {
+  const config = Object.assign({
+    src: 'https://giscus.app/client.js',
+    'data-repo': 'AFelixLiu/Blog_Giscus',
+    'data-repo-id': 'R_kgDOJuFraQ',
+    'data-category-id': 'DIC_kwDOJuFrac4CXIdC',
+    'data-mapping': 'pathname',
+    'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+    'data-reactions-enabled': '1',
+    crossorigin: 'anonymous',
+    async: true
+  },{"data-category":"Announcements","data-mapping":"pathname","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":1,"data-input-position":"top","data-lang":"zh-CN"})
+
+  let ele = document.createElement('script')
+  for (let key in config) {
+    ele.setAttribute(key, config[key])
+  }
+  document.getElementById('giscus-wrap').insertAdjacentElement('afterbegin',ele)
+}
+
+function changeGiscusTheme (theme) {
+  function sendMessage(message) {
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (!iframe) return
+    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app')
+  }
+
+  sendMessage({
+    setConfig: {
+      theme: getGiscusTheme(theme)
+    }
+  });
+}
+
+btf.addModeChange('giscus', changeGiscusTheme)
+
+if ('Twikoo' === 'Giscus' || !false) {
+  if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+  else loadGiscus()
+} else {
+  function loadOtherComment () {
+    loadGiscus()
+  }
+}</script></div><script src="/js/seniverse.js"></script><script id="canvas_nest" defer="defer" color="0,23,127" opacity="1" zIndex="-1" count="100" mobile="true" src="https://unpkg.com/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://unpkg.com/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(() => {
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "6ad448f8-30ff-4215-9667-29ccdc99e37c";
+  (function () {
+    d = document;
+    s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
+  $crisp.push(["safe", true])
+
+  const isChatBtn = true
+  const isChatHideShow = true
+
+  if (isChatBtn) {
+    const open = () => {
+      $crisp.push(["do", "chat:show"])
+      $crisp.push(["do", "chat:open"])
+    }
+
+    const close = () => {
+      $crisp.push(["do", "chat:hide"])
+    }
+
+    close()
+    $crisp.push(["on", "chat:closed", function() {
+      close()
+    }])
+
+    window.chatBtnFn = () => {
+      $crisp.is("chat:visible") ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => {
+        $crisp.push(["do", "chat:hide"])
+      },
+      show: () => {
+        $crisp.push(["do", "chat:show"])
+      }
+    }
+  }
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.9.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '50c58ab4ebca4b6a89fab2676a4728cb';
+  var gaud_map_key = '08b28608b71dc68619ecb29eec4aba45';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.312874,26.773117';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.js"></script><!-- hexo injector body_end end --></body></html>
